@@ -27,7 +27,7 @@ class GalleryController {
             // moves img file to the static folder
             img.mv(path.resolve(__dirname, '..', 'static', fileName))
 
-            const gallery = await Gallery.create({ eventId, img: fileName })
+            const gallery = await Gallery.create({eventId, img: fileName})
             
             return res.json({gallery})
         } catch(e) {

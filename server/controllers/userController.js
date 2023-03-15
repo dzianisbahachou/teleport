@@ -12,7 +12,7 @@ class UserController {
     async create(req, res, next) {
         try {
             const { number, name, instagram } = req.body
-            const user = await User.create({ number, name, instagram })
+            const user = await User.create({number, name, instagram})
             
             return res.json({user})
         } catch(e) {

@@ -16,7 +16,7 @@ class EventController {
 
         const event = await Event.findOne({ 
             where: { id },
-            include: [{ model: Gallery}, { model: Comment}]
+            include: [{model: Gallery}, {model: Comment}]
         })
 
         return res.json(event)
@@ -32,7 +32,7 @@ class EventController {
             // moves img file to the static folder
             img.mv(path.resolve(__dirname, '..', 'static', fileName))
 
-            const event = await Event.create({ title, description, price, img: fileName })
+            const event = await Event.create({title, description, price, img: fileName})
             
             return res.json(event)
         } catch(e) {

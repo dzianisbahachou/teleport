@@ -19,7 +19,7 @@ class CommentController {
     async create(req, res, next) {
         try {
             const { userName, text, eventId } = req.body
-            const comment = await Comment.create({ userName, text, eventId })
+            const comment = await Comment.create({userName, text, eventId})
             return res.json(comment)
         } catch(e) {
             next(ApiError.badRequest(e.message))
