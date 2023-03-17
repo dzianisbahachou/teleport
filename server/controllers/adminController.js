@@ -17,13 +17,13 @@ class AdminController {
         const { login, password } = req.body
 
         if ( !login || !password) {
-            return next(ApiError.badRequest('Login or Password must not be empty'))
+            return next(ApiError.validation('Логин и пароль не должны быть пустыми'))
         }
 
         const existingAdmin = await Admin.findOne({where: {login}})
 
         if (existingAdmin) {
-            return next(ApiError.badRequest('Admin already exists'))
+            return next(ApiError.validation('Админ с таким логином уще существует'))
         }
 
         const hashPassword = await bcrypt.hash(password, 5)
@@ -32,19 +32,17 @@ class AdminController {
         return res.json({token})
     }
 
-    async login(req, res) {
+    async login(req, res, next) {
         const { login, password } = req.body
-
         const existingAdmin = await Admin.findOne({where: {login}})
-
         if (!existingAdmin) {
-            return next(ApiError.badRequest('Admin does not exist'))
+            return next(ApiError.validation('Админ с таким логином не существует'))
         }
 
         const comparedPassword = bcrypt.compareSync(password, existingAdmin.password)
-
+        
         if (!comparedPassword) {
-            return next(ApiError.badRequest('Invalid Password'))
+            return next(ApiError.validation('Неверный пароль'))
         }
 
         const token = generateJwn(existingAdmin.id, existingAdmin.login)
