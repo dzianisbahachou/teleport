@@ -2,6 +2,7 @@ import { redirect, useNavigation } from "react-router-dom";
 import { setToken } from "../util/auth";
 import LoginForm from "../components/LoginForm/LoginForm";
 import LoginLoader from "../components/UI/LoginLoader/LoginLoader";
+import URLPaths from "../API/url";
 
 export default function AuthPage() {
     const navigation = useNavigation();
@@ -17,14 +18,13 @@ export default function AuthPage() {
 }
 
 export async function action({request, params}) {
-    const url = 'http://localhost:5000/api/admin/login';
     const data = await request.formData();
     const payload = {
         login: data.get('login'),
         password: data.get('password')
     };
 
-    const response = await fetch(url, {
+    const response = await fetch(URLPaths.getLogin(), {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
