@@ -17,7 +17,7 @@ export default function AuthPage() {
     );
 }
 
-export async function action({request, params}) {
+export async function action({request}) {
     const data = await request.formData();
     const payload = {
         login: data.get('login'),
