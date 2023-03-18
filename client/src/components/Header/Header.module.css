@@ -1,16 +1,27 @@
-.header nav ul{
+.navbar ul{
     list-style-type: none;
+    margin-left: -2em;
+}
+.header{
+    display: flex;
 }
 
-.header nav {
-    width: 100%;
+.navbar {
+    width: 85vw;
     display: flex;
-    justify-content:space-between;
-    gap: 10%;
+}
+
+.navbar ul:nth-child(2) {
+    flex: 1;
+}
+
+.contacts li:nth-child(1) {
+    width: 9rem;
 }
 
 .list {
     display: flex;
+    gap: 1rem;
 }
 
 .list a {
@@ -26,7 +37,12 @@
 .logo {
     padding: 1rem;
 }
+
 .logo img{
     width: 25px;
     height: 25px;
+}
+
+.header-items {
+    margin: 0 auto;
 }
