@@ -33,8 +33,8 @@ const Header = () => {
             </li>
           </ul>
           <ul className={`${classes.list} ${classes.contacts}`}>
-            <li><a href='tel:375445134151'>+375 44 513 41 51</a></li>
-            <li><a href="https://t.me/qwenpis" rel='noreferrer' target="_blank"><img src={telegram} alt="Telegram" width="20px"/></a></li>
+            <li><a href='tel:375298309732'><span className={classes.tel}>+375 (29) 830 97 32</span></a></li>
+            <li><a href="https://t.me/teleport_brest" rel='noreferrer' target="_blank"><img src={telegram} alt="Telegram" width="20px"/></a></li>
             <li><a href="https://www.instagram.com/direct/t/340282366841710300949128137501689590966" rel='noreferrer' target="_blank"><img src={instagram} alt="Inst" width="20px"/></a></li>
             <li><a href="https://vk.com/im?media=&sel=-211042858" rel='noreferrer' target="_blank"><img src={vk} alt="VK" width="20px"/></a></li>
           </ul>
