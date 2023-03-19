@@ -4,9 +4,10 @@ import logo from "../assets/React-icon.png";
 import telegram from "../assets/telegram.png";
 import instagram from "../assets/instagram.png";
 import vk from "../assets/vk.png";
+import Container from "../UI/Container/Container";
 
 const Header = () => {
-    return (
+    return ( <Container>
       <header className={classes.header}>
         <nav className={classes.navbar}>
           <div className={classes.logo}>
@@ -39,6 +40,7 @@ const Header = () => {
           </ul>
           </nav>
       </header>
+    </Container>
     )
 }
 

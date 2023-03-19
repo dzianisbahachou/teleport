@@ -17,6 +17,12 @@
 
 .contacts li:nth-child(1) {
     width: 9rem;
+    margin-top: -0.35em;
+}
+
+.contacts {
+    display: flex;
+    align-items: center;
 }
 
 .list {
