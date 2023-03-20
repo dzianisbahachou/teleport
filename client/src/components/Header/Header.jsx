@@ -6,6 +6,11 @@ import instagram from "../assets/instagram.png";
 import vk from "../assets/vk.png";
 import Container from "../UI/Container/Container";
 
+const TEL_LINK = 'tel:375298309732';
+const TELEGRAM_LINK = "https://t.me/teleport_brest";
+const INSTAGRAM_LINK = "https://www.instagram.com/direct/t/340282366841710300949128137501689590966";
+const VK_LINK = "https://vk.com/im?media=&sel=-211042858";
+
 const Header = () => {
     return ( <Container>
       <header className={classes.header}>
@@ -33,10 +38,10 @@ const Header = () => {
             </li>
           </ul>
           <ul className={`${classes.list} ${classes.contacts}`}>
-            <li><a href='tel:375298309732'><span className={classes.tel}>+375 (29) 830 97 32</span></a></li>
-            <li><a href="https://t.me/teleport_brest" rel='noreferrer' target="_blank"><img src={telegram} alt="Telegram" width="20px"/></a></li>
-            <li><a href="https://www.instagram.com/direct/t/340282366841710300949128137501689590966" rel='noreferrer' target="_blank"><img src={instagram} alt="Inst" width="20px"/></a></li>
-            <li><a href="https://vk.com/im?media=&sel=-211042858" rel='noreferrer' target="_blank"><img src={vk} alt="VK" width="20px"/></a></li>
+            <li><a href={TEL_LINK}><span className={classes.tel}>+375 (29) 830 97 32</span></a></li>
+            <li><a href={TELEGRAM_LINK} rel='noreferrer' target="_blank"><img src={telegram} alt="Telegram" width="20px"/></a></li>
+            <li><a href={INSTAGRAM_LINK} rel='noreferrer' target="_blank"><img src={instagram} alt="Inst" width="20px"/></a></li>
+            <li><a href={VK_LINK} rel='noreferrer' target="_blank"><img src={vk} alt="VK" width="20px"/></a></li>
           </ul>
           </nav>
       </header>

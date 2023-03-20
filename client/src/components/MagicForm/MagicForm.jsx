@@ -4,7 +4,7 @@ import classes from "./MagicForm.module.css";
 import Container from "../UI/Container/Container";
 import magicAvatar from "../assets/magic-avatar.jpg";
 import useInput from "../../hooks/use-input-reducer";
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 
 const MagicForm = () => {
     const instRef = useRef();
@@ -99,7 +99,7 @@ const MagicForm = () => {
                 </Form>
             </div>
             <div className={classes.avatar}>
-                <img src={magicAvatar} width="200px" height="250px"/>
+                <img src={magicAvatar} alt="Аватар" width="200px" height="250px"/>
             </div>
         </div>
     </Container>

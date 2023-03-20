@@ -7,7 +7,7 @@ const HomePage = () => {
     return <>
         <MainBanner/>
         <About/>
-        <MagicForm method="patch"/>
+        <MagicForm/>
     </>
 };
 
