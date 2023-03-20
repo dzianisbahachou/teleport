@@ -5,4 +5,8 @@ export default class URLPaths {
     static getLogin() {
         return (servicePath + 'admin/login');
     }
+
+    static getUsers() {
+        return (servicePath + 'user');
+    }
 }
