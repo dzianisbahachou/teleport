@@ -1,0 +1,21 @@
+.content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.content button {
+    margin-top: 10vh;
+    width: 13vw;
+    font-size: 15px;
+    cursor: pointer;
+    background-color: #ffffff;
+    border: 1px solid #4400ff;
+    color: rgb(0, 0, 0);
+    padding: 0.6rem 2.2rem;
+    border-radius: 20px;
+    font-weight: bold;
+    border: none;
+}

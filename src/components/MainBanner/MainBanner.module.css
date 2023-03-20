@@ -1,0 +1,33 @@
+.welcome {
+    background-color: blanchedalmond;
+    background-image: url("../assets/banner.jpg");
+    height: 500px;
+    background-size: cover;
+    text-align: center;
+}
+
+.title {
+    color: rgb(235, 26, 189);
+    margin-top: 10vh;
+    font-size: 50px;
+}
+
+.description {
+    color: rgb(201, 0, 228);
+    font-size: 25px;
+}
+
+.main-button {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #ffee00;
+    border: 1px solid #4400ff;
+    color: rgb(0, 0, 0);
+    padding: 0.6rem 2.2rem;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.main-button:hover {
+    background-color: #fff67a;
+}

@@ -1,0 +1,7 @@
+.container {
+    color: rgb(0, 0, 0);
+    margin: 0 auto;
+    width: 85%;
+    min-height: 100%;
+    overflow: hidden;
+}
