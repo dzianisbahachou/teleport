@@ -25,7 +25,7 @@ const Header = () => {
               <NavLink to="animators" className={(({isActive}) => isActive ? classes.active : "")}><p className={classes["header-items"]}>Аниматоры</p></NavLink>
             </li>
             <li>
-              <NavLink to="animators" className={(({isActive}) => isActive ? classes.active : "")}><p className={classes["header-items"]}>Шоу-программы</p></NavLink>
+              <NavLink to="/admin" className={(({isActive}) => isActive ? classes.active : "")}><p className={classes["header-items"]}>Шоу-программы</p></NavLink>
             </li>
             <li>
               <NavLink to="animators" className={(({isActive}) => isActive ? classes.active : "")}><p className={classes["header-items"]}>Доп услуги</p></NavLink>
