@@ -10,7 +10,7 @@ import HomePage, {action as addUserAction} from "./pages/HomePage";
 
 const router = createBrowserRouter([
   {path: '/', element: <RootLayoutPage />, errorElement: <ErrorPage />, children: [
-    {path: '/', element: <HomePage/>, action: addUserAction},
+    {index: true, element: <HomePage/>, action: addUserAction},
     {path: 'animators', element: <AnimatorsPage/>},
   ]},
   {path: '/auth', element: <AuthPage />, errorElement: <ErrorPage />, action: authAction},

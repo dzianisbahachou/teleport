@@ -6,30 +6,37 @@ import { useActionData } from "react-router-dom";
 import LoginInput from "../UI/LoginInput/LoginInput";
 import LoginButton from "../UI/LoginButton/LoginButton";
 import LoginValidationMessage from "../UI/LoginValidationMessage/LoginValidationMessage";
+import { convertResponseCode } from '../../util/firebaseResponseHandler';
 
 export default function LoginForm() {
-    const actionData = useActionData();
-    const [login, setLogin] = useState('');
+    const actionData = useActionData(); 
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    let errorMessage;
 
-    const isButtonDisabled = !login || !password;
+    const isButtonDisabled = !email || !password;
+
+    if (actionData) {
+        errorMessage = convertResponseCode(actionData);
+    }
 
     return(
         <div className={cl.content}>
             <h2 className={cl.title}>Войти как Админ</h2>
             <Form method='POST' className={cl.form}>
                 <LoginInput 
-                    name='login'
-                    placeholder="Логин"
-                    value={login}
-                    onChange={e => setLogin(e.target.value)}/>
+                    name='email'
+                    placeholder='Почта'
+                    value={email}
+                    onChange={e => setEmail(e.target.value)}/>
                 <LoginInput 
                     name='password'
-                    placeholder="Пароль"
+                    placeholder='Пароль'
+                    type='password'
                     value={password}
                     onChange={e => setPassword(e.target.value)}/>
                 <div className={cl.validation}>
-                    {actionData?.message && <LoginValidationMessage>{actionData.message}</LoginValidationMessage>}
+                    {errorMessage && <LoginValidationMessage>{errorMessage}</LoginValidationMessage>}
                 </div>
                 <LoginButton disabled={isButtonDisabled}>Войти</LoginButton>
             </Form>

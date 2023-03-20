@@ -1,12 +1,12 @@
 import { getToken } from "../util/auth";
-import URLPaths from "../API/url";
-import { redirect, useLoaderData } from "react-router-dom";
+import APICalls from "../API/API";
+import { redirect, useLoaderData, json } from "react-router-dom";
 
 import AdminTable from "../components/AdminTable/AdminTable";
+import { convertResponse } from "../util/firebaseResponseHandler";
 
 export default function AdminPage() {
     const data = useLoaderData();
-    debugger
 
     return (
         <div>
@@ -21,24 +21,18 @@ export async function loader() {
     if (!token) {
         return redirect('/auth');
     }
+
+    const snapshot = await APICalls.getUsers();
+    if (!snapshot.exists()) {
+        throw json(
+            { message: "Произошла ошибка!" },
+            { status: 500 }
+        );
+    }
+
+    const value = snapshot.val();
+    const users = convertResponse(value);
     
-    const response = await fetch(URLPaths.getUsers(), {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + token
-        }
-    });
+    return users;
+}
 
-    if (response.status === 401) {
-        throw 'Error'
-    }
-
-    if (!response.ok) {
-        // common error handler should be 
-        console.log('Error')
-        return;
-    }
-
-    return response;
-} 
