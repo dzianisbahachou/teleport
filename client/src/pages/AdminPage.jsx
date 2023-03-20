@@ -22,17 +22,22 @@ export async function loader() {
         return redirect('/auth');
     }
 
-    const snapshot = await APICalls.getUsers();
-    if (!snapshot.exists()) {
+    try {
+        const snapshot = await APICalls.getUsers();
+
+        if (!snapshot.exists()) {
+            throw new Error();
+        }
+
+        const value = snapshot.val();
+        const users = convertResponse(value);
+
+        return users;
+    } catch(e) {
         throw json(
             { message: "Произошла ошибка!" },
             { status: 500 }
         );
     }
-
-    const value = snapshot.val();
-    const users = convertResponse(value);
-    
-    return users;
 }
 

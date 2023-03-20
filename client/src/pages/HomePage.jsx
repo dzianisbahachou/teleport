@@ -2,6 +2,7 @@ import { redirect, json } from "react-router";
 import About from "../components/About/About";
 import MagicForm from "../components/MagicForm/MagicForm";
 import MainBanner from "../components/MainBanner/MainBanner";
+import APICalls from "../API/API";
 
 const HomePage = () => {
     return <>
@@ -23,25 +24,14 @@ export const action = async ({request, params}) => {
         date
     };
 
-    let url = 'https://teleport-2ae52-default-rtdb.firebaseio.com/users.json';
-    const response = await fetch(url, {
-      method: "POST",
-      body: JSON.stringify(eventData),
-      headers: {
-        "Content-Type": "application/json"
-      }
-    });
-  
-    if(response.status === 422) {
-        return response;
-    };
-
-    if (!response.ok) {
+    try {
+        await APICalls.createUser(eventData);
+    } catch(e) {
         throw json(
             { message: "Произошла ошибка!" },
             { status: 500 }
         );
-    };
+    }
 
-    return redirect("");
+    return null;
 };
