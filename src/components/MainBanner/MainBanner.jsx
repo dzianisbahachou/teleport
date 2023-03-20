@@ -23,7 +23,7 @@ const MainBanner = () => {
                     сказок и поверить, что мечты по настоящему сбываются. Детские аниматоры 
                     Арчи Шоу это прирождённые
                 </p>
-                <button className={classes["main-button"]}>Оставить заявку</button>
+                <button className={classes["main-button"]}><a href="#magicForm">Оставить заявку</a></button>
             </Container>
         </div>
     </>);
