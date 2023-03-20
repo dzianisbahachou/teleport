@@ -1,0 +1,22 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    margin: 80px;
+}
+
+.about-block {
+    display: flex;
+    justify-content:space-around;
+}
+
+.about {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.avatar img {
+    width: 200px;
+    height: 280px;
+    border-radius: 60px;
+}
