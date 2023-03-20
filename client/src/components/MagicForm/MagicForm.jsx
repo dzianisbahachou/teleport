@@ -1,32 +1,100 @@
-import { Form, useNavigation } from 'react-router-dom';
+import { Form, useNavigation, useSubmit } from 'react-router-dom';
 
 import classes from "./MagicForm.module.css";
 import Container from "../UI/Container/Container";
 import magicAvatar from "../assets/magic-avatar.jpg";
+import useInput from "../../hooks/use-input-reducer";
+import { useRef, useState } from 'react';
 
 const MagicForm = () => {
+    const instRef = useRef();
+    const sub = useSubmit();
     const navigation = useNavigation();
     const isSubmitting = navigation.state === "submitting";
+
+    const {value: enteredName,
+        hasError: nameInputHasError,
+        isValid: enteredNameIsValid,
+        inputChangeHandler: nameChangeHandler,
+        inputBlurHandler: nameInputBlurHandler,
+        reset: nameReset
+    } = useInput(value => value.trim() !== "");
+
+    const {value: enteredTel,
+        hasError: telInputHasError,
+        isValid: enteredTelIsValid,
+        inputChangeHandler: telChangeHandler,
+        inputBlurHandler: telInputBlurHandler,
+        reset: telReset
+    } = useInput(value => {
+        return /^\s*\+?375((33\d{7})|(29\d{7})|(44\d{7}|)|(25\d{7}))\s*$/.test(value);
+    });
+    
+    let formIsValid;
+    if (enteredNameIsValid && enteredTelIsValid) {
+        formIsValid = true;
+    }
+    const nameInputClasses = nameInputHasError ? `${classes.paragraphs} ${classes.invalid}` : classes.paragraphs;
+    const telInputClasses = telInputHasError ? `${classes.paragraphs} ${classes.invalid}` : classes.paragraphs;
+    const validateForm = event => {
+        event.preventDefault();
+        if (!formIsValid) {
+            return;
+        } else {
+
+        }
+        const inst = instRef.current.value;
+
+        const formData = {
+            name: enteredName,
+            inst: inst,
+            tel: enteredTel
+        };
+
+        sub(formData, {method: "post"});
+
+        nameReset();
+        telReset()
+        instRef.current.value = "";
+    }
 
     return ( <Container>
         <div className={classes.wrapper}>
             <div className={classes.form}>
                 <p className={classes["form-title"]}>Форма волшебства</p>
-                <Form method="patch" className={classes.inputs}>
-                    <p className={classes.paragraphs}>
+                <Form method="post" action="/" className={classes.inputs}>
+                    <p className={nameInputClasses}>
                         <label htmlFor="name">Имя</label>
-                        <input id="name" type="text" name="name" placeholder="Как Вас зовут?"/>
+                        <input 
+                            id="name" 
+                            type="text" 
+                            name="name" 
+                            placeholder="Как Вас зовут?"
+                            onChange={nameChangeHandler} 
+                            onBlur={nameInputBlurHandler}
+                            value={enteredName}
+                        />
                     </p>
-                    <p className={classes.paragraphs}>
+                    <p className={telInputClasses}>
                         <label htmlFor="tel">Телефон</label>
-                        <input id="tel" type="tel" name="tel" placeholder="Номер телефона"/>
+                        <input 
+                            id="tel" 
+                            type="tel" 
+                            name="tel" 
+                            placeholder="Номер телефона"
+                            onChange={telChangeHandler} 
+                            onBlur={telInputBlurHandler}
+                            value={enteredTel}
+                        />
                     </p>
                     <p className={classes.paragraphs}>
-                        <label htmlFor="inst">Instagram<p className={classes.info}>(Если есть инста поделитесь с нами)</p></label>
-                        <input id="inst" type="text" name="inst" placeholder="Никнейм в Instagram"/>
+                        <label htmlFor="inst">Instagram</label>
+                        <input ref={instRef} id="inst" type="text" name="inst" placeholder="Никнейм в Instagram"/>
                     </p>
                     <div>
-                        {!isSubmitting && <button className={classes["form-button"]}>Оставить заявку</button>}
+                        <button onClick={validateForm} disabled={!formIsValid || isSubmitting} className={classes["form-button"]}>
+                            {isSubmitting ? "Отправка..." : "Оставить заявку"}
+                        </button>
                     </div>
                 </Form>
             </div>
@@ -39,40 +107,3 @@ const MagicForm = () => {
 };
 
 export default MagicForm;
-
-export const action = async ({request, params}) => {
-
-    const data = await request.formData();
-    const eventData = {
-        name: data.get('name'),
-        tel: data.get('tel'),
-        inst: data.get('inst')
-    };
-    debugger;
-
-  
-    let url = 'http://localhost:5000/api/user';
-    // if(method === "PATCH") {
-    //   const eventId = params.eventId;
-    //   url = 'http://localhost:8080/events/' + eventId;
-    // }
-  
-    const response = await fetch(url);
-    const datas = await response.json();
-    debugger
-  
-    // if(response.status === 422) {
-    //     return response;
-    // };
-    
-    // if (!response.ok) {
-    //     throw new Response(
-    //         JSON.stringify({
-    //           message: "new fail!",
-    //         }),
-    //         { status: 500 }
-    //       );
-    // }
-    // return redirect("/events");
-  
-  };

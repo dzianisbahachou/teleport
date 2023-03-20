@@ -42,6 +42,12 @@
     font-weight: bold;
 }
 
+.form-button:disabled {
+    background-color: rgb(161, 161, 161);
+    color: whitesmoke;
+    cursor:not-allowed
+}
+
 .avatar img{
     border-radius: 30px;
 }
@@ -61,4 +67,14 @@
 
 .info {
     font-size: 11px;
+}
+
+.invalid input {
+    border: 1px solid #b40e0e;
+    background-color: #fddddd;
+}
+  
+.invalid input:focus {
+    border-color: #ff8800;
+    background-color: #fbe8d2;
 }
