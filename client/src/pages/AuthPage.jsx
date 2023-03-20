@@ -2,7 +2,7 @@ import { redirect, useNavigation } from "react-router-dom";
 import { setToken } from "../util/auth";
 import LoginForm from "../components/LoginForm/LoginForm";
 import LoginLoader from "../components/UI/LoginLoader/LoginLoader";
-import URLPaths from "../API/url";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 export default function AuthPage() {
     const navigation = useNavigation();
@@ -18,31 +18,20 @@ export default function AuthPage() {
 }
 
 export async function action({request}) {
+    const auth = getAuth();
     const data = await request.formData();
-    const payload = {
-        login: data.get('login'),
-        password: data.get('password')
-    };
+    const email = data.get('email');
+    const password = data.get('password');
 
-    const response = await fetch(URLPaths.getLogin(), {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(payload)
-    });
+    try {
+        const userCredentials = await signInWithEmailAndPassword(auth, email, password);
+        const user = userCredentials.user;
 
-    if (response.status === 422) {
-        return response;
-    }
-
-    if (!response.ok) {
-        // common error handler should be 
-        console.log('Error')
-    }
-
-    const responseData = await response.json();
-    setToken(responseData);
+        setToken(user.accessToken)
+    } catch(e) {
+        const code = e.code;
+        return code;
+    }   
 
     return redirect('/admin');
 }
