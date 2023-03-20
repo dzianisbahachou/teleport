@@ -1,0 +1,12 @@
+.header {
+    width: 100%;
+    display: flex;
+    background-color: rgb(142, 142, 142);
+    padding: 10px;
+    border-bottom: 1px solid black;
+    font-weight: bold;
+}
+
+.header div {
+    width: 20%;
+}
