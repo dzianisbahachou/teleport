@@ -4,14 +4,14 @@ import './index.css';
 import { initializeApp } from "firebase/app";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDmT29v5MsambTbdOSm0tKK67zehimwONY",
-  authDomain: "teleport-2ae52.firebaseapp.com",
-  databaseURL: "https://teleport-2ae52-default-rtdb.firebaseio.com",
-  projectId: "teleport-2ae52",
-  storageBucket: "teleport-2ae52.appspot.com",
-  messagingSenderId: "886165300431",
-  appId: "1:886165300431:web:60b4b3fd44f93eeca003ba",
-  measurementId: "G-95LTZZPW3Z"
+  apiKey: "AIzaSyAAMUKGvzY0oPeu7OSV4cO3YhB3D1IFnxo",
+  authDomain: "teleport-9499d.firebaseapp.com",
+  databaseURL: "https://teleport-9499d-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "teleport-9499d",
+  storageBucket: "teleport-9499d.appspot.com",
+  messagingSenderId: "635605287018",
+  appId: "1:635605287018:web:2437d1c238da6d21bd8a13",
+  measurementId: "G-DJXN57EX6W"
 };
 
 // Initialize Firebase
