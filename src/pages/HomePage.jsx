@@ -15,6 +15,7 @@ const HomePage = () => {
 export default HomePage;
 
 export const action = async ({request, params}) => {
+    debugger
     const data = await request.formData();
     const date = new Date().toISOString().split('T')[0].split('-').reverse().join('/');
     const eventData = {
