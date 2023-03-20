@@ -1,5 +1,5 @@
-const Animators = () => {
+const AnimatorsPage = () => {
     return <h1>I LOVE TO LUNTIK</h1>
 };
 
-export default Animators;
+export default AnimatorsPage;
