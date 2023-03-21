@@ -1,0 +1,15 @@
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    padding: 8px;
+  }
+  
+.actions button {
+    margin-left: 14px;
+}
+
+@media (max-width: 450px) {
+    .actions button {
+        font-size: 0.8rem;
+    }
+}

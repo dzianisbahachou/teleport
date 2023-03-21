@@ -26,8 +26,12 @@ export async function action({request}) {
     try {
         const userCredentials = await signInWithEmailAndPassword(auth, email, password);
         const user = userCredentials.user;
+        const expiration = new Date();
+        setToken(user.accessToken);
 
-        setToken(user.accessToken)
+        
+        expiration.setHours(expiration.getHours() + 1);
+        localStorage.setItem('expiration', expiration.toISOString());
     } catch(e) {
         const code = e.code;
         return code;

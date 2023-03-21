@@ -7,6 +7,54 @@
     font-weight: bold;
 }
 
+.header .index-cell {
+    width: 3%;
+}
+
+.header .name-cell {
+    width: 18%;
+}
+
+.header .inst-cell {
+    width: 28%;
+}
+
+.header .tel-cell {
+    width: 17%;
+}
+
+.header .date-cell {
+    width: 9%;
+    text-align: end;
+}
+
 .header div {
-    width: 20%;
+    margin-right: 5%;
+}
+
+.collapsed {
+    display: none
+}
+
+@media (max-width: 600px) {
+    .index-cell, .name-cell, .inst-cell {
+        display: none;
+    }
+
+    .collapsed {
+        display: block;
+        width: 32%;
+    }
+
+    .header .tel-cell {
+        width: 32%;
+    }
+
+    .header .date-cell {
+        width: 20%;
+    }
+
+    .header div {
+        font-size: 0.8rem;
+    }
 }

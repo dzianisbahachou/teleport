@@ -1,5 +1,6 @@
 .item {
     display: flex;
+    align-items: flex-end;
     padding: 10px;
     border-bottom: 1px solid black;
     transition: all 300ms;
@@ -9,12 +10,86 @@
     background-color: rgba(0, 0, 0, 0.1);
 }
 
-.item div {
-    width: 20%;
+.collapsed {
+    display: none;
 }
 
-.number {
+.collapsed-name {
+    margin-bottom: 12px;
+}
+
+.item .index-cell {
+    width: 3%;
+}
+
+.item .name-cell {
+    width: 18%;
+}
+
+.item .inst-cell {
+    width: 28%;
+}
+
+.item .tel-cell {
+    width: 17%;
+}
+
+.item .date-cell {
+    width: 9%;
+    text-align: end;
+}
+
+.item div {
+    margin-right: 5%;
+}
+
+.inst, .number {
     color: black;
     text-decoration: none;
-    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding: 2px 6px;
+    cursor: pointer;
+    transition: all 300ms;
+}
+
+.inst:hover, .number:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.inst-cell, .name-cell, .collapsed-inst {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+@media (max-width: 750px) {
+    .item div {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .index-cell, .name-cell, .inst-cell {
+        display: none;
+    }
+
+    .collapsed {
+        display: block;
+        width: 32%;
+    }
+
+    .item .tel-cell {
+        width: 32%;
+    }
+
+    .item .date-cell {
+        width: 20%;
+    }
+}
+
+@media (max-width: 450px) {
+    .item div {
+        font-size: 0.6rem;
+    }
 }
