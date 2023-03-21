@@ -8,6 +8,7 @@ import { removeExpiration } from "../../util/auth";
 import AdminTable from "../../components/AdminTable/AdminTable";
 import { convertResponse } from "../../util/firebaseResponseHandler";
 import AdminButton from "../../components/UI/AdminButton/AdminButton";
+import app from "../../firebaseConfig";
 
 export default function AdminPage() {
     const data = useLoaderData();
