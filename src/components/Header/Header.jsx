@@ -8,8 +8,8 @@ import Container from "../UI/Container/Container";
 
 const TEL_LINK = 'tel:375298309732';
 const TELEGRAM_LINK = "https://t.me/teleport_brest";
-const INSTAGRAM_LINK = "https://www.instagram.com/direct/t/340282366841710300949128137501689590966";
-const VK_LINK = "https://vk.com/im?media=&sel=-211042858";
+const INSTAGRAM_LINK = "https://www.instagram.com/teleport.brest/";
+const VK_LINK = "https://vk.com/public211042858";
 
 const Header = () => {
     return ( <Container>

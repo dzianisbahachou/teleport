@@ -31,3 +31,8 @@
 .main-button:hover {
     background-color: #fff67a;
 }
+
+.main-button a{
+    text-decoration: none;
+    color: rgb(139, 77, 0);
+}

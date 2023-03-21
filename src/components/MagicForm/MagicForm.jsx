@@ -60,7 +60,7 @@ const MagicForm = () => {
 
     return ( <Container>
         <div className={classes.wrapper}>
-            <div className={classes.form}>
+            <div id="magicForm" className={classes.form}>
                 <p className={classes["form-title"]}>Форма волшебства</p>
                 <Form method="post" action="/" className={classes.inputs}>
                     <p className={nameInputClasses}>
