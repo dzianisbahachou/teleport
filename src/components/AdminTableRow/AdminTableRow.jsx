@@ -23,7 +23,7 @@ export default function AdminTableRow({user, index}) {
             </div>
 
             <div className={cl['inst-cell']}>
-                <span className={cl.inst}>{user.inst}</span>
+                <a href={instaLink} className={cl.inst}>{user.inst}</a>
             </div>
 
             <div className={cl['tel-cell']}>
