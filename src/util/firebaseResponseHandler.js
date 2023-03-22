@@ -7,6 +7,8 @@ export function convertResponseCode(code) {
         case 'auth/user-not-found':
             message = 'Админ с такой почтой не существует';
             break;
+        case 'Permission denied':
+            message = 'Вы не авторизованы';
     }
 
     return message;

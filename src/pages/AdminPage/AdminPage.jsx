@@ -1,23 +1,23 @@
-import { getToken } from "../../util/auth";
 import APICalls from "../../API/API";
-import { redirect, useLoaderData, json, useNavigate } from "react-router-dom";
+import { useLoaderData, json, useNavigate, redirect } from "react-router-dom";
 import cl from './AdminPage.module.css';
-import { removeToken } from "../../util/auth";
-import { removeExpiration } from "../../util/auth";
+import app from "../../firebaseConfig";
+import { getAuth, signOut } from "firebase/auth";
 
 import AdminTable from "../../components/AdminTable/AdminTable";
 import { convertResponse } from "../../util/firebaseResponseHandler";
 import AdminButton from "../../components/UI/AdminButton/AdminButton";
-import app from "../../firebaseConfig";
+import { convertResponseCode } from "../../util/firebaseResponseHandler";
+import { getCurrentUser } from "../../util/auth";
 
 export default function AdminPage() {
     const data = useLoaderData();
     const navigate = useNavigate();
 
-    const onExitPress = () => {
+    const onExitPress = async () => {
+        const auth = getAuth();
+        await signOut(auth);
         navigate('/');
-        removeToken();
-        removeExpiration();
     };
 
     return (
@@ -32,15 +32,15 @@ export default function AdminPage() {
 }
 
 export async function loader() {
-    const token = getToken();
-
-    if (!token) {
-        return redirect('/auth');
-    }
-
     try {
-        const snapshot = await APICalls.getUsers();
+        const user = await getCurrentUser();
 
+        if (!user) {
+            return redirect('/auth');
+        }
+
+        const snapshot = await APICalls.getUsers();
+        
         if (!snapshot.exists()) {
             throw new Error();
         }
@@ -50,10 +50,11 @@ export async function loader() {
 
         return users;
     } catch(e) {
+        const message = convertResponseCode(e.message);
+
         throw json(
-            { message: "Произошла ошибка!" },
+            { message },
             { status: 500 }
         );
     }
 }
-
