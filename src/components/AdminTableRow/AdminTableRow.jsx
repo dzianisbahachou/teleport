@@ -2,7 +2,10 @@ import cl from './AdminTableRow.module.css';
 
 export default function AdminTableRow({user, index}) {
     const telRef = `tel:${user.tel}`;
-    const instaLink = `https://www.instagram.com/${user.inst}`;
+    const instLink = `https://www.instagram.com/${user.inst}`;
+    const instName = user.inst !== '' 
+        ? <a href={instLink} className={cl.inst}>{user.inst}</a>
+        : <span className={cl.inst}>Не указано</span>;
 
     return (
         <div className={cl.item}>
@@ -10,7 +13,7 @@ export default function AdminTableRow({user, index}) {
             <div className={cl.collapsed}>
                 <div className={cl['collapsed-name']}>{user.name}</div>
                 <div className={cl['collapsed-inst']}>
-                    <a href={instaLink} className={cl.inst}>{user.inst}</a>
+                    {instName}
                 </div>
             </div>
 
@@ -23,7 +26,7 @@ export default function AdminTableRow({user, index}) {
             </div>
 
             <div className={cl['inst-cell']}>
-                <a href={instaLink} className={cl.inst}>{user.inst}</a>
+                {instName}
             </div>
 
             <div className={cl['tel-cell']}>
