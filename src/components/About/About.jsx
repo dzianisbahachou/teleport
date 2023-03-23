@@ -6,14 +6,14 @@ import Slider from "react-slick";
 const About = () => {
     
     var settings = {
-        dots: true,
         infinite: true,
         slidesToShow: 4,
-        slidesToScroll: 1,
+        slidesToScroll: 2,
+        arrows: false,
         autoplay: true,
         speed: 5000,
         autoplaySpeed: 100,
-        cssEase: "linear",
+        cssEase: "ease",
         responsive: [
           {
             breakpoint: 1224,
@@ -21,7 +21,6 @@ const About = () => {
               slidesToShow: 3,
               slidesToScroll: 1,
               infinite: true,
-              dots: true
             }
           },
           {
@@ -55,25 +54,24 @@ const About = () => {
                     </div>
                 </div>
                 <div className={classes.gallery}>
-                    <h2> Single Item</h2>
                     <Slider {...settings}>
                         <div>
-                        <img src={avatar} width="250px"/>
+                        <img src={avatar} width="250px" height="300px" style={{borderRadius: "50px"}}/>
                         </div>
                         <div>
-                        <img src={avatar} width="250px"/>
+                        <img src={avatar} width="250px" height="300px" style={{borderRadius: "50px"}}/>
                         </div>
                         <div>
-                        <img src={avatar} width="250px"/>
+                        <img src={avatar} width="250px" height="300px" style={{borderRadius: "50px"}}/>
                         </div>
                         <div>
-                        <img src={avatar} width="250px"/>
+                        <img src={avatar} width="250px" height="300px" style={{borderRadius: "50px"}}/>
                         </div>
                         <div>
-                        <img src={avatar} width="250px"/>
+                        <img src={avatar} width="250px" height="300px" style={{borderRadius: "50px"}}/>
                         </div>
                         <div>
-                        <img src={avatar} width="250px"/>
+                        <img src={avatar} width="250px" height="300px" style={{borderRadius: "50px"}}/>
                         </div>
                     </Slider>
                 </div>
