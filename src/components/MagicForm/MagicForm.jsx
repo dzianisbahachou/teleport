@@ -64,11 +64,7 @@ const MagicForm = () => {
     const nameInputRef = useRef();
     const telInputRef = useRef();
     const instInputRef = useRef();
-  
-    useEffect(() => {
-        setFormIsValid(nameIsValid && telIsValid);
-    }, [nameIsValid, telIsValid]);
-  
+
     const nameChangeHandler = (event) => {
       dispatchName({type: "USER_INPUT", val: event.target.value});
     };
