@@ -1,3 +1,8 @@
+.page {
+    background: rgb(255,255,255);
+    background: linear-gradient(176deg, rgba(255,255,255,1) 0%, rgba(244,244,255,1) 50%, rgba(244,244,255,1) 100%);    min-height: 100vh;
+}
+
 .actions {
     display: flex;
     justify-content: flex-end;

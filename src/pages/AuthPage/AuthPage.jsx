@@ -1,6 +1,8 @@
 import { redirect, useNavigation } from "react-router-dom";
-import LoginForm from "../components/LoginForm/LoginForm";
-import LoginLoader from "../components/UI/LoginLoader/LoginLoader";
+import cl from './AuthPage.module.css';
+
+import LoginForm from "../../components/LoginForm/LoginForm";
+import LoginLoader from "../../components/UI/LoginLoader/LoginLoader";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 export default function AuthPage() {
@@ -9,7 +11,7 @@ export default function AuthPage() {
     const isSubmitting = navigation.state === 'submitting';
 
     return (
-        <div>
+        <div className={cl.page}>
             {isSubmitting && <LoginLoader />}
             <LoginForm />
         </div>

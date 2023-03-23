@@ -1,8 +1,6 @@
 .content {
     background-color: white;
-    max-width: 500px;
-    margin: auto;
-    margin-top: 150px;
+    width: 500px;
     padding: 20px 40px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     height: min-content;
@@ -11,6 +9,7 @@
 .title {
     text-align: center;
     margin-bottom: 20px;
+    color: rgb(55, 57, 81);
 }
 
 .form {

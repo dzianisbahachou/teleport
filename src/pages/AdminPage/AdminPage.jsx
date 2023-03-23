@@ -21,7 +21,7 @@ export default function AdminPage() {
     };
 
     return (
-        <div>
+        <div className={cl.page}>
             <div className={cl.actions}>
                 <AdminButton>Экспорт в Excel</AdminButton>
                 <AdminButton onClick={onExitPress}>Выйти</AdminButton>

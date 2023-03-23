@@ -1,5 +1,6 @@
 .input {
-    border: 1px solid black;
+    border: 1px solid rgb(55, 57, 81);
+    color: rgb(55, 57, 81);
     padding: 4px;
     outline: none;
     font-size: 1.1rem;
