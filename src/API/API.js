@@ -1,4 +1,14 @@
-import { getDatabase, ref, child, get, push, set } from "firebase/database";
+import { 
+    getDatabase,
+    ref,
+    child,
+    get,
+    push,
+    set,
+    orderByChild,
+    equalTo,
+    query
+} from "firebase/database";
 
 export default class APICalls {
 
@@ -14,5 +24,17 @@ export default class APICalls {
         const newUserRef = push(usersListRef);
         await set(newUserRef, payload);
         return;
+    }
+
+    static async getComments() {
+        const dbRef = ref(getDatabase());
+        const snapshot = await get(child(dbRef, 'comments'));
+        return snapshot;
+    }
+
+    static async getComemntsForEvent(eventType) {
+        const db = getDatabase();
+        const comments = await query(ref(db, 'comments'), orderByChild('event_type'), equalTo(eventType));
+        return comments;
     }
 }
