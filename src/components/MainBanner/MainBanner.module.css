@@ -3,6 +3,8 @@
     background-image: url("../assets/banner.jpg");
     height: 500px;
     background-size: cover;
+    background-repeat: no-repeat;
+    background-origin: border-box;
     text-align: center;
 }
 

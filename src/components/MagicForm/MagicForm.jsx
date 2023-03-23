@@ -7,32 +7,32 @@ import Input from "./../Input/Input";
 
 const nameReducer = (state, action) => {
     if (action.type === "USER_INPUT") {
-      return {value: action.val, isValid: action.val.length > 0}
+      return {value: action.val, isValid: action.val.length > 0, initial: false}
     }
     if (action.type === "USER_BLUR") {
-      return {value: state.value, isValid: state.value.length > 0}
+      return {value: state.value, isValid: state.value.length > 0, initial: false}
     }
-    return {value: "", isValid: false}
+    return {value: "", isValid: false, initial: true}
   };
   
   const telReducer = (state, action) => {
     if (action.type === "USER_INPUT") {
-      return {value: action.val, isValid: /^\s*\+?375((33\d{7})|(29\d{7})|(44\d{7}|)|(25\d{7}))\s*$/.test(action.val)}
+      return {value: action.val, isValid: /^\s*\+?375((33\d{7})|(29\d{7})|(44\d{7}|)|(25\d{7}))\s*$/.test(action.val), initial: false}
     }
     if (action.type === "USER_BLUR") {
-      return {value: state.value, isValid: /^\s*\+?375((33\d{7})|(29\d{7})|(44\d{7}|)|(25\d{7}))\s*$/.test(state.value)}
+      return {value: state.value, isValid: /^\s*\+?375((33\d{7})|(29\d{7})|(44\d{7}|)|(25\d{7}))\s*$/.test(state.value), initial: false}
     }
-    return {value: "", isValid: false}
+    return {value: "", isValid: false, initial: true}
   };
 
   const instReducer = (state, action) => {
     if (action.type === "USER_INPUT") {
-      return {value: action.val, isValid: true}
+      return {value: action.val, isValid: true, initial: false}
     }
     if (action.type === "USER_BLUR") {
-      return {value: state.value, isValid: true}
+      return {value: state.value, isValid: true, initial: false}
     }
-    return {value: "", isValid: true}
+    return {value: "", isValid: true, initial: true}
   };
 
 const MagicForm = () => {
@@ -43,13 +43,15 @@ const MagicForm = () => {
   
     const [formIsValid, setFormIsValid] = useState(false);
 
-    const [nameState, dispatchName] = useReducer(nameReducer, {
+    const [nameState, dispatchName, initialName] = useReducer(nameReducer, {
       value: "", 
-      isValid: null
+      isValid: null,
+      initial: true
     });
-    const [telState, dispatchTel] = useReducer(telReducer, {
+    const [telState, dispatchTel, initialTel] = useReducer(telReducer, {
       value: "", 
-      isValid: null
+      isValid: null,
+      initial: true
     });
     const [instState, dispatchInst] = useReducer(instReducer, {
         value: "", 
@@ -100,8 +102,9 @@ const MagicForm = () => {
                 inst: instState.value
             };
             sub(formData, {method: "post"});
-            nameInputRef.current.vall()
-            telInputRef.current.vall()
+            dispatchName({type: ""});
+            dispatchInst({type: ""});
+            dispatchTel({type: ""});
         } else if (!nameIsValid && telIsValid) {
             debugger
             validateNameHandler();
@@ -127,7 +130,7 @@ const MagicForm = () => {
                         type="text" 
                         label="Имя"
                         placeholder="Как Вас зовут?"
-                        isValid={nameIsValid}
+                        isValid={nameIsValid && initialName}
                         value={nameState.value}
                         onChange={nameChangeHandler}
                         onBlur={validateNameHandler}/>
@@ -137,7 +140,7 @@ const MagicForm = () => {
                         type="tel" 
                         label="Телефон"
                         placeholder="Номер телефона"
-                        isValid={telIsValid}
+                        isValid={telIsValid && initialTel}
                         value={telState.value}
                         onChange={telChangeHandler}
                         onBlur={validateTelHandler}/>

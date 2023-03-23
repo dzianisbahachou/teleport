@@ -26,7 +26,7 @@
 
 .contacts li{
     transition: all 300ms ease;
-    margin: 0 -2px;
+    margin: 0 -3px;
 }
 
 .contacts li:hover {
@@ -35,8 +35,9 @@
 
 .contacts li:nth-child(1) {
     width: 9rem;
-    margin-top: -0.35em;
+    margin-top: -0.3em;
     transform: none;
+    margin-right: -15px;
 }
 
 .list {
