@@ -1,10 +1,13 @@
 .header {
     width: 100%;
     display: flex;
-    background-color: rgb(142, 142, 142);
+    background-color: rgb(244,244,255);
+    color: rgb(55, 57, 81);
     padding: 10px;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid rgb(38,69,255);
     font-weight: bold;
+    position: sticky;
+    top: 0;
 }
 
 .header .index-cell {
