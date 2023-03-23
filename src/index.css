@@ -5,11 +5,16 @@
 }
 
 html {
-  font-family: 'Noto Sans JP', sans-serif;
+  /* font-family: 'Noto Sans JP', sans-serif; */
   scroll-behavior: smooth;
+  font-family: 'Adigiana Ultra', sans-serif;
 }
 
 body {
   margin: 0;
-  background-color: #53c0ded7
+  background-color: #53c0ded7;
+}
+
+button {
+  font-family: 'Adigiana Ultra', sans-serif;
 }

@@ -34,7 +34,7 @@ const Header = () => {
               <NavLink to="animators" className={(({isActive}) => isActive ? classes.active : "")}><p className={classes["header-items"]}>Онлайн-праздники</p></NavLink>
             </li>
             <li>
-              <NavLink to="animators" className={(({isActive}) => isActive ? classes.active : "")}><p className={classes["header-items"]}>Отзывы</p></NavLink>
+              <NavLink to="comments" className={(({isActive}) => isActive ? classes.active : "")}><p className={classes["header-items"]}>Отзывы</p></NavLink>
             </li>
           </ul>
           <ul className={`${classes.list} ${classes.contacts}`}>
