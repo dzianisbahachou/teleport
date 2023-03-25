@@ -1,0 +1,13 @@
+.comments {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    overflow: hidden;    
+}
+
+.list {
+    display: flex;
+    flex-direction: column-reverse;
+    overflow-y: scroll;
+}

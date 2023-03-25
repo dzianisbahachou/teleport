@@ -26,3 +26,14 @@ export function convertResponse(responseValue) {
 
     return items;
 }
+
+export function convertEventType(type) {
+    let event = 'Чудо праздник';
+    switch(type) {
+        case 'spiderMan':
+            event = 'Человек Паук';
+            break;
+    }
+
+    return event;
+}

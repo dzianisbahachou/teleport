@@ -37,4 +37,12 @@ export default class APICalls {
         const comments = await query(ref(db, 'comments'), orderByChild('event_type'), equalTo(eventType));
         return comments;
     }
+
+    static async createComment(payload) {
+        const db = getDatabase();
+        const commentsListRef = ref(db, 'comments');
+        const newCommentRef = push(commentsListRef);
+        await set(newCommentRef, payload);
+        return;
+    }
 }

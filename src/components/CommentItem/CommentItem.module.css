@@ -1,0 +1,43 @@
+.item-full-size {
+    width: 90%;
+}
+
+.item-full-size, .item-small-size {
+    background-color: white;
+    padding: 20px;
+    border-radius: 14px;
+    display: flex;
+    margin-top: 16px;
+}
+
+.item-small-size {
+    display: none;
+}
+
+.title {
+    font-size: 1.2rem;
+}
+
+.name {
+    text-align: end;
+    padding-right: 20px;
+}
+
+.comment {
+    width: 100%;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+@media (max-width: 450px) {
+    .item-small-size {
+        display: block;
+    }
+
+    .item-full-size {
+        display: none;
+    }   
+}
