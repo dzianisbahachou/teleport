@@ -38,3 +38,9 @@
     text-decoration: none;
     color: rgb(139, 77, 0);
 }
+
+.banners {
+    position: absolute;
+    top: 170px;
+    left: 0;
+}

@@ -16,6 +16,7 @@ const MainBanner = () => {
         {/* <Modal show={modalIsOpened} closed={closeModal}/>
         <Backdrop show={this.state.modalIsOpen} /> */}
         <div className={classes.welcome}>
+            {/* <img src="/icons/banner.webp" alt="Banner" className={classes.banners}/> */}
             <Container>
                 <h1 className={classes.title}>Студия детских праздников в Бресте</h1>
                 <p className={classes.description}>
