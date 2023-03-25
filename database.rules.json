@@ -3,6 +3,10 @@
       "users": {
         ".read": "auth.uid !== null",
         ".write": true
+      },
+      "comments": {
+        ".read": true,
+        ".write": true
       }
   }
 }
