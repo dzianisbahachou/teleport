@@ -5,7 +5,6 @@ import avatar2 from "../assets/banner.jpg";
 import { useState } from "react";
 import Transition from "react-transition-group/Transition";
 
-
 const DUMMY_ADV = [
     {id: 1, name: "one", pic: avatar1, text: "YOU ARE FIRSTYOU ARE FIRSTYOU ARE FIRSTYOU ARE FIRSTYOU ARE FIRSTYOU ARE FIRSTYOU ARE FIRSTYOU ARE FIRSTYOU ARE FIRSTYOU ARE FIRSTYOU ARE FIRSTYOU ARE FIRSTYOU ARE FIRSTYOU ARE FIRSTYOU ARE FIRSTYOU ARE FIRSTYOU ARE FIRSTYOU ARE FIRSTYOU ARE FIRSTYOU ARE FIRSTYOU ARE FIRSTYOU ARE FIRSTYOU ARE FIRSTYOU ARE FIRSTYOU ARE FIRSTYOU ARE FIRSTYOU ARE FIRSTYOU ARE FIRSTYOU ARE FIRSTYOU ARE FIRSTYOU ARE FIRSTYOU ARE FIRSTYOU ARE FIRST"},
     {id: 2, name: "two", pic: avatar2, text: "YOU ARE SECONDYOU ARE SECONDYOU ARE SECONDYOU ARE SECONDYOU ARE SECONDYOU ARE SECONDYOU ARE SECONDYOU ARE SECONDYOU ARE SECONDYOU ARE SECONDYOU ARE SECONDYOU ARE SECONDYOU ARE SECONDYOU ARE SECONDYOU ARE SECONDYOU ARE SECONDYOU ARE SECONDYOU ARE SECONDYOU ARE SECONDYOU ARE SECONDYOU ARE SECONDYOU ARE SECONDYOU ARE SECONDYOU ARE SECONDYOU ARE SECONDYOU ARE SECONDYOU ARE SECONDYOU ARE SECONDYOU ARE SECONDYOU ARE SECONDYOU ARE SECONDYOU ARE SECONDYOU ARE SECOND"},
@@ -21,7 +20,7 @@ const Advantages = () => {
     const [isShow, setIsShow] = useState(true);
     const [defaultIndex, setDefaultIndex] = useState(0);
 
-    const onA = (index, a) => {
+    const advantagesHandler = (index, a) => {
         if (index === defaultIndex) {
             return
         }
@@ -41,11 +40,12 @@ const Advantages = () => {
         <div className={classes.wrapper}>
             <div className={classes.title}>Праздник в деталях</div>
             <div className={classes.advantages}>
-                <div className={classes.list}>
+                <ul className={classes.list}>
                     {DUMMY_ADV.map((item,index) => (
-                        <p><button type="button" onClick={onA.bind(item, index)}>{item.name}</button></p>
+                        <li key={index} type="button" onClick={advantagesHandler.bind(item, index)}>
+                            <img src={item.pic} width="70px" height="100px" style={{cursor: "pointer"}}/></li>
                         ))}
-                </div>
+                </ul>
                 <div className={classes.description}>
                 <Transition in={isShow} timeout={1000} mountOnEnter unmountOnExit
                     onEnter={()=> console.log("enter")} onEntering={()=> console.log("entering")}>

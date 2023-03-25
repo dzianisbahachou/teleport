@@ -92,7 +92,7 @@ const MagicForm = () => {
     const validateInstHandler = () => {
         dispatchInst({type: "USER_BLUR"});
     };
-  
+
     const submitHandler = (event) => {
         event.preventDefault();
         if (formIsValid) {
@@ -128,9 +128,9 @@ const MagicForm = () => {
                         ref={nameInputRef}
                         id="name" 
                         type="text" 
-                        label="Имя"
+                        label="Имя*"
                         placeholder="Как Вас зовут?"
-                        isValid={nameIsValid && initialName}
+                        isValid={nameIsValid || nameState.initial}
                         value={nameState.value}
                         onChange={nameChangeHandler}
                         onBlur={validateNameHandler}/>
@@ -138,9 +138,9 @@ const MagicForm = () => {
                         ref={telInputRef}
                         id="tel" 
                         type="tel" 
-                        label="Телефон"
+                        label="Телефон*"
                         placeholder="Номер телефона"
-                        isValid={telIsValid && initialTel}
+                        isValid={telIsValid || telState.initial}
                         value={telState.value}
                         onChange={telChangeHandler}
                         onBlur={validateTelHandler}/>

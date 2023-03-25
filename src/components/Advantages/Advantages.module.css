@@ -1,6 +1,8 @@
 .list {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    text-decoration: none;
+    outline: none;
 }
 
 .wrapper {
@@ -8,7 +10,7 @@
 }
 
 .description {
-    margin-top: 5vh;
+    margin-top: 3vh;
     display: flex;
     justify-content: space-around;
 }
@@ -16,6 +18,14 @@
 .advantages {
     display: flex;
     flex-direction: column;
+}
+
+.advantages li{
+    list-style-type: none;
+}
+
+.advantages img {
+    border-radius: 20px;
 }
 
 .title {
