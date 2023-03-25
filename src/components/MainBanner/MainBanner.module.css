@@ -1,6 +1,6 @@
 .welcome {
     background-color: blanchedalmond;
-    background-image: url("../assets/banner.jpg");
+    background-image: url("../../../public/icons/banner.webp");
     height: 500px;
     background-size: cover;
     background-repeat: no-repeat;
