@@ -1,122 +1,65 @@
 import { Form, useNavigation, useSubmit } from 'react-router-dom';
-import React, { useState, useEffect, useReducer, useRef } from 'react';
+import useInput from '../../hooks/use-input';
 import classes from "./MagicForm.module.css";
 import Container from "../UI/Container/Container";
 import magicAvatar from "../assets/magic-avatar.jpg";
 import Input from "./../Input/Input";
-
-const nameReducer = (state, action) => {
-    if (action.type === "USER_INPUT") {
-      return {value: action.val, isValid: action.val.length > 0, initial: false}
-    }
-    if (action.type === "USER_BLUR") {
-      return {value: state.value, isValid: state.value.length > 0, initial: false}
-    }
-    return {value: "", isValid: false, initial: true}
-  };
-  
-  const telReducer = (state, action) => {
-    if (action.type === "USER_INPUT") {
-      return {value: action.val, isValid: /^\s*\+?375((33\d{7})|(29\d{7})|(44\d{7}|)|(25\d{7}))\s*$/.test(action.val), initial: false}
-    }
-    if (action.type === "USER_BLUR") {
-      return {value: state.value, isValid: /^\s*\+?375((33\d{7})|(29\d{7})|(44\d{7}|)|(25\d{7}))\s*$/.test(state.value), initial: false}
-    }
-    return {value: "", isValid: false, initial: true}
-  };
-
-  const instReducer = (state, action) => {
-    if (action.type === "USER_INPUT") {
-      return {value: action.val, isValid: true, initial: false}
-    }
-    if (action.type === "USER_BLUR") {
-      return {value: state.value, isValid: true, initial: false}
-    }
-    return {value: "", isValid: true, initial: true}
-  };
 
 const MagicForm = () => {
     const sub = useSubmit();
     const navigation = useNavigation();
     const isSubmitting = navigation.state === "submitting";
 
-  
-    const [formIsValid, setFormIsValid] = useState(false);
-
-    const [nameState, dispatchName, initialName] = useReducer(nameReducer, {
-      value: "", 
-      isValid: null,
-      initial: true
-    });
-    const [telState, dispatchTel, initialTel] = useReducer(telReducer, {
-      value: "", 
-      isValid: null,
-      initial: true
-    });
-    const [instState, dispatchInst] = useReducer(instReducer, {
-        value: "", 
-        isValid: null
-      });
-  
-    const {isValid: nameIsValid} = nameState;
-    const {isValid: telIsValid} = telState;
-  
-    const nameInputRef = useRef();
-    const telInputRef = useRef();
-    const instInputRef = useRef();
-  
-    useEffect(() => {
-        setFormIsValid(nameIsValid && telIsValid);
-    }, [nameIsValid, telIsValid]);
-  
-    const nameChangeHandler = (event) => {
-      dispatchName({type: "USER_INPUT", val: event.target.value});
-    };
-  
-    const telChangeHandler = (event) => {
-      dispatchTel({type: "USER_INPUT", val: event.target.value});
+    const validateName = value => {
+      return value.length > 0;
     };
 
-    const instChangeHandler = (event) => {
-        dispatchInst({type: "USER_INPUT", val: event.target.value});
-    };    
-  
-    const validateNameHandler = () => {
-        dispatchName({type: "USER_BLUR"});
-    };
-  
-    const validateTelHandler = () => {
-        dispatchTel({type: "USER_BLUR"});
+    const validateTel = value => {
+      return /^\s*\+?375((33\d{7})|(29\d{7})|(44\d{7}|)|(25\d{7}))\s*$/.test(value);
     };
 
-    const validateInstHandler = () => {
-        dispatchInst({type: "USER_BLUR"});
+    const validateInst = () => {
+      return true;
     };
+
+    const {
+      value: nameValue,
+      isValid: nameIsValid,
+      hasError: nameHasError,
+      inputChangeHandler: onNameChange,
+      inputBlurHandler: onNameBlur,
+      reset: resetName
+    } = useInput(validateName);
+
+    const {
+      value: telValue,
+      isValid: telIsValid,
+      hasError: telHasError,
+      inputChangeHandler: onTelChange,
+      inputBlurHandler: onTelBlur,
+      reset: resetTel
+    } = useInput(validateTel);
+
+    const {
+      value: instValue,
+      inputChangeHandler: onInstChange,
+      reset: restInts
+    } = useInput(validateInst);
+
+    const formIsValid = nameIsValid && telIsValid;
 
     const submitHandler = (event) => {
-        event.preventDefault();
-        if (formIsValid) {
-            const formData = {
-                name: nameState.value,
-                tel: telState.value,
-                inst: instState.value
-            };
-            sub(formData, {method: "post"});
-            dispatchName({type: ""});
-            dispatchInst({type: ""});
-            dispatchTel({type: ""});
-        } else if (!nameIsValid && telIsValid) {
-            debugger
-            validateNameHandler();
-            nameInputRef.current.focus();
-        }else if (nameIsValid && !telIsValid) {
-            validateTelHandler()
-            telInputRef.current.focus();
-        }else if (!nameIsValid && !telIsValid) {
-            validateNameHandler();
-            validateTelHandler()
-            nameInputRef.current.focus();
-        };
+      event.preventDefault();
+      const formData = {
+        nameValue,
+        telValue,
+        instValue
+      };
+      sub(formData, {method: "post"});
+
+      resetName();
+      resetTel();
+      restInts();
     };
 
     return ( <Container>
@@ -125,36 +68,32 @@ const MagicForm = () => {
                 <p className={classes["form-title"]}>Форма волшебства</p>
                 <Form method="post" action="/" className={classes.inputs}>
                     <Input 
-                        ref={nameInputRef}
                         id="name" 
                         type="text" 
                         label="Имя*"
                         placeholder="Как Вас зовут?"
-                        isValid={nameIsValid || nameState.initial}
-                        value={nameState.value}
-                        onChange={nameChangeHandler}
-                        onBlur={validateNameHandler}/>
+                        isValid={!nameHasError}
+                        value={nameValue}
+                        onChange={onNameChange}
+                        onBlur={onNameBlur}/>
                     <Input 
-                        ref={telInputRef}
                         id="tel" 
                         type="tel" 
                         label="Телефон*"
                         placeholder="Номер телефона"
-                        isValid={telIsValid || telState.initial}
-                        value={telState.value}
-                        onChange={telChangeHandler}
-                        onBlur={validateTelHandler}/>
+                        isValid={!telHasError}
+                        value={telValue}
+                        onChange={onTelChange}
+                        onBlur={onTelBlur}/>
                     <Input 
-                        ref={instInputRef}
                         id="inst" 
                         type="text" 
                         label="Instagram"
                         placeholder="Никнейм Instagram"
-                        value={instState.value}
-                        onChange={instChangeHandler}
-                        onBlur={validateInstHandler}/>
+                        value={instValue}
+                        onChange={onInstChange}/>
                     <div>
-                        <button onClick={submitHandler} className={classes["form-button"]}>Отправить заявку</button>
+                        <button disabled={!formIsValid} onClick={submitHandler} className={classes["form-button"]}>Отправить заявку</button>
                     </div>
                 </Form>
             </div>
