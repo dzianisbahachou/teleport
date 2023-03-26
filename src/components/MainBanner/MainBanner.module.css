@@ -1,6 +1,6 @@
 .welcome {
-    background-color: blanchedalmond;
-    background-image: url("../assets/banner.jpg");
+    background-color: #53c0ded7;
+    background-image: url("../../../public/icons/banner.webp");
     height: 500px;
     background-size: cover;
     background-repeat: no-repeat;
@@ -37,4 +37,10 @@
 .main-button a{
     text-decoration: none;
     color: rgb(139, 77, 0);
+}
+
+.banners {
+    position: absolute;
+    top: 170px;
+    left: 0;
 }
