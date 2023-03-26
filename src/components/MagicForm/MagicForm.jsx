@@ -1,4 +1,5 @@
 import { Form, useNavigation, useSubmit } from 'react-router-dom';
+import React, { useRef } from 'react';
 import useInput from '../../hooks/use-input';
 import classes from "./MagicForm.module.css";
 import Container from "../UI/Container/Container";
@@ -9,6 +10,9 @@ const MagicForm = () => {
     const sub = useSubmit();
     const navigation = useNavigation();
     const isSubmitting = navigation.state === "submitting";
+
+    const nameInputRef = useRef();
+    const telInputRef = useRef();
 
     const validateName = value => {
       return value.length > 0;
@@ -43,23 +47,36 @@ const MagicForm = () => {
     const {
       value: instValue,
       inputChangeHandler: onInstChange,
-      reset: restInts
+      reset: resetInts
     } = useInput(validateInst);
 
     const formIsValid = nameIsValid && telIsValid;
 
     const submitHandler = (event) => {
       event.preventDefault();
-      const formData = {
-        nameValue,
-        telValue,
-        instValue
-      };
-      sub(formData, {method: "post"});
 
-      resetName();
-      resetTel();
-      restInts();
+      if (!telIsValid) {
+        onTelBlur();
+        telInputRef.current.focus();
+      }
+
+      if (!nameIsValid) {
+        onNameBlur();
+        nameInputRef.current.focus();
+      }
+
+      if (formIsValid) {
+        const formData = {
+          name: nameValue,
+          tel: telValue,
+          inst: instValue
+        };
+        sub(formData, {method: "post"});
+
+        resetName();
+        resetTel();
+        resetInts();
+      }
     };
 
     return ( <Container>
@@ -68,6 +85,7 @@ const MagicForm = () => {
                 <p className={classes["form-title"]}>Форма волшебства</p>
                 <Form method="post" action="/" className={classes.inputs}>
                     <Input 
+                        ref={nameInputRef}
                         id="name" 
                         type="text" 
                         label="Имя*"
@@ -77,6 +95,7 @@ const MagicForm = () => {
                         onChange={onNameChange}
                         onBlur={onNameBlur}/>
                     <Input 
+                        ref={telInputRef}
                         id="tel" 
                         type="tel" 
                         label="Телефон*"
@@ -93,7 +112,7 @@ const MagicForm = () => {
                         value={instValue}
                         onChange={onInstChange}/>
                     <div>
-                        <button disabled={!formIsValid} onClick={submitHandler} className={classes["form-button"]}>Отправить заявку</button>
+                        <button onClick={submitHandler} className={classes["form-button"]}>Отправить заявку</button>
                     </div>
                 </Form>
             </div>
