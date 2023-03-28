@@ -1,8 +1,7 @@
+import cl from './CommentTextarea.module.css';
 import React, { useRef, useImperativeHandle} from "react";
 
-import cl from './CommentInput.module.css';
-
-const CommentInput = React.forwardRef((props, ref) => {
+const CommentTextarea = React.forwardRef((props, ref) => {
     const inputRef = useRef();
     let name = props.value;
 
@@ -21,11 +20,13 @@ const CommentInput = React.forwardRef((props, ref) => {
       }
     });
 
-    const classes = props.isInvalid ? `${cl.input} ${cl.invalid}` : cl.input;
+    const classes = props.isInvalid ? `${cl.textarea} ${cl.invalid}` : cl.textarea;
 
     return (
-        <input {...props} ref={inputRef} type="text" className={classes} value={name}/>
+        <textarea 
+            {...props} ref={inputRef} className={classes} value={name}>
+        </textarea>
     );
 });
 
-export default CommentInput;
+export default CommentTextarea;
