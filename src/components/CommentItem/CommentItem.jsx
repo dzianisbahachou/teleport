@@ -25,7 +25,7 @@ export default function CommentItem({data}) {
                 <div className={cl.comment}>
                     <p>{data.text}</p>
                     <div className={cl.name}>
-                        <p>- {data.name}</p>
+                        <span>- {data.name}</span>
                     </div>
                 </div>
             </div>

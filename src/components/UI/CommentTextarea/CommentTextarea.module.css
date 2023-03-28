@@ -1,0 +1,23 @@
+.textarea {
+    width: 100%;
+    resize: none;
+    padding: 16px;
+    margin-top: 16px;
+    border-radius: 14px;
+    border: 1px solid rgb(39,135,245);
+    outline: none;
+    font-family: 'Adigiana Ultra', sans-serif;
+    font-size: 1rem;
+    vertical-align: bottom;
+}
+
+.invalid {
+    border-color: red;
+    background: #fbdada;
+}
+
+@media (max-width: 450px) {
+    .textarea {
+        margin-top: 11px;
+    }
+}

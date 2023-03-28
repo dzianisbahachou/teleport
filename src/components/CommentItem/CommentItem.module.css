@@ -1,5 +1,5 @@
 .item-full-size {
-    width: 90%;
+    width: 94%;
 }
 
 .item-full-size, .item-small-size {
@@ -39,5 +39,13 @@
 
     .item-full-size {
         display: none;
-    }   
+    }
+
+    .title {
+        font-size: 1.1rem;
+    }
+
+    .name, .comment p {
+        font-size: 0.9rem;
+    }
 }
