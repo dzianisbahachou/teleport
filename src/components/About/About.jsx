@@ -2,8 +2,26 @@ import Container from "../UI/Container/Container";
 import classes from "./About.module.css";
 import avatar from "../assets/magic-avatar.jpg";
 import Slider from "react-slick";
+import { getStorage, ref, getDownloadURL, listAll } from "firebase/storage";
+import { useEffect, useState } from "react";
 
 const About = () => {
+  const [gallegy, setGallery] = useState([]);
+
+  useEffect(() => {
+    async function fetchImages() {
+      const storage = getStorage();
+      const listRef = ref(storage, 'gallery');
+      const res = await listAll(listRef);
+      res.items.forEach(async itemRef => {
+        const url = await getDownloadURL(itemRef);
+        setGallery(prevState => {
+          return [...prevState, url];
+        });
+      });
+    }
+    fetchImages();
+  }, []);
     
     var settings = {
         infinite: true,
@@ -55,24 +73,12 @@ const About = () => {
                 </div>
                 <div className={classes.gallery}>
                     <Slider {...settings}>
-                        <div>
-                        <img src={avatar} width="250px" height="300px" style={{borderRadius: "50px"}}/>
-                        </div>
-                        <div>
-                        <img src={avatar} width="250px" height="300px" style={{borderRadius: "50px"}}/>
-                        </div>
-                        <div>
-                        <img src={avatar} width="250px" height="300px" style={{borderRadius: "50px"}}/>
-                        </div>
-                        <div>
-                        <img src={avatar} width="250px" height="300px" style={{borderRadius: "50px"}}/>
-                        </div>
-                        <div>
-                        <img src={avatar} width="250px" height="300px" style={{borderRadius: "50px"}}/>
-                        </div>
-                        <div>
-                        <img src={avatar} width="250px" height="300px" style={{borderRadius: "50px"}}/>
-                        </div>
+                        {gallegy.map((item, index) => 
+                          <div key={index}>
+                            <img src={item} width="250px" height="300px" style={{borderRadius: "50px"}}/>
+                          </div>
+                        )}
+                        
                     </Slider>
                 </div>
             </div>
