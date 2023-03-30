@@ -45,4 +45,10 @@ export default class APICalls {
         await set(newCommentRef, payload);
         return;
     }
+
+    static async getAnimators() {
+        const dbRef = ref(getDatabase());
+        const snapshot = await get(child(dbRef, 'animators'));
+        return snapshot;
+    }
 }
