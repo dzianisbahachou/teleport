@@ -19,6 +19,13 @@
     height: 100%;
 }
 
+@media (min-width: 1200px) {
+    .item {
+        width: 17vw;
+        height: 17vw;
+    }
+}
+
 @media (max-width: 550px) {
     .item {
         width: 27vw;
