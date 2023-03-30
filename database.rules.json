@@ -7,6 +7,10 @@
       "comments": {
         ".read": true,
         ".write": true
+      },
+      "animators": {
+        ".read": true,
+        ".write": true
       }
   }
 }
