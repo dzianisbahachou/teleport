@@ -1,11 +1,13 @@
 import { Form, useSubmit, useNavigation } from 'react-router-dom';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import cl from './NewComment.module.css';
 import CommentInput from '../UI/CommentInput/CommentInput';
 import useInput from '../../hooks/use-input';
 import CommentTextarea from '../UI/CommentTextarea/CommentTextarea';
+import CommentEventTypeModal from '../CommentEventTypeModal/CommentEventTypeModal';
 
 export default function NewComment() {
+    const [isEventTypeActive, setIsEventTypeActive] = useState(false);
     const sub = useSubmit();
     const navigation = useNavigation();
     const isSubmitting = navigation.state === 'submitting';
@@ -88,41 +90,51 @@ export default function NewComment() {
         }
     };
 
+    const toggleIsEventTypeActive = () => {
+        setIsEventTypeActive(prevState => !prevState);
+    };
+
     return (
-        <Form method='POST' className={cl.form}>         
-            <div className={cl['info-container']}>
-                <CommentInput
-                    ref={nameInputRef}
-                    name='name' 
-                    placeholder='Ваше имя'
-                    value={nameValue}
-                    isInvalid={nameHasError}
-                    onChange={onNameChange}
-                    onBlur={onNameBlur}/>
-                <CommentInput
-                    ref={eventTypeInputRef}
-                    name='eventType' 
-                    placeholder='Евент тип'
-                    value={eventTypeValue}
-                    isInvalid={eventTypeHasError}
-                    onChange={onEventTypeChange}
-                    onBlur={onEventTypeBlur}/> 
-                <CommentTextarea 
-                    ref={commentInputRef}
-                    name='comment' 
-                    rows={4} className={cl.textarea}
-                    placeholder='Пару слов...'
-                    value={commentValue}
-                    isInvalid={commentHasError}
-                    onChange={onCommentChange}
-                    onBlur={onCommentBlur}>
-                </CommentTextarea>
-            </div>
-            <div className={cl.action}>
-                <button className={cl.button}>
-                    <img className={cl['button-img']} src="/icons/6492707.png" alt="Отправить" onClick={submitHandler}/>
-                </button> 
-            </div>
-        </Form>
+        <>
+            {isEventTypeActive && <CommentEventTypeModal closeModal={toggleIsEventTypeActive}/>}
+            <Form method='POST' className={cl.form}>         
+                <div className={cl['info-container']}>
+                    <CommentInput
+                        ref={nameInputRef}
+                        name='name' 
+                        placeholder='Ваше имя'
+                        value={nameValue}
+                        isInvalid={nameHasError}
+                        onChange={onNameChange}
+                        onBlur={onNameBlur}/>
+                    <CommentInput
+                        ref={eventTypeInputRef}
+                        name='eventType' 
+                        placeholder='Евент тип'
+                        value={eventTypeValue}
+                        isInvalid={eventTypeHasError}
+                        onChange={onEventTypeChange}
+                        onBlur={onEventTypeBlur}
+                        onClick={toggleIsEventTypeActive}
+                        autocomplete="off"
+                        onKeyDown={e => e.preventDefault()}/> 
+                    <CommentTextarea 
+                        ref={commentInputRef}
+                        name='comment' 
+                        rows={4} className={cl.textarea}
+                        placeholder='Пару слов...'
+                        value={commentValue}
+                        isInvalid={commentHasError}
+                        onChange={onCommentChange}
+                        onBlur={onCommentBlur}>
+                    </CommentTextarea>
+                </div>
+                <div className={cl.action}>
+                    <button className={cl.button}>
+                        <img className={cl['button-img']} src="/assets/icons/6492707.png" alt="Отправить" onClick={submitHandler}/>
+                    </button> 
+                </div>
+            </Form>
+        </>
     );
 }
