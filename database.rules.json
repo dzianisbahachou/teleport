@@ -9,6 +9,7 @@
         ".write": true
       },
       "events": {
+        ".indexOn": "eventType",
         ".read": true,
         ".write": true
       }
