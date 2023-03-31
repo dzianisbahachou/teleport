@@ -1,6 +1,6 @@
 .welcome {
     background-color: #53c0ded7;
-    background-image: url("../../../public/icons/banner.webp");
+    background-image: url("../../../public/assets/banner.webp");
     height: 500px;
     background-size: cover;
     background-repeat: no-repeat;

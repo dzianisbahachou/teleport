@@ -7,7 +7,7 @@ import {
     set,
     orderByChild,
     equalTo,
-    query
+    query,
 } from "firebase/database";
 
 export default class APICalls {
@@ -44,5 +44,12 @@ export default class APICalls {
         const newCommentRef = push(commentsListRef);
         await set(newCommentRef, payload);
         return;
+    }
+
+    static async getEvents(eventType) {
+        const db = getDatabase();
+        const eventsListRef = query(ref(db, 'events'), orderByChild('eventType'), equalTo(eventType));
+        const snapshot = await get(eventsListRef);
+        return snapshot;
     }
 }

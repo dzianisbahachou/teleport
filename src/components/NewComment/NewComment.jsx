@@ -1,20 +1,33 @@
-import { Form } from 'react-router-dom';
+import { Form, useSubmit, useNavigation } from 'react-router-dom';
+import { useRef, useState } from 'react';
 import cl from './NewComment.module.css';
 import CommentInput from '../UI/CommentInput/CommentInput';
 import useInput from '../../hooks/use-input';
+import CommentTextarea from '../UI/CommentTextarea/CommentTextarea';
+import CommentEventTypeModal from '../CommentEventTypeModal/CommentEventTypeModal';
+import { convertEventType } from '../../util/firebaseResponseHandler';
 
 export default function NewComment() {
+    const [isEventTypeActive, setIsEventTypeActive] = useState(false);
+    const [selectedEventType, setSelectedEventType] = useState('');
+    const sub = useSubmit();
+    const navigation = useNavigation();
+    const isSubmitting = navigation.state === 'submitting';
+
+    const nameInputRef = useRef();
+    const eventTypeInputRef = useRef();
+    const commentInputRef = useRef();
 
     const validateName = value => {
-        return value.lenght > 0;
+        return value.length > 0;
     };
 
     const validateComment = value => {
-        return value.lenght > 0;
+        return value.length > 0;
     };
 
     const validateEventType = value => {
-        return true;
+        return value.length > 0;
     };
 
     const {
@@ -44,20 +57,102 @@ export default function NewComment() {
         reset: resetComment
     } = useInput(validateComment);
 
+    const formIsValid = commentIsValid && eventTypeIsValid && nameIsValid;
+
+    const submitHandler = (event) => {
+        event.preventDefault();
+  
+        if (!commentIsValid) {
+            onCommentBlur();
+            commentInputRef.current.focus();
+        }
+
+        if (!eventTypeIsValid) {
+            onEventTypeBlur();
+        }
+  
+        if (!nameIsValid) {
+            onNameBlur();
+            nameInputRef.current.focus();
+        }
+  
+        if (formIsValid) {
+            const formData = {
+                name: nameValue,
+                eventSubType: selectedEventType,
+                comment: commentValue
+            };
+
+            sub(formData, {method: "post"});
+    
+            resetName();
+            resetEventType();
+            resetComment();
+        }
+    };
+
+    const openEventTypeModal = () => {
+        setIsEventTypeActive(true);
+    };
+
+    const closeEventTypeModal = () => {
+        setIsEventTypeActive(false);
+    };
+
+    const onEventTypeClick = (eventSubType) => {
+        const userFriendlyEventType = convertEventType(eventSubType);
+        const dummy = {
+            target: {
+                value: userFriendlyEventType
+            }
+        };
+
+        setSelectedEventType(eventSubType);
+        onEventTypeChange(dummy);
+        closeEventTypeModal();
+    };
+
     return (
-        <Form method='POST' className={cl.form}>
-            <CommentInput name='name' placeholder='Ваше имя'/>
-            <CommentInput name='eventType' placeholder='Евент тип'/>
-            <div className={cl['text-container']}>
-                <textarea 
-                    name='comment' 
-                    rows={4} className={cl.textarea}
-                    placeholder='Пару слов...'>
-                </textarea>
-                <button className={cl.button}>
-                    <img width={60} src="/icons/6492707.png" alt="Отправить" />
-                </button> 
-            </div>
-        </Form>
+        <>
+            {isEventTypeActive && <CommentEventTypeModal closeModal={closeEventTypeModal} onEventTypeClick={onEventTypeClick}/>}
+            <Form method='POST' className={cl.form}>         
+                <div className={cl['info-container']}>
+                    <CommentInput
+                        ref={nameInputRef}
+                        name='name' 
+                        placeholder='Ваше имя'
+                        value={nameValue}
+                        isInvalid={nameHasError}
+                        onChange={onNameChange}
+                        onBlur={onNameBlur}/>
+                    <CommentInput
+                        ref={eventTypeInputRef}
+                        name='eventType' 
+                        placeholder='Евент тип'
+                        value={eventTypeValue}
+                        isInvalid={eventTypeHasError}
+                        onChange={onEventTypeChange}
+                        onBlur={onEventTypeBlur}
+                        onClick={openEventTypeModal}
+                        autocomplete="off"
+                        onKeyDown={e => e.preventDefault()}/> 
+                    <CommentTextarea 
+                        ref={commentInputRef}
+                        name='comment' 
+                        rows={4} className={cl.textarea}
+                        placeholder='Пару слов...'
+                        value={commentValue}
+                        isInvalid={commentHasError}
+                        onChange={onCommentChange}
+                        onBlur={onCommentBlur}>
+                    </CommentTextarea>
+                </div>
+                <div className={cl.action}>
+                    <button className={cl.button}>
+                        <img className={cl['button-img']} src="/assets/icons/6492707.png" alt="Отправить" onClick={submitHandler}/>
+                    </button> 
+                </div>
+            </Form>
+        </>
     );
 }

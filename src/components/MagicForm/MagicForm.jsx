@@ -47,14 +47,14 @@ const MagicForm = () => {
     const {
       value: instValue,
       inputChangeHandler: onInstChange,
-      reset: restInts
+      reset: resetInts
     } = useInput(validateInst);
 
     const formIsValid = nameIsValid && telIsValid;
 
     const submitHandler = (event) => {
       event.preventDefault();
-      
+
       if (!telIsValid) {
         onTelBlur();
         telInputRef.current.focus();
@@ -67,15 +67,15 @@ const MagicForm = () => {
 
       if (formIsValid) {
         const formData = {
-          nameValue,
-          telValue,
-          instValue
+          name: nameValue,
+          tel: telValue,
+          inst: instValue
         };
         sub(formData, {method: "post"});
 
         resetName();
         resetTel();
-        restInts();
+        resetInts();
       }
     };
 

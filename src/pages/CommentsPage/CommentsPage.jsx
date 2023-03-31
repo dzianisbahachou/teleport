@@ -11,7 +11,8 @@ import Container from '../../components/UI/Container/Container';
 
 const CommentsPage = () => {
     const data = useLoaderData();
-    const isLoading = useNavigation().state === 'loading';
+    const navigation = useNavigation();
+    const isLoading = navigation.state === 'loading' || navigation.state === 'submitting';
 
     return (
         <Container>
@@ -50,10 +51,12 @@ export async function loader() {
 
 export async function action({request}) {
     const data = await request.formData();
+    const date = Date.now();
     const commentData = {
         text: data.get('comment'),
         name: data.get('name'),
-        event_type: data.get('eventType')
+        eventSubType: data.get('eventSubType'),
+        date
     };
 
     try {
@@ -66,5 +69,4 @@ export async function action({request}) {
     }
 
     return null;
-
 }
