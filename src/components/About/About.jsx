@@ -2,19 +2,17 @@ import Container from "../UI/Container/Container";
 import classes from "./About.module.css";
 import avatar from "../assets/magic-avatar.jpg";
 import Slider from "react-slick";
-import { getStorage, ref, getDownloadURL, listAll } from "firebase/storage";
 import { useEffect, useState } from "react";
+import StorageAPICalls from "../../API/StorageAPI";
 
 const About = () => {
   const [gallegy, setGallery] = useState([]);
 
   useEffect(() => {
     async function fetchImages() {
-      const storage = getStorage();
-      const listRef = ref(storage, 'gallery');
-      const res = await listAll(listRef);
+      const res = await StorageAPICalls.getGalleryRef();
       res.items.forEach(async itemRef => {
-        const url = await getDownloadURL(itemRef);
+        const url = await StorageAPICalls.getGalleryImage(itemRef);
         setGallery(prevState => {
           return [...prevState, url];
         });

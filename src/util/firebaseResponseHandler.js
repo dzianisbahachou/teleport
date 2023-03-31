@@ -33,7 +33,20 @@ export function convertEventType(type) {
         case 'spiderMan':
             event = 'Человек Паук';
             break;
+        case 'clown':
+            event = 'Клоун';
+            break;
+        case 'mickeyMouse':
+            event = 'Микки Маус';
+            break;
+        case 'bumblebee':
+            event = 'Бамблбии';
+            break;
     }
 
     return event;
+}
+
+export function convertEventTypeResponse(responseValue) {
+    return Object.values(responseValue).map(item => item.title);
 }

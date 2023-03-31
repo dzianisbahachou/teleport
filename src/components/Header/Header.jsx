@@ -28,10 +28,10 @@ const Header = () => {
               <NavLink to="/admin" className={(({isActive}) => isActive ? classes.active : "")}><p className={classes["header-items"]}>Шоу-программы</p></NavLink>
             </li>
             <li>
-              <NavLink to="animators" className={(({isActive}) => isActive ? classes.active : "")}><p className={classes["header-items"]}>Доп услуги</p></NavLink>
+              <NavLink to="animators-2" className={(({isActive}) => isActive ? classes.active : "")}><p className={classes["header-items"]}>Доп услуги</p></NavLink>
             </li>
             <li>
-              <NavLink to="animators" className={(({isActive}) => isActive ? classes.active : "")}><p className={classes["header-items"]}>Онлайн-праздники</p></NavLink>
+              <NavLink to="animators-3" className={(({isActive}) => isActive ? classes.active : "")}><p className={classes["header-items"]}>Онлайн-праздники</p></NavLink>
             </li>
             <li>
               <NavLink to="comments" className={(({isActive}) => isActive ? classes.active : "")}><p className={classes["header-items"]}>Отзывы</p></NavLink>
