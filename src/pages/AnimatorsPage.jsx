@@ -22,7 +22,7 @@ export default AnimatorsPage;
 
 export async function loader() {
     try {
-        const snapshot = await APICalls.getAnimators();
+        const snapshot = await APICalls.getEvents('animators');
         
         if (!snapshot.exists()) {
             throw new Error();

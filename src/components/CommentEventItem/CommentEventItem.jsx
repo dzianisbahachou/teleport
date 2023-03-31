@@ -1,15 +1,17 @@
 import cl from './CommentEventItem.module.css';
 
-
-export default function CommentEventItem({data}) {
+export default function CommentEventItem({title, eventSubType}) {
+    const imgPath = eventSubType 
+        ? `assets/logo/eventLogo/${eventSubType}.jpg`
+        : 'assets/logo/defaultEventLogo.jpg';
     
     return (
         <div className={cl.item}>
             <div className={cl['img-container']}>
-                <img src="https://blog.playstation.com/tachyon/2022/06/0c3c20a8d8514501524a0859461f391572ea6e61.jpg?resize=1088%2C612&crop_strategy=smart" alt="" className={cl.img}/>
+                <img src={imgPath} alt={title} className={cl.img}/>
             </div>
             <div>
-                Спайдер Мен
+                {title}
             </div>
         </div>
     );

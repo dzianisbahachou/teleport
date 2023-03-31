@@ -7,7 +7,7 @@ import {
     set,
     orderByChild,
     equalTo,
-    query
+    query,
 } from "firebase/database";
 
 export default class APICalls {
@@ -46,9 +46,10 @@ export default class APICalls {
         return;
     }
 
-    static async getAnimators() {
-        const dbRef = ref(getDatabase());
-        const snapshot = await get(child(dbRef, 'animators'));
+    static async getEvents(eventType) {
+        const db = getDatabase();
+        const eventsListRef = query(ref(db, 'events'), orderByChild('eventType'), equalTo(eventType));
+        const snapshot = await get(eventsListRef);
         return snapshot;
     }
 }

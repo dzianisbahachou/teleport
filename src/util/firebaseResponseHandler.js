@@ -37,3 +37,7 @@ export function convertEventType(type) {
 
     return event;
 }
+
+export function convertEventTypeResponse(responseValue) {
+    return Object.values(responseValue).map(item => item.title);
+}

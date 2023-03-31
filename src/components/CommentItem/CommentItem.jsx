@@ -3,13 +3,18 @@ import { convertEventType } from '../../util/firebaseResponseHandler';
 import CommentImage from '../UI/CommentImage/CommentImage';
 
 export default function CommentItem({data}) {
-    const eventType = convertEventType(data.event_type);
+    const title = convertEventType(data.eventSubType);
+
+    const imgPath = data.eventSubType 
+        ? `assets/logo/eventLogo/${data.eventSubType}.jpg`
+        : 'assets/logo/defaultEventLogo.jpg';
+
     return (
         <>
             <div className={cl['item-full-size']}>
-                <CommentImage />
+                <CommentImage imgPath={imgPath}/>
                 <div className={cl.comment}>
-                    <div className={cl.title}>{eventType}</div>
+                    <div className={cl.title}>{title}</div>
                     <p>{data.text}</p>
                     <div className={cl.name}>
                         <p>- {data.name}</p>
@@ -19,8 +24,8 @@ export default function CommentItem({data}) {
 
             <div className={cl['item-small-size']}>
                 <div className={cl.header}>
-                    <CommentImage />
-                    <div className={cl.title}>{eventType}</div>
+                    <CommentImage imgPath={imgPath}/>
+                    <div className={cl.title}>{title}</div>
                 </div>
                 <div className={cl.comment}>
                     <p>{data.text}</p>
