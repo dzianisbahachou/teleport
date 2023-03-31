@@ -23,12 +23,7 @@ const CommentEventTypeModal = ({closeModal}) => {
         
                 setEvents(events);
             } catch(e) {
-                const message = convertResponseCode(e.message);
-        
-                throw json(
-                    { message },
-                    { status: 500 }
-                );
+                // message toast
             }
         }
 
