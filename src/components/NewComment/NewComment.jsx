@@ -5,9 +5,11 @@ import CommentInput from '../UI/CommentInput/CommentInput';
 import useInput from '../../hooks/use-input';
 import CommentTextarea from '../UI/CommentTextarea/CommentTextarea';
 import CommentEventTypeModal from '../CommentEventTypeModal/CommentEventTypeModal';
+import { convertEventType } from '../../util/firebaseResponseHandler';
 
 export default function NewComment() {
     const [isEventTypeActive, setIsEventTypeActive] = useState(false);
+    const [selectedEventType, setSelectedEventType] = useState('');
     const sub = useSubmit();
     const navigation = useNavigation();
     const isSubmitting = navigation.state === 'submitting';
@@ -67,7 +69,6 @@ export default function NewComment() {
 
         if (!eventTypeIsValid) {
             onEventTypeBlur();
-            eventTypeInputRef.current.focus();
         }
   
         if (!nameIsValid) {
@@ -78,7 +79,7 @@ export default function NewComment() {
         if (formIsValid) {
             const formData = {
                 name: nameValue,
-                eventType: eventTypeValue,
+                eventSubType: selectedEventType,
                 comment: commentValue
             };
 
@@ -90,13 +91,30 @@ export default function NewComment() {
         }
     };
 
-    const toggleIsEventTypeActive = () => {
-        setIsEventTypeActive(prevState => !prevState);
+    const openEventTypeModal = () => {
+        setIsEventTypeActive(true);
+    };
+
+    const closeEventTypeModal = () => {
+        setIsEventTypeActive(false);
+    };
+
+    const onEventTypeClick = (eventSubType) => {
+        const userFriendlyEventType = convertEventType(eventSubType);
+        const dummy = {
+            target: {
+                value: userFriendlyEventType
+            }
+        };
+
+        setSelectedEventType(eventSubType);
+        onEventTypeChange(dummy);
+        closeEventTypeModal();
     };
 
     return (
         <>
-            {isEventTypeActive && <CommentEventTypeModal closeModal={toggleIsEventTypeActive}/>}
+            {isEventTypeActive && <CommentEventTypeModal closeModal={closeEventTypeModal} onEventTypeClick={onEventTypeClick}/>}
             <Form method='POST' className={cl.form}>         
                 <div className={cl['info-container']}>
                     <CommentInput
@@ -115,7 +133,7 @@ export default function NewComment() {
                         isInvalid={eventTypeHasError}
                         onChange={onEventTypeChange}
                         onBlur={onEventTypeBlur}
-                        onClick={toggleIsEventTypeActive}
+                        onClick={openEventTypeModal}
                         autocomplete="off"
                         onKeyDown={e => e.preventDefault()}/> 
                     <CommentTextarea 

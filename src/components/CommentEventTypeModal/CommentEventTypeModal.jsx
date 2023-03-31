@@ -2,11 +2,11 @@ import cl from './CommentEventTypeModal.module.css';
 import CommentEventsList from '../CommentEventsList/CommentEventsList';
 import { useState, useEffect } from 'react';
 import APICalls from '../../API/API';
-import { convertResponse, convertResponseCode } from '../../util/firebaseResponseHandler';
-import { json } from 'react-router-dom';
+import { convertResponse } from '../../util/firebaseResponseHandler';
+import NewCommentLoader from '../UI/NewCommentLoader/NewCommentLoader';
 
 
-const CommentEventTypeModal = ({closeModal}) => {
+const CommentEventTypeModal = ({closeModal, onEventTypeClick}) => {
     const [events, setEvents] = useState([]);
 
     useEffect(() => {
@@ -33,7 +33,8 @@ const CommentEventTypeModal = ({closeModal}) => {
     return (
         <div className={cl.wpapper} onClick={closeModal}>
             <div className={cl.content} onClick={e => e.stopPropagation()}>
-                <CommentEventsList events={events} />
+                { !events.length && <NewCommentLoader/> }
+                <CommentEventsList events={events} onSelect={onEventTypeClick}/>
             </div>
         </div>
     );
