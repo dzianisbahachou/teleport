@@ -17,6 +17,7 @@
     position: absolute;
     box-shadow: 0 0 6px  rgba(0,0,0,0.4);
     max-width: 90%;
+    min-width: 40%;
     overflow-x: auto;
 }
 

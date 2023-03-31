@@ -55,7 +55,7 @@ export async function action({request}) {
     const commentData = {
         text: data.get('comment'),
         name: data.get('name'),
-        event_type: data.get('eventType'),
+        eventSubType: data.get('eventSubType'),
         date
     };
 
