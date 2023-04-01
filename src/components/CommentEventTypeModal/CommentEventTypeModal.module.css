@@ -18,7 +18,30 @@
     box-shadow: 0 0 6px  rgba(0,0,0,0.4);
     max-width: 90%;
     min-width: 40%;
-    overflow-x: auto;
+    overflow-x: overlay;
+}
+
+::-webkit-scrollbar {
+    background-color: rgba(0, 0, 0, 0);
+    height: 0.3rem;
+}
+
+.content::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+
+.content::-webkit-scrollbar-track:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.content::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: rgba(72, 102, 128, 0.555);
+}
+
+.content::-webkit-scrollbar-thumb:hover {
+    background: rgba(72, 102, 128);
 }
 
 @media (min-height: 700px) {
