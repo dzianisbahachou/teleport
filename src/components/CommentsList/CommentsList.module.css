@@ -12,7 +12,7 @@
     overflow-y: overlay;
 }
 
-::-webkit-scrollbar {
+.list::-webkit-scrollbar {
     background-color: rgba(0, 0, 0, 0);
     width: 0.4rem;
 }
