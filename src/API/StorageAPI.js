@@ -9,9 +9,9 @@ export default class StorageAPICalls {
         return url;
     }
 
-    static async getGalleryRef() {
+    static async getGalleryRef(path) {
         const storage = getStorage();
-        const listRef = ref(storage, 'gallery');
+        const listRef = ref(storage, path);
         const res = await listAll(listRef);
         return res;
     }

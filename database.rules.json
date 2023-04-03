@@ -5,6 +5,7 @@
         ".write": true
       },
       "comments": {
+        ".indexOn": "eventSubType",
         ".read": true,
         ".write": true
       },
