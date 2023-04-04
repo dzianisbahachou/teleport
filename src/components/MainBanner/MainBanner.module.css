@@ -1,15 +1,23 @@
 .welcome {
-    background-color: #53c0ded7;
-    background-image: url("../../../public/assets/main.png");
-    height: 700px;
-    background-repeat: no-repeat;
-    background-origin: border-box;
     text-align: center;
+    position: relative;
+}
+
+.banner {
+    width: 100%;
+    display: block;
+}
+
+.info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
 .title {
     color: rgba(253,224,70,1);
-
     text-shadow: 1px 1px 1px #000;
     margin-top: 10vh;
     font-size: 55px;
@@ -45,10 +53,4 @@
     text-shadow: 1px 1px 1px #000;
     color: white;
     font-size: 35px;
-}
-
-.banners {
-    position: absolute;
-    top: 170px;
-    left: 0;
 }
