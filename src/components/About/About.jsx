@@ -1,61 +1,9 @@
 import Container from "../UI/Container/Container";
 import classes from "./About.module.css";
 import avatar from "../assets/magic-avatar.jpg";
-import Slider from "react-slick";
-import { useEffect, useState } from "react";
-import StorageAPICalls from "../../API/StorageAPI";
+import Gallery from "../Gallery/Gallery";
 
 const About = () => {
-  const [gallegy, setGallery] = useState([]);
-
-  useEffect(() => {
-    async function fetchImages() {
-      const res = await StorageAPICalls.getGalleryRef();
-      res.items.forEach(async itemRef => {
-        const url = await StorageAPICalls.getGalleryImage(itemRef);
-        setGallery(prevState => {
-          return [...prevState, url];
-        });
-      });
-    }
-    fetchImages();
-  }, []);
-    
-    var settings = {
-        infinite: true,
-        slidesToShow: 4,
-        slidesToScroll: 2,
-        arrows: false,
-        autoplay: true,
-        speed: 5000,
-        autoplaySpeed: 100,
-        cssEase: "ease",
-        responsive: [
-          {
-            breakpoint: 1224,
-            settings: {
-              slidesToShow: 3,
-              slidesToScroll: 1,
-              infinite: true,
-            }
-          },
-          {
-            breakpoint: 800,
-            settings: {
-              slidesToShow: 2,
-              slidesToScroll: 1,
-              initialSlide: 0
-            }
-          },
-          {
-            breakpoint: 680,
-            settings: {
-              slidesToShow: 1,
-              slidesToScroll: 1
-            }
-          }
-        ]
-      };
 
     return (<div className={classes.back}>
         <Container>
@@ -77,14 +25,7 @@ const About = () => {
                     </div>
                 </div>
                 <div className={classes.gallery}>
-                    <Slider {...settings}>
-                        {gallegy.map((item, index) => 
-                          <div key={index}>
-                            <img src={item} width="250px" style={{borderRadius: "50px"}}/>
-                          </div>
-                        )}
-                        
-                    </Slider>
+                    <Gallery imgPath='gallery'/>
                 </div>
             </div>
         </Container>

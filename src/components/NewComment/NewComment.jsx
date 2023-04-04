@@ -135,7 +135,8 @@ export default function NewComment() {
                         onBlur={onEventTypeBlur}
                         onClick={openEventTypeModal}
                         autocomplete="off"
-                        onKeyDown={e => e.preventDefault()}/> 
+                        onKeyDown={e => e.preventDefault()}
+                        inputmode='none'/> 
                     <CommentTextarea 
                         ref={commentInputRef}
                         name='comment' 
