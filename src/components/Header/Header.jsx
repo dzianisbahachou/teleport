@@ -1,6 +1,5 @@
 import { NavLink } from "react-router-dom";
 import classes from "./Header.module.css";
-import logo from "../assets/React-icon.png";
 import telegram from "../assets/telegram.png";
 import instagram from "../assets/instagram.png";
 import vk from "../assets/vk.png";
@@ -13,43 +12,47 @@ const INSTAGRAM_LINK = "https://www.instagram.com/teleport.brest/";
 const VK_LINK = "https://vk.com/public211042858";
 
 const Header = () => {
-  const [active, setActive] = useState(false);
-  const [toggleIcon, setToggleIcon] = useState(false);
+  const [active, setActive] = useState(null);
+  const [toggleIcon, setToggleIcon] = useState(null);
 
   const navToggle = () => {
     setActive(prevState => !prevState);
     setToggleIcon(prevState => !prevState);
   };
-    return ( <Container>
+  const resetNavBar = () => {
+    setToggleIcon(false);
+    setActive(false);
+  }
+    return (<div className={classes.back}>
       <header className={classes.header}>
         <nav className={classes.navbar}>
           <div className={classes.logo}>
-            <NavLink to="/" style={{background: "red", paddingTop: "10px"}} className={(({isActive}) => isActive ? classes.active : "")} end>
-              <img onClick={navToggle} src={logo} className={classes.qq} alt="Лого"/>
+            <NavLink to="/" className={(({isActive}) => isActive ? classes.active : "")} end>
+              <img onClick={resetNavBar} src="assets/logo/alogo.png" className={classes.qq} alt="Лого"/>
             </NavLink>
           </div>
-          <ul className={`${classes.list} ${active ? classes.acti : ""}`}>
+          <ul className={`${classes.list} ${active === true ? classes.acti : active === false ? classes.aca : active === null ? classes.acas : ""}`}>
             <li>
-              <NavLink to="animators" className={(({isActive}) => isActive ? classes.active : "")}><p onClick={navToggle} className={classes["header-items"]}>Аниматоры</p></NavLink>
+              <NavLink to="animators" className={(({isActive}) => isActive ? classes.active : "")}><p onClick={navToggle} className={classes["header-items"]}>АНИМАТОРЫ</p></NavLink>
             </li>
             <li>
-              <NavLink to="/admin" className={(({isActive}) => isActive ? classes.active : "")}><p onClick={navToggle} className={classes["header-items"]}>Шоу-программы</p></NavLink>
+              <NavLink to="/admin" className={(({isActive}) => isActive ? classes.active : "")}><p onClick={navToggle} className={classes["header-items"]}>ШОУ-ПРОГРАММЫ</p></NavLink>
             </li>
             <li>
-              <NavLink to="animators-2" className={(({isActive}) => isActive ? classes.active : "")}><p onClick={navToggle} className={classes["header-items"]}>Доп услуги</p></NavLink>
+              <NavLink to="animators-2" className={(({isActive}) => isActive ? classes.active : "")}><p onClick={navToggle} className={classes["header-items"]}>ДОП УСЛУГИ</p></NavLink>
             </li>
             <li>
-              <NavLink to="animators-3" className={(({isActive}) => isActive ? classes.active : "")}><p onClick={navToggle} className={classes["header-items"]}>Онлайн-праздники</p></NavLink>
+              <NavLink to="animators-3" className={(({isActive}) => isActive ? classes.active : "")}><p onClick={navToggle} className={classes["header-items"]}>ОНЛАЙН ПРАЗДНИКИ</p></NavLink>
             </li>
             <li>
-              <NavLink to="comments" className={(({isActive}) => isActive ? classes.active : "")}><p onClick={navToggle} className={classes["header-items"]}>Отзывы</p></NavLink>
+              <NavLink to="comments" className={(({isActive}) => isActive ? classes.active : "")}><p onClick={navToggle} className={classes["header-items"]}>ОТЗЫВЫ</p></NavLink>
             </li>
           </ul>
           <ul className={`${classes.list} ${classes.contacts}`}>
             <li><a href={TEL_LINK}><span className={classes.tel}>+375 (29) 830 97 32</span></a></li>
-            <li><a href={TELEGRAM_LINK} rel='noreferrer' target="_blank"><img src={telegram} alt="Telegram" width="20px"/></a></li>
-            <li><a href={INSTAGRAM_LINK} rel='noreferrer' target="_blank"><img src={instagram} alt="Inst" width="20px"/></a></li>
-            <li><a href={VK_LINK} rel='noreferrer' target="_blank"><img src={vk} alt="VK" width="20px"/></a></li>
+            <li><a href={TELEGRAM_LINK} rel='noreferrer' target="_blank"><img src={telegram} alt="Telegram" width="30px"/></a></li>
+            <li><a href={INSTAGRAM_LINK} rel='noreferrer' target="_blank"><img src={instagram} alt="Inst" width="30px"/></a></li>
+            <li><a href={VK_LINK} rel='noreferrer' target="_blank"><img src={vk} alt="VK" width="30px"/></a></li>
           </ul>
           <div onClick={navToggle} className={`${classes.aaa} ${toggleIcon ? classes.aaaa : ""}`}>
             <div className={classes.a}></div>
@@ -58,8 +61,7 @@ const Header = () => {
           </div>
         </nav>
       </header>
-    </Container>
-    )
+    </div>)
 }
 
 export default Header;

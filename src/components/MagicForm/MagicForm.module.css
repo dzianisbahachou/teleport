@@ -1,7 +1,12 @@
+.back{
+    background: url("/public/assets/magic.png");
+    background-size: cover;
+}
+
 .wrapper {
     display: flex;
-    justify-content:space-around;
-    margin: 10vh 0;
+    justify-content:space-between;
+    margin: 25vh 0 20vh 5vw;
 }
 
 .form{
@@ -12,23 +17,34 @@
 .inputs{
     display: flex;
     flex-direction: column;
-    width: 300px;
+    width: 30vw;
 }
 
 .form-title{ 
     margin: 0 0 10px 0;
+    font-size: 55px;
+    color: rgba(253,224,70,1);
+    text-shadow: 1px 1px 1px #000;
+}
+
+.form-description{ 
+    margin: 0 0 10px 0;
     font-size: 25px;
+    color: #ffffff;
+    text-shadow: 1px 1px 1px #000;
 }
 
 .form-button {
+    letter-spacing: 0.1rem;
     margin-top: 10px;
-    width: 210px;
-    font-size: 15px;
+    font-size: 25px;
     cursor: pointer;
-    background-color: #07c800;
-    border: 1px solid #4400ff;
-    color: rgb(0, 0, 0);
-    padding: 0.6rem 2.2rem;
+    color: #ffffff;
+    text-shadow: 1px 1px 1px #000;
+    border: none;
+    background: rgb(251,185,67);
+    background: linear-gradient(0deg, rgba(251,185,67,1) 0%, rgba(253,224,70,1) 100%);
+    padding: 1rem 2.5rem;
     border-radius: 20px;
     font-weight: bold;
 }
