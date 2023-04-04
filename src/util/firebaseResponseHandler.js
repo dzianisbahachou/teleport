@@ -1,4 +1,4 @@
-export function convertResponseCode(code) {
+export function convertResponseErrorMessage(code) {
     let message = 'Что-то пошло не так';
     switch(code) {
         case 'auth/wrong-password':
@@ -9,6 +9,13 @@ export function convertResponseCode(code) {
             break;
         case 'Permission denied':
             message = 'Вы не авторизованы';
+            break;
+        case 'snapshot/animators-doesnot-exist':
+            message = 'Не удалось загрузить аниматоров';
+            break;
+        case 'snapshot/comments-doesnot-exist':
+            message = 'Не удалось загрузить коментарии';
+            break;
     }
 
     return message;

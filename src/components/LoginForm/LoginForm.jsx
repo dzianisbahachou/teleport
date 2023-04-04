@@ -6,7 +6,7 @@ import { useActionData } from "react-router-dom";
 import LoginInput from "../UI/LoginInput/LoginInput";
 import LoginButton from "../UI/LoginButton/LoginButton";
 import LoginValidationMessage from "../UI/LoginValidationMessage/LoginValidationMessage";
-import { convertResponseCode } from '../../util/firebaseResponseHandler';
+import { convertResponseErrorMessage } from '../../util/firebaseResponseHandler';
 
 export default function LoginForm() {
     const actionData = useActionData(); 
@@ -17,7 +17,7 @@ export default function LoginForm() {
     const isButtonDisabled = !email || !password;
 
     if (actionData) {
-        errorMessage = convertResponseCode(actionData);
+        errorMessage = convertResponseErrorMessage(actionData);
     }
 
     return(

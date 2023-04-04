@@ -2,7 +2,7 @@ import { json, useLoaderData, useNavigation } from 'react-router-dom';
 import cl from './CommentsPage.module.css';
 import APICalls from "../../API/API";
 import { convertResponse } from '../../util/firebaseResponseHandler';
-import { convertResponseCode } from '../../util/firebaseResponseHandler';
+import { convertResponseErrorMessage } from '../../util/firebaseResponseHandler';
 
 import LoginLoader from '../../components/UI/LoginLoader/LoginLoader';
 import CommentsList from '../../components/CommentsList/CommentsList';
@@ -32,7 +32,7 @@ export async function loader() {
         const snapshot = await APICalls.getComments();
         
         if (!snapshot.exists()) {
-            throw new Error();
+            throw new Error('snapshot/comments-doesnot-exist');
         }
 
         const value = snapshot.val();
@@ -40,7 +40,7 @@ export async function loader() {
 
         return comments;
     } catch(e) {
-        const message = convertResponseCode(e.message);
+        const message = convertResponseErrorMessage(e.message);
 
         throw json(
             { message },

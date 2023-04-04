@@ -1,19 +1,18 @@
 import AnimatorsList from "../components/AnimatorsList/AnimatorsList";
-import { useLoaderData, useNavigation, json, Outlet } from "react-router-dom";
+import { useLoaderData, useNavigation, json } from "react-router-dom";
 import LoginLoader from "../components/UI/LoginLoader/LoginLoader";
 import APICalls from "../API/API";
-import { convertResponse, convertResponseCode } from "../util/firebaseResponseHandler";
+import { convertResponse, convertResponseErrorMessage } from "../util/firebaseResponseHandler";
 
 const AnimatorsPage = () => {
     const data = useLoaderData();
     const navigation = useNavigation()
-    const isSubmitting = navigation.state === 'loading';
+    const isLoading = navigation.state === 'loading';
     return (
         <>
             <h1>I LOVE TO LUNTIK</h1>
             <AnimatorsList animators={data}/>
-            {isSubmitting && <LoginLoader />}
-            <Outlet />
+            {isLoading && <LoginLoader />}
         </>
     );
 };
@@ -25,7 +24,7 @@ export async function loader() {
         const snapshot = await APICalls.getEvents('animators');
         
         if (!snapshot.exists()) {
-            throw new Error();
+            throw new Error('snapshot/animators-doesnot-exist');
         }
 
         const value = snapshot.val();
@@ -33,7 +32,7 @@ export async function loader() {
 
         return animators;
     } catch(e) {
-        const message = convertResponseCode(e.message);
+        const message = convertResponseErrorMessage(e.message);
 
         throw json(
             { message },
