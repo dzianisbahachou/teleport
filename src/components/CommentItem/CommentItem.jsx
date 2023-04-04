@@ -7,7 +7,7 @@ export default function CommentItem({data}) {
 
     const imgPath = data.eventSubType 
         ? `assets/logo/eventLogo/${data.eventSubType}.jpg`
-        : 'assets/logo/defaultEventLogo.jpg';
+        : 'assets/logo/defaultEventLogo.png';
 
     return (
         <>

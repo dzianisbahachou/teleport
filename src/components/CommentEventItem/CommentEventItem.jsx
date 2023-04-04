@@ -3,7 +3,7 @@ import cl from './CommentEventItem.module.css';
 export default function CommentEventItem({title, eventSubType, onClick}) {
     const imgPath = eventSubType 
         ? `assets/logo/eventLogo/${eventSubType}.jpg`
-        : 'assets/logo/defaultEventLogo.jpg';
+        : 'assets/logo/defaultEventLogo.png';
 
     const onItemClick = () => {
         onClick(eventSubType);
