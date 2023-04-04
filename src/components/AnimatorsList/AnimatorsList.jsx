@@ -1,11 +1,11 @@
 import cl from './AnimatorsList.module.css';
 import EventItem from '../EventItem/EventItem';
-import Container from '../UI/Container/Container';
 
 export default function AnimatorsList({animators}) {
 
     return (
-        <Container>
+        <>
+            <h1 className={cl.title}>НАШИ АНИМАТОРЫ</h1>
             <ul className={cl.list}>
                 {
                 animators?.length 
@@ -13,6 +13,6 @@ export default function AnimatorsList({animators}) {
                     : <p>Нет ничего </p>
                 }
             </ul>
-        </Container>
+        </>
     );
 }

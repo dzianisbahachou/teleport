@@ -1,19 +1,22 @@
-import AnimatorsList from "../components/AnimatorsList/AnimatorsList";
+import AnimatorsList from "../../components/AnimatorsList/AnimatorsList";
 import { useLoaderData, useNavigation, json } from "react-router-dom";
-import LoginLoader from "../components/UI/LoginLoader/LoginLoader";
-import APICalls from "../API/API";
-import { convertResponse, convertResponseErrorMessage } from "../util/firebaseResponseHandler";
+import LoginLoader from "../../components/UI/LoginLoader/LoginLoader";
+import APICalls from "../../API/API";
+import { convertResponse, convertResponseErrorMessage } from "../../util/firebaseResponseHandler";
+import cl from './AnimatorsPage.module.css';
+import Container from "../../components/UI/Container/Container";
 
 const AnimatorsPage = () => {
     const data = useLoaderData();
     const navigation = useNavigation()
     const isLoading = navigation.state === 'loading';
     return (
-        <>
-            <h1>I LOVE TO LUNTIK</h1>
-            <AnimatorsList animators={data}/>
+        <div className={cl.wrapper}>
+            <Container>
+                <AnimatorsList animators={data}/>
+            </Container>
             {isLoading && <LoginLoader />}
-        </>
+        </div>
     );
 };
 
