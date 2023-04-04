@@ -7,7 +7,7 @@ import { getAuth, signOut } from "firebase/auth";
 import AdminTable from "../../components/AdminTable/AdminTable";
 import { convertResponse } from "../../util/firebaseResponseHandler";
 import AdminButton from "../../components/UI/AdminButton/AdminButton";
-import { convertResponseCode } from "../../util/firebaseResponseHandler";
+import { convertResponseErrorMessage } from "../../util/firebaseResponseHandler";
 import { getCurrentUser } from "../../util/auth";
 
 export default function AdminPage() {
@@ -50,7 +50,7 @@ export async function loader() {
 
         return users;
     } catch(e) {
-        const message = convertResponseCode(e.message);
+        const message = convertResponseErrorMessage(e.message);
 
         throw json(
             { message },

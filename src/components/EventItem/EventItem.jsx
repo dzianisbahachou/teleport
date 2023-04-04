@@ -2,16 +2,16 @@ import { Link } from 'react-router-dom';
 import cl from './EventItem.module.css';
 
 export default function EventItem({data}) {
-    const eventSubType = data.eventSubType;
+    // const eventSubType = data.eventSubType;
+    const eventSubType = 'mickeyMouse';
     const imgPath = eventSubType 
-        ? `assets/logo/eventLogo/${eventSubType}.jpg`
-        : 'assets/logo/defaultEventLogo.jpg';
+        ? `assets/logo/eventLogo/${eventSubType}.png`
+        : 'assets/logo/defaultEventLogo.png'; 
 
     return (
-        <Link to={eventSubType}>
-            <div className={cl.item}>
-                <img className={cl.img} src={imgPath} alt={eventSubType}/>
-            </div>
+        <Link to={eventSubType} className={cl.item}>
+            <img className={cl.img} src={imgPath} alt={eventSubType}/>
+            <span>{data.title}</span>
         </Link>
     );
 }
