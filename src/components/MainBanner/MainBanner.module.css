@@ -1,33 +1,39 @@
 .welcome {
     background-color: #53c0ded7;
-    background-image: url("../../../public/assets/banner.webp");
-    height: 500px;
-    background-size: cover;
+    background-image: url("../../../public/assets/main.png");
+    height: 700px;
     background-repeat: no-repeat;
     background-origin: border-box;
     text-align: center;
 }
 
 .title {
-    color: rgb(235, 26, 189);
+    color: rgba(253,224,70,1);
+
+    text-shadow: 1px 1px 1px #000;
     margin-top: 10vh;
-    font-size: 50px;
+    font-size: 55px;
 }
 
 .description {
-    color: rgb(201, 0, 228);
-    font-size: 25px;
+    color: #ffffff;
+    text-shadow: 1px 1px 1px #000;
+    font-size: 39px;
+    text-align: center;
+    margin-top: 5rem;
 }
 
 .main-button {
     font-size: 20px;
     cursor: pointer;
-    background-color: #ffee00;
-    border: 1px solid #4400ff;
+    background: rgb(251,185,67);
+    background: linear-gradient(0deg, rgba(251,185,67,1) 0%, rgba(253,224,70,1) 100%);
+    border: 1px solid rgb(155,222,245);
     color: rgb(0, 0, 0);
     padding: 0.6rem 2.2rem;
     border-radius: 20px;
     font-weight: bold;
+    margin-top: 2rem;
 }
 
 .main-button:hover {
@@ -36,7 +42,9 @@
 
 .main-button a{
     text-decoration: none;
-    color: rgb(139, 77, 0);
+    text-shadow: 1px 1px 1px #000;
+    color: white;
+    font-size: 35px;
 }
 
 .banners {

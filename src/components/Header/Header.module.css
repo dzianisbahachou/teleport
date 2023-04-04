@@ -1,3 +1,7 @@
+.back{
+    background-color: rgb(155,222,245);
+}
+
 .navbar ul{
     list-style-type: none;
     margin-left: -2em;
@@ -7,7 +11,7 @@
 }
 
 .navbar {
-    width: 85vw;
+    width: 95vw;
     display: flex;
 }
 
@@ -34,15 +38,17 @@
 }
 
 .contacts li:nth-child(1) {
-    width: 9rem;
+    width: 14rem;
     margin-top: 1px;
     transform: none;
-    margin-right: -15px;
+    margin-right: 5px;
 }
 
 .list {
     display: flex;
     gap: 1rem;
+    transform: scale(1);
+    transition: all 4s ease;
 }
 
 .list a {
@@ -54,31 +60,33 @@
     margin-top: 7px;
 }
 
-.contacts li{
-}
-
 .list a:hover,
 .list a.active {
     color: blueviolet
 }
 
 .logo {
-    padding: 1rem;
+    padding: 1rem 1rem 0 0;
+    margin-left: 3rem;
 }
 
 .logo img{
-    width: 25px;
-    height: 25px;
+    width: 40px;
+    height: 35px;
 }
 
 .header-items {
     margin: 0 auto;
-    font-size: 15px;
+    font-size: 20px;
+    color: rgb(83,202,238);
+    text-shadow: 1px 1px 1px rgb(0, 0, 0);
 }
 
 .tel {
-    font-size: 15px;
+    font-size: 22px;
     margin-top: 10px;
+    color: rgb(255, 255, 255);
+    text-shadow: 1px 1px 1px rgb(0, 0, 0);
 }
 
 .aaa {
@@ -92,12 +100,12 @@
     height: 0.2rem;
     margin: 0.4rem;
     background-color: rgb(0, 0, 0);
-    transition: 0.4s ease-in;
+    transition: all 0.4s ease;
 }
 
-@media screen and (max-width: 968px) {
-    html {
-        overflow: hidden;
+@media screen and (max-width: 828px) {
+    html{
+        overflow-x: hidden;
     }
     .aaa {
         display: block;
@@ -116,13 +124,26 @@
         opacity: 0.9;
         color: whitesmoke;
         z-index: 50;
-        transform: translateX(100%);
         display: flex;
-        justify-content: center;
+        padding-top: 2rem;
         align-items: center;
         gap: 3rem;
-        transition: 0.4s ease-in;
     }
+
+   
+
+    @keyframes closeModal {
+        0% {
+            opacity: 0.9;
+            transform: translateX(0);
+        }
+        100% {
+            opacity: 0;
+            transform: translateX(100%);
+            display: none;
+        }
+    }
+
     .list p {
         font-size: 40px;
         text-align: center;
@@ -135,10 +156,31 @@
     .navbar ul {
         padding-right: 40px;
     }
+    .aca {
+        animation: closeModal 0.4s ease-out forwards;
+    }
+
+    .acas {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes openModal {
+    0% {
+        opacity: 0;
+        transform: translateX(100%);
+        display: none;
+    }
+    100% {
+        opacity: 0.9;
+        transform: translateX(0);
+    }
 }
 
 .acti {
     transform: translateX(0);
+    animation: openModal 0.4s ease-in forwards;
+
 }
 
 .aaaa .a{

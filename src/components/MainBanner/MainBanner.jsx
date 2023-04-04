@@ -18,13 +18,13 @@ const MainBanner = () => {
         <div className={classes.welcome}>
             {/* <img src="/icons/banner.webp" alt="Banner" className={classes.banners}/> */}
             <Container>
-                <h1 className={classes.title}>Студия детских праздников в Бресте</h1>
+                <h1 className={classes.title}>СТУДИЯ ДЕТСКИХ ПРАЗДНИКОВ В БРЕСТЕ</h1>
                 <p className={classes.description}>
-                    Дети верят в сказку, чудо и супер-героев и мы поможем им побывать в мире 
-                    сказок и поверить, что мечты по настоящему сбываются. Детские аниматоры 
-                    Арчи Шоу это прирождённые
+                Детские праздники в Бресте и Брестской области.<br/>
+                Наши герои создадут веселье где угодно: в квартире, <br/>загородном доме, кафе, школе или детский саду.<br/> 
+                Забронировать волшебный праздник с нашей студией легко.
                 </p>
-                <button className={classes["main-button"]}><a href="#magicForm">Оставить заявку</a></button>
+                <button className={classes["main-button"]}><a href="#magicForm">Вызвать волшебников</a></button>
             </Container>
         </div>
     </>);

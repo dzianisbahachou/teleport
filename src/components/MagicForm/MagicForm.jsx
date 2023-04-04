@@ -79,10 +79,12 @@ const MagicForm = () => {
       }
     };
 
-    return ( <Container>
+    return ( <div className={classes.back}>
+      <Container>
         <div className={classes.wrapper}>
             <div id="magicForm" className={classes.form}>
-                <p className={classes["form-title"]}>Форма волшебства</p>
+                <p className={classes["form-title"]}>Волшебство начинается здесь</p>
+                <p className={classes["form-description"]}>Мы поможем вам организовать праздник мечты.</p>
                 <Form method="post" action="/" className={classes.inputs}>
                     <Input 
                         ref={nameInputRef}
@@ -108,20 +110,19 @@ const MagicForm = () => {
                         id="inst" 
                         type="text" 
                         label="Instagram"
-                        placeholder="Никнейм Instagram"
+                        placeholder="Никнейм Instagram (необязательно)"
                         value={instValue}
                         onChange={onInstChange}/>
                     <div>
-                        <button onClick={submitHandler} className={classes["form-button"]}>Отправить заявку</button>
+                        <button onClick={submitHandler} className={classes["form-button"]}>Отправить</button>
                     </div>
                 </Form>
             </div>
             <div className={classes.avatar}>
-                <img src={magicAvatar} alt="Аватар" width="200px" height="250px"/>
             </div>
         </div>
-    </Container>
-    );
+      </Container>
+    </div>);
 };
 
 export default MagicForm;

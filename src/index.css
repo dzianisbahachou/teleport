@@ -13,6 +13,7 @@ html {
 body {
   margin: 0;
   background-color: #53c0ded7;
+  letter-spacing: 0.08em;
 }
 
 button {
