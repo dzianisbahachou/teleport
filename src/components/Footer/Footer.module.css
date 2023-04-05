@@ -1,0 +1,62 @@
+.back {
+    background: rgb(155,222,245);
+    background: linear-gradient(0deg, rgba(155,222,245,1) 0%, rgba(155,222,245,1) 9%, rgba(255,255,255,1) 100%);
+}
+
+.wrapper {
+    margin: 40px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tabs li, .contacts li {
+    list-style: none;
+}
+
+.tabs li a, .contacts li a {
+    text-decoration: none;
+}
+
+.tab-items {
+    margin: 1.3rem auto;
+    font-size: 20px;
+    color: rgb(83,202,238);
+    text-shadow: 1px 1px 1px rgb(0, 0, 0);
+}
+
+.logo img {
+    height: 30vh;
+    width: 30vh;
+}
+
+.box {
+    flex: 1;
+}
+
+.logo {
+    flex: 1;
+    text-align: center;
+}
+
+.refs {
+    flex: 1;
+    text-align: center;
+}
+
+.links{
+    gap: 2rem;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.links {
+    display: flex;
+}
+
+.tel {
+    font-size: 22px;
+    margin-top: 10px;
+    color: rgb(83,202,238);
+    text-shadow: 1px 1px 1px rgb(0, 0, 0);
+}
