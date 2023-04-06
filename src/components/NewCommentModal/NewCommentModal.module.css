@@ -16,7 +16,7 @@
     background-color: white;
     border-radius: 30px;
     padding: 20px;
-    width: 20vw;
+    width: 30vw;
 }
 
 .header {
@@ -45,6 +45,9 @@
     rotate: 45deg;
     font-size: 24px;
     color: grey;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
 }
 
 .close:hover {
@@ -58,11 +61,11 @@
 }
 
 .form input {
-    margin-bottom: 30px;
+    margin-bottom: 36px;
 }
 
 .form textarea {
-    margin-bottom: 20px;
+    margin-bottom: 26px;
 }
 
 
@@ -84,15 +87,17 @@
     animation: closeModal 300ms ease-out forwards;
 }
 
-@media (max-width: 1500px) {
-    .content {
-        width: 30vw;
-    }
+.opened-background {
+    animation: openModalBackgroung 300ms ease-out forwards;
 }
 
-@media (max-width: 1350px) {
+.closed-background{
+    animation: closeModalBackgroung 300ms ease-out forwards;
+}
+
+@media (min-width: 1800px) {
     .content {
-        width: 35vw;
+        width: 20vw;
     }
 }
 
@@ -123,16 +128,9 @@
 @keyframes openModal {
     0% {
         opacity: 0;
-        transform: translateY(-100%);
+        transform: translateY(-20%);
     }
-    40% {
-        opacity: 0.5;
-        transform: translateY(0%);
-    }
-    75% {
-        opacity: 1;
-        transform: translateY(6%);
-    }
+
     100% {
         opacity: 1;
         transform: translateY(0%);
@@ -144,16 +142,27 @@
         opacity: 1;
         transform: translateY(0%);
     }
-    25% {
-        opacity: 1;
-        transform: translateY(6%);
+    100% {
+        opacity: 0;
+        transform: translateY(-20%);
     }
-    50% {
-        opacity: 0.5;
-        transform: translateY(0%);
+}
+
+@keyframes openModalBackgroung {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes closeModalBackgroung {
+    0% {
+        opacity: 1;
     }
     100% {
         opacity: 0;
-        transform: translateY(-100%);
     }
 }

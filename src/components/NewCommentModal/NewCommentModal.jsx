@@ -117,15 +117,18 @@ export default function NewCommentModal({show, closeModal}) {
     };
 
     const contentClasses = [cl.content];
+    const backgroundClasses = [cl.wrapper];
 
     if (show === 'entering') {
-        contentClasses.push(cl['opened']);
+        contentClasses.push(cl.opened);
+        backgroundClasses.push(cl['opened-background']);
     } else if (show === 'exiting') {
-        contentClasses.push(cl['closed']);
+        contentClasses.push(cl.closed);
+        backgroundClasses.push(cl['closed-background']);
     }
 
     return (
-        <div className={cl.wrapper} onClick={closeModal}>
+        <div className={backgroundClasses.join(' ')} onClick={closeModal}>
             <div className={contentClasses.join(' ')} onClick={onContentClick}>
                 <div className={cl.header}>
                     <div>
