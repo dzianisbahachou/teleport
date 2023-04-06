@@ -5,7 +5,7 @@
         ".write": true
       },
       "comments": {
-        ".indexOn": "eventSubType",
+        ".indexOn": ["eventSubType", "date"],
         ".read": true,
         ".write": true
       },
