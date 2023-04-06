@@ -44,7 +44,6 @@ export default function NewCommentModal({closeModal}) {
         hasError: nameHasError,
         inputChangeHandler: onNameChange,
         inputBlurHandler: onNameBlur,
-        reset: resetName
     } = useInput(validateName);
 
     const {
@@ -53,7 +52,6 @@ export default function NewCommentModal({closeModal}) {
         hasError: eventTypeHasError,
         inputChangeHandler: onEventTypeChange,
         inputBlurHandler: onEventTypeBlur,
-        reset: resetEventType
     } = useInput(validateEventType);
 
     const {
@@ -62,7 +60,6 @@ export default function NewCommentModal({closeModal}) {
         hasError: commentHasError,
         inputChangeHandler: onCommentChange,
         inputBlurHandler: onCommentBlur,
-        reset: resetComment
     } = useInput(validateComment);
 
     const formIsValid = commentIsValid && eventTypeIsValid && nameIsValid;
@@ -131,6 +128,7 @@ export default function NewCommentModal({closeModal}) {
                             ref={nameInputRef}
                             name='name' 
                             placeholder='Ваше имя'
+                            autocomplete="off"
                             value={nameValue}
                             isInvalid={nameHasError}
                             onChange={onNameChange}
@@ -139,11 +137,10 @@ export default function NewCommentModal({closeModal}) {
                             <CommentInput
                                 ref={eventTypeInputRef}
                                 name='eventType' 
-                                placeholder='Евент тип'
+                                placeholder='Кто подарил радость'
                                 value={eventTypeValue}
                                 isInvalid={eventTypeHasError}
                                 onChange={onEventTypeChange}
-                                onBlur={onEventTypeBlur}
                                 onClick={openEventTypeModal}
                                 autocomplete="off"
                                 onKeyDown={e => e.preventDefault()}
