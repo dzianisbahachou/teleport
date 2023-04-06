@@ -19,6 +19,9 @@ body {
 
 body.modal-open {
   overflow: hidden;
+  position: fixed;
+  left: 0;
+  right: 0;
 }
 
 button {

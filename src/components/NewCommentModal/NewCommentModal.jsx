@@ -127,8 +127,16 @@ export default function NewCommentModal({show, closeModal}) {
     return (
         <div className={cl.wrapper} onClick={closeModal}>
             <div className={contentClasses.join(' ')} onClick={onContentClick}>
-                <Form method='POST' className={cl.form}>
-                    <span className={cl.title}>поделиться впечатлением</span>  
+                <div className={cl.header}>
+                    <div>
+                        <span className={cl.title}>Ваши впечатления</span>
+                    </div>
+                    <div className={cl.close} onClick={closeModal}>
+                        +
+                    </div>
+
+                </div>
+                <Form method='POST' className={cl.form}>  
                     <CommentInput
                         ref={nameInputRef}
                         name='name' 
