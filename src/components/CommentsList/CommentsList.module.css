@@ -1,36 +1,5 @@
-.comments {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-    overflow: hidden;    
-}
-
 .list {
     display: flex;
     flex-direction: column-reverse;
     overflow-y: overlay;
-}
-
-.list::-webkit-scrollbar {
-    background-color: rgba(0, 0, 0, 0);
-    width: 0.4rem;
-}
-
-.list::-webkit-scrollbar-track {
-    border-radius: 10px;
-}
-
-.list::-webkit-scrollbar-track:hover {
-    background-color: rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-}
-
-.list::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    background: rgba(72, 102, 128, 0.555);
-}
-
-.list::-webkit-scrollbar-thumb:hover {
-    background: rgba(72, 102, 128);
 }

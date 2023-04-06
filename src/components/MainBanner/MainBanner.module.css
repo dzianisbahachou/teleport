@@ -36,8 +36,7 @@
     cursor: pointer;
     background: rgb(251,185,67);
     background: linear-gradient(0deg, rgba(251,185,67,1) 0%, rgba(253,224,70,1) 100%);
-    border: 1px solid rgb(155,222,245);
-    color: rgb(0, 0, 0);
+    border: none;
     padding: 0.6rem 2.2rem;
     border-radius: 20px;
     font-weight: bold;

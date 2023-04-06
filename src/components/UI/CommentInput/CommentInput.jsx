@@ -24,7 +24,9 @@ const CommentInput = React.forwardRef((props, ref) => {
     const classes = props.isInvalid ? `${cl.input} ${cl.invalid}` : cl.input;
 
     return (
+      <div>
         <input {...props} ref={inputRef} type="text" className={classes} value={name}/>
+      </div>
     );
 });
 

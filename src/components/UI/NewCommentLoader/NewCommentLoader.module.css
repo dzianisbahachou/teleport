@@ -1,6 +1,8 @@
 .wrapper {
     display: flex;
     justify-content: center;
+    align-items: center;
+    height: 100%;
 }
 
 .lds-ellipsis {
@@ -17,7 +19,7 @@
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background: #53c0ded7;
+    background: rgb(251,185,67);
     animation-timing-function: cubic-bezier(0, 1, 1, 0);
 }
 .lds-ellipsis div:nth-child(1) {

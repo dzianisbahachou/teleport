@@ -1,4 +1,5 @@
 import { json, useLoaderData, useNavigation } from 'react-router-dom';
+import { useState } from 'react';
 import cl from './CommentsPage.module.css';
 import APICalls from "../../API/API";
 import { convertResponse } from '../../util/firebaseResponseHandler';
@@ -6,22 +7,35 @@ import { convertResponseErrorMessage } from '../../util/firebaseResponseHandler'
 
 import LoginLoader from '../../components/UI/LoginLoader/LoginLoader';
 import CommentsList from '../../components/CommentsList/CommentsList';
-import NewComment from '../../components/NewComment/NewComment';
+import NewCommentModal from '../../components/NewCommentModal/NewCommentModal';
+import MainButton from '../../components/UI/MainButton/MainButton';
 import Container from '../../components/UI/Container/Container';
 
 const CommentsPage = () => {
     const data = useLoaderData();
     const navigation = useNavigation();
     const isLoading = navigation.state === 'loading' || navigation.state === 'submitting';
+    const [isNewCommentDisplayed, setIsNewCommentDisplayed] = useState(false);
+
+    const openNewCommentModal = () => {
+        setIsNewCommentDisplayed(true);
+    };
+
+    const closeNewCommentModal = () => {
+        setIsNewCommentDisplayed(false);
+    };
 
     return (
-        <Container>
-            {isLoading && <LoginLoader />}
-            <div className={cl.comments}>
-                <CommentsList comments={data}/> 
-                <NewComment />       
-            </div>   
-        </Container>
+        <div className={cl.page}>
+            <Container>
+                {isLoading && <LoginLoader />}
+                {isNewCommentDisplayed && <NewCommentModal closeModal={closeNewCommentModal}/>}
+                <CommentsList comments={data}/>
+                <div className={cl.actions}>
+                    <MainButton onClick={openNewCommentModal}>Оставить отзыв</MainButton>    
+                </div>   
+            </Container>
+        </div>
     );
 };
 
