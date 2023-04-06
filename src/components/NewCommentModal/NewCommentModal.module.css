@@ -47,6 +47,14 @@
     position: relative;
 }
 
+.opened {
+    animation: openModal 300ms ease-out forwards;
+}
+
+.closed {
+    animation: closeModal 300ms ease-out forwards;
+}
+
 @media (max-width: 1000px) {
     .content {
         width: 40vw;
@@ -68,5 +76,43 @@
 @media (max-width: 450px) {
     .content {
         width: 70vw;
+    }
+}
+
+@keyframes openModal {
+    0% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    25% {
+        opacity: 0.5;
+        transform: translateY(0%);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(6%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+
+@keyframes closeModal {
+    0% {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+    25% {
+        opacity: 1;
+        transform: translateY(6%);
+    }
+    50% {
+        opacity: 0.5;
+        transform: translateY(0%);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-100%);
     }
 }

@@ -7,13 +7,12 @@ import CommentTextarea from '../UI/CommentTextarea/CommentTextarea';
 import CommentEventTypeModal from '../CommentEventTypeModal/CommentEventTypeModal';
 import { convertEventType } from '../../util/firebaseResponseHandler';
 import MainButton from '../UI/MainButton/MainButton';
+import Transition from 'react-transition-group/Transition';
 
-export default function NewCommentModal({closeModal}) {
+export default function NewCommentModal({show, closeModal}) {
     const [isEventTypeActive, setIsEventTypeActive] = useState(false);
     const [selectedEventType, setSelectedEventType] = useState('');
     const sub = useSubmit();
-    const navigation = useNavigation();
-    const isSubmitting = navigation.state === 'submitting';
 
     const nameInputRef = useRef();
     const eventTypeInputRef = useRef();
@@ -117,54 +116,61 @@ export default function NewCommentModal({closeModal}) {
         setIsEventTypeActive(false);
     };
 
+    const contentClasses = [cl.content];
+
+    if (show === 'entering') {
+        contentClasses.push(cl['opened']);
+    } else if (show === 'exiting') {
+        contentClasses.push(cl['closed']);
+    }
+
     return (
-        <>
-            <div className={cl.wrapper} onClick={closeModal}>
-                <div className={cl.content} onClick={onContentClick}>
-                    
-                    <Form method='POST' className={cl.form}>
-                        <span className={cl.title}>поделиться впечатлением</span>  
+        <div className={cl.wrapper} onClick={closeModal}>
+            <div className={contentClasses.join(' ')} onClick={onContentClick}>
+                <Form method='POST' className={cl.form}>
+                    <span className={cl.title}>поделиться впечатлением</span>  
+                    <CommentInput
+                        ref={nameInputRef}
+                        name='name' 
+                        placeholder='Ваше имя'
+                        autoComplete="off"
+                        value={nameValue}
+                        isInvalid={nameHasError}
+                        onChange={onNameChange}
+                        onBlur={onNameBlur}/>
+                    <div className={cl['event-type-container']}>
                         <CommentInput
-                            ref={nameInputRef}
-                            name='name' 
-                            placeholder='Ваше имя'
-                            autocomplete="off"
-                            value={nameValue}
-                            isInvalid={nameHasError}
-                            onChange={onNameChange}
-                            onBlur={onNameBlur}/>
-                        <div className={cl['event-type-container']}>
-                            <CommentInput
-                                ref={eventTypeInputRef}
-                                name='eventType' 
-                                placeholder='Кто подарил радость'
-                                value={eventTypeValue}
-                                isInvalid={eventTypeHasError}
-                                onChange={onEventTypeChange}
-                                onClick={openEventTypeModal}
-                                autocomplete="off"
-                                onKeyDown={e => e.preventDefault()}
-                                inputmode='none'/> 
-                            {isEventTypeActive && <CommentEventTypeModal onEventTypeClick={onEventTypeClick}/>}
-                        </div>
-                        <CommentTextarea 
-                            ref={commentInputRef}
-                            name='comment' 
-                            rows={4} className={cl.textarea}
-                            placeholder='Пару слов...'
-                            value={commentValue}
-                            isInvalid={commentHasError}
-                            onChange={onCommentChange}
-                            onBlur={onCommentBlur}>
-                        </CommentTextarea>
-                        <div className={cl.action}>
-                            <MainButton onClick={submitHandler}>
-                                Поделиться
-                            </MainButton> 
-                        </div>
-                    </Form>
-                </div>
+                            ref={eventTypeInputRef}
+                            name='eventType' 
+                            placeholder='Кто подарил радость'
+                            value={eventTypeValue}
+                            isInvalid={eventTypeHasError}
+                            onChange={onEventTypeChange}
+                            onClick={openEventTypeModal}
+                            autoComplete="off"
+                            onKeyDown={e => e.preventDefault()}
+                            inputMode='none'/> 
+                        <Transition in={isEventTypeActive} timeout={300} mountOnEnter unmountOnExit>
+                            { state => <CommentEventTypeModal show={state} onEventTypeClick={onEventTypeClick}/> }
+                        </Transition>
+                    </div>
+                    <CommentTextarea 
+                        ref={commentInputRef}
+                        name='comment' 
+                        rows={4} className={cl.textarea}
+                        placeholder='Пару слов...'
+                        value={commentValue}
+                        isInvalid={commentHasError}
+                        onChange={onCommentChange}
+                        onBlur={onCommentBlur}>
+                    </CommentTextarea>
+                    <div className={cl.action}>
+                        <MainButton onClick={submitHandler}>
+                            Поделиться
+                        </MainButton> 
+                    </div>
+                </Form>
             </div>
-        </>
+        </div>
     );
 }

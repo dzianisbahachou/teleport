@@ -10,6 +10,7 @@ import CommentsList from '../../components/CommentsList/CommentsList';
 import NewCommentModal from '../../components/NewCommentModal/NewCommentModal';
 import MainButton from '../../components/UI/MainButton/MainButton';
 import Container from '../../components/UI/Container/Container';
+import Transition from 'react-transition-group/Transition';
 
 const CommentsPage = () => {
     const data = useLoaderData();
@@ -28,13 +29,15 @@ const CommentsPage = () => {
     return (
         <div className={cl.page}>
             <Container>
-                {isLoading && <LoginLoader />}
-                {isNewCommentDisplayed && <NewCommentModal closeModal={closeNewCommentModal}/>}
+                <Transition in={isNewCommentDisplayed} timeout={300} mountOnEnter unmountOnExit>
+                    {state => <NewCommentModal show={state} closeModal={closeNewCommentModal}/>}
+                </Transition>
                 <CommentsList comments={data}/>
                 <div className={cl.actions}>
                     <MainButton onClick={openNewCommentModal}>Оставить отзыв</MainButton>    
                 </div>   
             </Container>
+            {isLoading && <LoginLoader />}
         </div>
     );
 };
@@ -65,7 +68,7 @@ export async function loader() {
 
 export async function action({request}) {
     const data = await request.formData();
-    const date = Date.now();
+    const date = -1 * Date.now();
     const commentData = {
         text: data.get('comment'),
         name: data.get('name'),

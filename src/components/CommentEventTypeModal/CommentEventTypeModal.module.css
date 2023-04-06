@@ -19,3 +19,33 @@
     border-radius: 10px;
     margin: 12px 0;
 }
+
+.opened {
+    animation: openModal 300ms ease-out forwards;
+}
+
+.closed {
+    animation: closeModal 300ms ease-out forwards;
+}
+
+@keyframes openModal {
+    0% {
+        opacity: 0;
+        height: 0px;
+    }
+    100% {
+        opacity: 1;
+        height: 218px;
+    }
+}
+
+@keyframes closeModal {
+    0% {
+        opacity: 1;
+        height: 218px;
+    }
+    100% {
+        opacity: 0;
+        height: 0px;
+    }
+}

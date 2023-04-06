@@ -6,7 +6,7 @@ import { convertResponse } from '../../util/firebaseResponseHandler';
 import NewCommentLoader from '../UI/NewCommentLoader/NewCommentLoader';
 
 
-const CommentEventTypeModal = ({onEventTypeClick}) => {
+const CommentEventTypeModal = ({show, onEventTypeClick}) => {
     const [events, setEvents] = useState([]);
 
     useEffect(() => {
@@ -30,8 +30,16 @@ const CommentEventTypeModal = ({onEventTypeClick}) => {
         fetchEvents();
     }, []);
 
+    const contentClasses = [cl.content];
+
+    if (show === 'entering') {
+        contentClasses.push(cl['opened']);
+    } else if (show === 'exiting') {
+        contentClasses.push(cl['closed']);
+    }
+
     return (
-        <div className={cl.content} onClick={e => e.stopPropagation()}>
+        <div className={contentClasses.join(' ')} onClick={e => e.stopPropagation()}>
             { events.length 
             ? <CommentEventsList events={events} onSelect={onEventTypeClick}/>
             : <NewCommentLoader/> 

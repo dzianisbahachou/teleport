@@ -27,8 +27,9 @@ export default class APICalls {
     }
 
     static async getComments() {
-        const dbRef = ref(getDatabase());
-        const snapshot = await get(child(dbRef, 'comments'));
+        const db = getDatabase();
+        const commentsRef = query(ref(db, 'comments'), orderByChild('date'));
+        const snapshot = await get(commentsRef);
         return snapshot;
     }
 
