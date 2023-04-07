@@ -6,7 +6,7 @@ import { convertResponse } from '../../util/firebaseResponseHandler';
 import NewCommentLoader from '../UI/NewCommentLoader/NewCommentLoader';
 
 
-const CommentEventTypeModal = ({closeModal, onEventTypeClick}) => {
+const CommentEventTypeModal = ({show, onEventTypeClick}) => {
     const [events, setEvents] = useState([]);
 
     useEffect(() => {
@@ -20,7 +20,7 @@ const CommentEventTypeModal = ({closeModal, onEventTypeClick}) => {
         
                 const value = snapshot.val();
                 const events = convertResponse(value);
-        
+
                 setEvents(events);
             } catch(e) {
                 // message toast
@@ -30,12 +30,20 @@ const CommentEventTypeModal = ({closeModal, onEventTypeClick}) => {
         fetchEvents();
     }, []);
 
+    const contentClasses = [cl.content];
+
+    if (show === 'entering') {
+        contentClasses.push(cl['opened']);
+    } else if (show === 'exiting') {
+        contentClasses.push(cl['closed']);
+    }
+
     return (
-        <div className={cl.wpapper} onClick={closeModal}>
-            <div className={cl.content} onClick={e => e.stopPropagation()}>
-                { !events.length && <NewCommentLoader/> }
-                <CommentEventsList events={events} onSelect={onEventTypeClick}/>
-            </div>
+        <div className={contentClasses.join(' ')} onClick={e => e.stopPropagation()}>
+            { events.length 
+            ? <CommentEventsList events={events} onSelect={onEventTypeClick}/>
+            : <NewCommentLoader/> 
+            }
         </div>
     );
 }

@@ -1,4 +1,5 @@
 import { json, useLoaderData, useNavigation } from 'react-router-dom';
+import { useState } from 'react';
 import cl from './CommentsPage.module.css';
 import APICalls from "../../API/API";
 import { convertResponse } from '../../util/firebaseResponseHandler';
@@ -6,22 +7,38 @@ import { convertResponseErrorMessage } from '../../util/firebaseResponseHandler'
 
 import LoginLoader from '../../components/UI/LoginLoader/LoginLoader';
 import CommentsList from '../../components/CommentsList/CommentsList';
-import NewComment from '../../components/NewComment/NewComment';
+import NewCommentModal from '../../components/NewCommentModal/NewCommentModal';
+import MainButton from '../../components/UI/MainButton/MainButton';
 import Container from '../../components/UI/Container/Container';
+import Transition from 'react-transition-group/Transition';
 
 const CommentsPage = () => {
     const data = useLoaderData();
     const navigation = useNavigation();
     const isLoading = navigation.state === 'loading' || navigation.state === 'submitting';
+    const [isNewCommentDisplayed, setIsNewCommentDisplayed] = useState(false);
+
+    const openNewCommentModal = () => {
+        setIsNewCommentDisplayed(true);
+    };
+
+    const closeNewCommentModal = () => {
+        setIsNewCommentDisplayed(false);
+    };
 
     return (
-        <Container>
+        <div className={cl.page}>
+            <Container>
+                <Transition in={isNewCommentDisplayed} timeout={300} mountOnEnter unmountOnExit>
+                    {state => <NewCommentModal show={state} closeModal={closeNewCommentModal}/>}
+                </Transition>
+                <CommentsList comments={data}/>
+                <div className={cl.actions}>
+                    <MainButton onClick={openNewCommentModal}>Оставить отзыв</MainButton>    
+                </div>   
+            </Container>
             {isLoading && <LoginLoader />}
-            <div className={cl.comments}>
-                <CommentsList comments={data}/> 
-                <NewComment />       
-            </div>   
-        </Container>
+        </div>
     );
 };
 
@@ -37,8 +54,9 @@ export async function loader() {
 
         const value = snapshot.val();
         const comments = convertResponse(value);
+        const sortedComments = comments.reverse();
 
-        return comments;
+        return sortedComments;
     } catch(e) {
         const message = convertResponseErrorMessage(e.message);
 
@@ -51,12 +69,10 @@ export async function loader() {
 
 export async function action({request}) {
     const data = await request.formData();
-    const date = Date.now();
     const commentData = {
         text: data.get('comment'),
         name: data.get('name'),
         eventSubType: data.get('eventSubType'),
-        date
     };
 
     try {

@@ -1,6 +1,15 @@
-.comments {
-    height: 85vh;
+.page {
+    background: rgb(155,222,245);
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%,  rgba(155,222,245,1) 100%);
+}
+
+.actions {
+    margin-top: 20px;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
+}
+
+.actions button {
+    font-size: 25px;
+    padding: 10px 40px; 
 }

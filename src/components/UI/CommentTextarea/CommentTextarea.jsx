@@ -23,8 +23,15 @@ const CommentTextarea = React.forwardRef((props, ref) => {
     const classes = props.isInvalid ? `${cl.textarea} ${cl.invalid}` : cl.textarea;
 
     return (
-        <textarea 
-            {...props} ref={inputRef} className={classes} value={name}>
+        <textarea  
+            ref={inputRef}
+            name={props.name}
+            className={classes} 
+            value={name}
+            rows={props.rows}
+            placeholder={props.placeholder}
+            onChange={props.onChange}
+            onBlur={props.onBlur}>
         </textarea>
     );
 });

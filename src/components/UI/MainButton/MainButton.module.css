@@ -1,0 +1,12 @@
+.button {
+    cursor: pointer;
+    background: rgb(251,185,67);
+    background: linear-gradient(0deg, rgba(251,185,67,1) 0%, rgba(253,224,70,1) 100%);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    color: white;
+    text-shadow: 1px 1px 1px #000;
+    height: min-content;
+    outline: none;
+}

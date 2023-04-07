@@ -14,8 +14,39 @@ body {
   margin: 0;
   background-color: #53c0ded7;
   letter-spacing: 0.08em;
+  overflow-y: overlay; 
+}
+
+body.modal-open {
+  overflow: hidden;
+  position: fixed;
+  left: 0;
+  right: 0;
 }
 
 button {
   font-family: 'Adigiana Ultra', sans-serif;
+}
+
+::-webkit-scrollbar {
+  background-color: rgba(0, 0, 0, 0);
+  width: 0.7rem;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: rgba(72, 102, 128, 0.555);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(72, 102, 128);
 }

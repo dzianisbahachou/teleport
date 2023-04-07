@@ -1,22 +1,29 @@
 import { Form, useSubmit, useNavigation } from 'react-router-dom';
-import { useRef, useState } from 'react';
-import cl from './NewComment.module.css';
+import { useRef, useState, useEffect } from 'react';
+import cl from './NewCommentModal.module.css';
 import CommentInput from '../UI/CommentInput/CommentInput';
 import useInput from '../../hooks/use-input';
 import CommentTextarea from '../UI/CommentTextarea/CommentTextarea';
 import CommentEventTypeModal from '../CommentEventTypeModal/CommentEventTypeModal';
 import { convertEventType } from '../../util/firebaseResponseHandler';
+import MainButton from '../UI/MainButton/MainButton';
+import Transition from 'react-transition-group/Transition';
 
-export default function NewComment() {
+export default function NewCommentModal({show, closeModal}) {
     const [isEventTypeActive, setIsEventTypeActive] = useState(false);
     const [selectedEventType, setSelectedEventType] = useState('');
     const sub = useSubmit();
-    const navigation = useNavigation();
-    const isSubmitting = navigation.state === 'submitting';
 
     const nameInputRef = useRef();
     const eventTypeInputRef = useRef();
     const commentInputRef = useRef();
+
+    useEffect(() => {
+        document.body.classList.add('modal-open');
+        return () => {
+            document.body.classList.remove('modal-open');
+        }
+    }, []);
 
     const validateName = value => {
         return value.length > 0;
@@ -36,7 +43,6 @@ export default function NewComment() {
         hasError: nameHasError,
         inputChangeHandler: onNameChange,
         inputBlurHandler: onNameBlur,
-        reset: resetName
     } = useInput(validateName);
 
     const {
@@ -45,7 +51,6 @@ export default function NewComment() {
         hasError: eventTypeHasError,
         inputChangeHandler: onEventTypeChange,
         inputBlurHandler: onEventTypeBlur,
-        reset: resetEventType
     } = useInput(validateEventType);
 
     const {
@@ -54,7 +59,6 @@ export default function NewComment() {
         hasError: commentHasError,
         inputChangeHandler: onCommentChange,
         inputBlurHandler: onCommentBlur,
-        reset: resetComment
     } = useInput(validateComment);
 
     const formIsValid = commentIsValid && eventTypeIsValid && nameIsValid;
@@ -85,18 +89,13 @@ export default function NewComment() {
 
             sub(formData, {method: "post"});
     
-            resetName();
-            resetEventType();
-            resetComment();
+            closeModal();
         }
     };
 
-    const openEventTypeModal = () => {
+    const openEventTypeModal = (e) => {
+        e.stopPropagation();
         setIsEventTypeActive(true);
-    };
-
-    const closeEventTypeModal = () => {
-        setIsEventTypeActive(false);
     };
 
     const onEventTypeClick = (eventSubType) => {
@@ -109,34 +108,63 @@ export default function NewComment() {
 
         setSelectedEventType(eventSubType);
         onEventTypeChange(dummy);
-        closeEventTypeModal();
+        setIsEventTypeActive(false);
     };
 
+    const onContentClick = (e) => {
+        e.stopPropagation();
+        setIsEventTypeActive(false);
+    };
+
+    const contentClasses = [cl.content];
+    const backgroundClasses = [cl.wrapper];
+
+    if (show === 'entering') {
+        contentClasses.push(cl.opened);
+        backgroundClasses.push(cl['opened-background']);
+    } else if (show === 'exiting') {
+        contentClasses.push(cl.closed);
+        backgroundClasses.push(cl['closed-background']);
+    }
+
     return (
-        <>
-            {isEventTypeActive && <CommentEventTypeModal closeModal={closeEventTypeModal} onEventTypeClick={onEventTypeClick}/>}
-            <Form method='POST' className={cl.form}>         
-                <div className={cl['info-container']}>
+        <div className={backgroundClasses.join(' ')} onClick={closeModal}>
+            <div className={contentClasses.join(' ')} onClick={onContentClick}>
+                <div className={cl.header}>
+                    <div>
+                        <span className={cl.title}>Ваши впечатления</span>
+                    </div>
+                    <div className={cl.close} onClick={closeModal}>
+                        +
+                    </div>
+
+                </div>
+                <Form method='POST' className={cl.form}>  
                     <CommentInput
                         ref={nameInputRef}
                         name='name' 
                         placeholder='Ваше имя'
+                        autoComplete="off"
                         value={nameValue}
                         isInvalid={nameHasError}
                         onChange={onNameChange}
                         onBlur={onNameBlur}/>
-                    <CommentInput
-                        ref={eventTypeInputRef}
-                        name='eventType' 
-                        placeholder='Евент тип'
-                        value={eventTypeValue}
-                        isInvalid={eventTypeHasError}
-                        onChange={onEventTypeChange}
-                        onBlur={onEventTypeBlur}
-                        onClick={openEventTypeModal}
-                        autocomplete="off"
-                        onKeyDown={e => e.preventDefault()}
-                        inputmode='none'/> 
+                    <div className={cl['event-type-container']}>
+                        <CommentInput
+                            ref={eventTypeInputRef}
+                            name='eventType' 
+                            placeholder='Кто подарил радость'
+                            value={eventTypeValue}
+                            isInvalid={eventTypeHasError}
+                            onChange={onEventTypeChange}
+                            onClick={openEventTypeModal}
+                            autoComplete="off"
+                            onKeyDown={e => e.preventDefault()}
+                            inputMode='none'/> 
+                        <Transition in={isEventTypeActive} timeout={300} mountOnEnter unmountOnExit>
+                            { state => <CommentEventTypeModal show={state} onEventTypeClick={onEventTypeClick}/> }
+                        </Transition>
+                    </div>
                     <CommentTextarea 
                         ref={commentInputRef}
                         name='comment' 
@@ -147,13 +175,13 @@ export default function NewComment() {
                         onChange={onCommentChange}
                         onBlur={onCommentBlur}>
                     </CommentTextarea>
-                </div>
-                <div className={cl.action}>
-                    <button className={cl.button}>
-                        <img className={cl['button-img']} src="/assets/icons/6492707.png" alt="Отправить" onClick={submitHandler}/>
-                    </button> 
-                </div>
-            </Form>
-        </>
+                    <div className={cl.action}>
+                        <MainButton onClick={submitHandler}>
+                            Поделиться
+                        </MainButton> 
+                    </div>
+                </Form>
+            </div>
+        </div>
     );
 }

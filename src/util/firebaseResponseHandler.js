@@ -46,6 +46,9 @@ export function convertEventType(type) {
         case 'mickeyMouse':
             event = 'Микки Маус';
             break;
+        case 'sky':
+            event = 'Скай';
+            break;
         case 'bumblebee':
             event = 'Бамблбии';
             break;
