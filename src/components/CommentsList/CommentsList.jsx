@@ -1,6 +1,6 @@
 import cl from './CommentsList.module.css';
 import CommentItem from '../CommentItem/CommentItem';
-
+import React, { useState } from 'react';
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
@@ -8,12 +8,18 @@ import "swiper/css/pagination";
 import { Pagination } from "swiper";
 import './swiperStyle.css';
 
-export default function CommentsList({comments}) {
+export default React.memo(function CommentsList({comments}) {
+    const [swiperInstance, setSwiperInstance] = useState(undefined);
+
+    if (swiperInstance) {
+        swiperInstance.slideTo(0, 300);
+    }
 
     return (
         <div className={cl.container}>
             <h1 className={cl.title}>Что говорят мужчины</h1>
             <Swiper
+                onSwiper={swiper => {setSwiperInstance(swiper)}}
                 grabCursor={true}
                 slidesPerView={1}
                 slideToClickedSlide={true}
@@ -50,4 +56,4 @@ export default function CommentsList({comments}) {
             </Swiper>
         </div>  
     );
-}
+})
