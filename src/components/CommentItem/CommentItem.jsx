@@ -2,7 +2,6 @@ import cl from './CommentItem.module.css';
 import EventLogo from '../UI/EventLogo/EventLogo';
 
 export default function CommentItem({data}) {
-    data.eventSubType =  'mickeyMouse';
     const imgPath = data.eventSubType;
 
     return (

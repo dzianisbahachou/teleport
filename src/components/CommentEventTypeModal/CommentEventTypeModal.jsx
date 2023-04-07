@@ -20,7 +20,7 @@ const CommentEventTypeModal = ({show, onEventTypeClick}) => {
         
                 const value = snapshot.val();
                 const events = convertResponse(value);
-        
+
                 setEvents(events);
             } catch(e) {
                 // message toast
