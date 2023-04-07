@@ -3,3 +3,11 @@
     flex-direction: column-reverse;
     overflow-y: overlay;
 }
+
+.title {
+    color: rgba(253,224,70,1);
+    text-shadow: 1px 1px 1px #000;
+    margin-top: 30px;
+    font-size: 2rem;
+    text-align: center;
+}

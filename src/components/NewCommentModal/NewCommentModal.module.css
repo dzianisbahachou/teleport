@@ -16,11 +16,11 @@
     background-color: white;
     border-radius: 30px;
     padding: 20px;
-    width: 30vw;
+    width: 25vw;
 }
 
 .header {
-    margin-bottom: 30px;
+    margin-bottom: 40px;
     display: flex;
     justify-content: space-between;
 }
@@ -68,8 +68,6 @@
     margin-bottom: 26px;
 }
 
-
-
 .form button {
     font-size: 1.2rem;
     width: 100%;
@@ -97,7 +95,13 @@
 
 @media (min-width: 1800px) {
     .content {
-        width: 20vw;
+        width: 18vw;
+    }
+}
+
+@media (max-width: 1300px) {
+    .content {
+        width: 30vw;
     }
 }
 
@@ -121,14 +125,14 @@
 
 @media (max-width: 450px) {
     .content {
-        width: 70vw;
+        width: 80vw;
     }
 }
 
 @keyframes openModal {
     0% {
         opacity: 0;
-        transform: translateY(-20%);
+        transform: translateY(-10%);
     }
 
     100% {
@@ -144,7 +148,7 @@
     }
     100% {
         opacity: 0;
-        transform: translateY(-20%);
+        transform: translateY(-10%);
     }
 }
 

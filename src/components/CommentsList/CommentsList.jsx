@@ -5,25 +5,32 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
-import { EffectCoverflow, Pagination } from "swiper";
+import { Pagination } from "swiper";
 import './swiperStyle.css';
 
 export default function CommentsList({comments}) {
 
     return (
         <div className={cl.container}>
-            <h1>Что творят мужчины</h1>
+            <h1 className={cl.title}>Что говорят мужчины</h1>
             <Swiper
                 grabCursor={true}
                 slidesPerView={1}
                 slideToClickedSlide={true}
                 loop={true}
-                pagination={false}
+                pagination={{
+                    dynamicBullets: true,
+                  }}
+                modules={[Pagination]}
                 spaceBetween={40}
-                modules={[EffectCoverflow, Pagination]}
                 breakpoints={{
                     2000: {
-                        slidesPerView: 5
+                        slidesPerView: 5,
+                        spaceBetween: 40
+                    },
+                    1800: {
+                        slidesPerView: 4,
+                        spaceBetween: 50
                     },
                     1000: {
                         slidesPerView: 4

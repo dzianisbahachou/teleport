@@ -54,8 +54,9 @@ export async function loader() {
 
         const value = snapshot.val();
         const comments = convertResponse(value);
+        const sortedComments = comments.reverse();
 
-        return comments;
+        return sortedComments;
     } catch(e) {
         const message = convertResponseErrorMessage(e.message);
 
@@ -68,12 +69,10 @@ export async function loader() {
 
 export async function action({request}) {
     const data = await request.formData();
-    const date = -1 * Date.now();
     const commentData = {
         text: data.get('comment'),
         name: data.get('name'),
         eventSubType: data.get('eventSubType'),
-        date
     };
 
     try {

@@ -1,22 +1,18 @@
 import cl from './CommentItem.module.css';
-import CommentImage from '../UI/CommentImage/CommentImage';
 
 export default function CommentItem({data}) {
+    data.eventSubType =  'mickeyMouse';
     const imgPath = data.eventSubType 
-        ? `assets/logo/eventLogo/${data.eventSubType}.jpg`
+        ? `assets/logo/eventLogo/${data.eventSubType}.png`
         : 'assets/logo/defaultEventLogo.png';
-
-    const onTextClick = () => {
-        debugger
-    };
 
     return (
         <div className={cl.item}>
-            <div className={cl.text} onClick={onTextClick}>
-                <p className={cl.test}>{data.text}</p>
+            <div className={cl.text}>
+                <span className={cl.text}>{data.text}</span>
             </div>
 
-            <CommentImage imgPath={imgPath}/>
+            <img className={cl.image} src={imgPath} alt={imgPath} />
 
             <div className={cl.name}>
                 <span>{data.name}</span>

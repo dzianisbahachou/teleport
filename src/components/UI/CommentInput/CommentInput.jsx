@@ -25,7 +25,19 @@ const CommentInput = React.forwardRef((props, ref) => {
 
     return (
       <div>
-        <input {...props} ref={inputRef} type="text" className={classes} value={name}/>
+        <input
+          ref={inputRef}
+          name={props.name} 
+          placeholder={props.placeholder} 
+          autoComplete={props.autoComplete}  
+          type="text" 
+          className={classes} 
+          value={name}
+          onClick={props.onClick}
+          onChange={props.onChange}
+          onBlur={props.onBlur}
+          inputMode={props.inputMode}
+          onKeyDown={props.onKeyDown}/>
       </div>
     );
 });
