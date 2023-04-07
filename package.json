@@ -20,6 +20,7 @@
     "redux": "^4.2.1",
     "slick-carousel": "^1.8.1",
     "swiper": "^9.2.0",
+    "telegram-send-message": "^0.0.4",
     "tiny-slider-react": "^0.5.6",
     "web-vitals": "^2.1.4",
     "webfontloader": "^1.6.28"

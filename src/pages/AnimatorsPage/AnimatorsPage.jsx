@@ -5,6 +5,7 @@ import APICalls from "../../API/API";
 import { convertResponse, convertResponseErrorMessage } from "../../util/firebaseResponseHandler";
 import cl from './AnimatorsPage.module.css';
 import Container from "../../components/UI/Container/Container";
+import HelpForm from "../../components/HelpForm/HelpForm";
 
 const AnimatorsPage = () => {
     const data = useLoaderData();
@@ -15,6 +16,7 @@ const AnimatorsPage = () => {
             <Container>
                 <AnimatorsList animators={data}/>
             </Container>
+            <HelpForm/>
             {isLoading && <LoginLoader />}
         </div>
     );
