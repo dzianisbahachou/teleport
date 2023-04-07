@@ -25,12 +25,7 @@
     text-overflow: ellipsis;
     width: 100%;
     font-size: 14px;
-}
-
-.image {
-    margin-top: 8px;
-    height: 130px;
-    min-height: 130px;
+    margin-bottom: 10px;
 }
 
 .text::-webkit-scrollbar {

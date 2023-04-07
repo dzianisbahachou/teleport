@@ -1,9 +1,17 @@
-import cl from './EventLogo.module.css';
-
-export default function EventLogo({imgPath}) {
+export default function EventLogo({eventSubType, width, height, ...props}) {
+    const imgPath = eventSubType 
+        ? `assets/logo/eventLogo/${eventSubType}.png`
+        : 'assets/logo/defaultEventLogo.png';
+    
     return (
-        <div className={cl['image-container']}>
-            <img className={cl.image} src={imgPath} alt="" />
-        </div>
+        <img 
+            style={{
+                width,
+                height,
+                minHeight: height
+            }} 
+            src={imgPath} 
+            {...props}
+        />
     );
 }

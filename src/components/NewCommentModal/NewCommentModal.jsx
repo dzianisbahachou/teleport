@@ -168,7 +168,7 @@ export default function NewCommentModal({show, closeModal}) {
                     <CommentTextarea 
                         ref={commentInputRef}
                         name='comment' 
-                        rows={4} 
+                        rows={4} className={cl.textarea}
                         placeholder='Пару слов...'
                         value={commentValue}
                         isInvalid={commentHasError}

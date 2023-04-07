@@ -1,10 +1,9 @@
 import cl from './CommentItem.module.css';
+import EventLogo from '../UI/EventLogo/EventLogo';
 
 export default function CommentItem({data}) {
     data.eventSubType =  'mickeyMouse';
-    const imgPath = data.eventSubType 
-        ? `assets/logo/eventLogo/${data.eventSubType}.png`
-        : 'assets/logo/defaultEventLogo.png';
+    const imgPath = data.eventSubType;
 
     return (
         <div className={cl.item}>
@@ -12,7 +11,7 @@ export default function CommentItem({data}) {
                 <span className={cl.text}>{data.text}</span>
             </div>
 
-            <img className={cl.image} src={imgPath} alt={imgPath} />
+            <EventLogo eventSubType={imgPath} alt={imgPath} height={130}/>
 
             <div className={cl.name}>
                 <span>{data.name}</span>

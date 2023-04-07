@@ -1,10 +1,9 @@
 import cl from './CommentEventItem.module.css';
+import EventLogo from '../UI/EventLogo/EventLogo';
 
 export default function CommentEventItem({title, eventSubType, onClick}) {
-    const imgPath = eventSubType 
-        ? `assets/logo/eventLogo/${eventSubType}.jpg`
-        : 'assets/logo/defaultEventLogo.png';
-
+    eventSubType =  'mickeyMouse';
+    
     const onItemClick = () => {
         onClick(eventSubType);
     }
@@ -12,7 +11,7 @@ export default function CommentEventItem({title, eventSubType, onClick}) {
     return (
         <div className={cl.item} onClick={onItemClick}>
             <div className={cl['img-container']}>
-                <img src={imgPath} alt={title} className={cl.img}/>
+                <EventLogo eventSubType={eventSubType} alt={title} height={50}/>
             </div>
             <div>
                 {title}
