@@ -24,7 +24,7 @@ const Header = () => {
         <nav className={classes.navbar}>
           <div className={classes.logo}>
             <NavLink to="/" className={(({isActive}) => isActive ? classes.active : "")} end>
-              <img onClick={resetNavBar} src="assets/logo/alogo.png" className={classes.qq} alt="Лого"/>
+              <img onClick={resetNavBar} src="assets/logo/appLogo.png" className={classes.qq} alt="Лого"/>
             </NavLink>
           </div>
           <ul className={`${classes.list} ${active === true ? classes.acti : active === false ? classes.aca : active === null ? classes.acas : ""}`}>

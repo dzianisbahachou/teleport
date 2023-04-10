@@ -1,7 +1,5 @@
 import Container from "../UI/Container/Container";
 import classes from "./HelpForm.module.css";
-import telegramLogo from "../assets/telegram.png";
-import telLogo from "../assets/tel.png";
 import Telegram from 'telegram-send-message';
 import { telegramParams } from "./Settings";
 import { useRef } from "react";
@@ -65,11 +63,11 @@ const HelpForm = () => {
                             </div>
                             <div className={classes.links}>
                                 <a href={TELEGRAM_LINK} rel='noreferrer' target="_blank" className={classes.telegram}>
-                                    <img src={telegramLogo}/>
+                                    <img src='assets/logo/contactsLogo/telegram.png'/>
                                     <p>Telegram</p>
                                 </a>
                                 <a href={TEL_LINK} className={classes.telegram}>
-                                    <img src={telLogo}/>
+                                    <img src='assets/logo/contactsLogo/tel.png'/>
                                     <p>Tel</p>
                                 </a>
                             </div>

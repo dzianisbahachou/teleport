@@ -16,7 +16,7 @@ const MainBanner = () => {
         {/* <Modal show={modalIsOpened} closed={closeModal}/>
         <Backdrop show={this.state.modalIsOpen} /> */}
         <div className={classes.welcome}>
-            <img src="/assets/main.png" alt="Banner" className={classes.banner}/>
+            <img src="/assets/mainBanner.png" alt="Banner" className={classes.banner}/>
             <div className={classes.info}>
                 <Container>
                     <h1 className={classes.title}>СТУДИЯ ДЕТСКИХ ПРАЗДНИКОВ В БРЕСТЕ</h1>

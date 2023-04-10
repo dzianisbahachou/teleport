@@ -31,7 +31,7 @@ const Footer = () => {
                     </ul>
                 </div>
                 <div className={classes.logo}>
-                    <img src="assets/footer_logo.png" alt="Логотип"/>
+                    <img src="assets/logo/footerLogo.png" alt="Логотип"/>
                 </div>
                 <div className={classes.refs}>
                     <ul className={classes.contacts}>
