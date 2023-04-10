@@ -31,24 +31,12 @@
     margin-top: 5rem;
 }
 
-.main-button {
-    font-size: 20px;
-    cursor: pointer;
-    background: rgb(251,185,67);
-    background: linear-gradient(0deg, rgba(251,185,67,1) 0%, rgba(253,224,70,1) 100%);
-    border: 1px solid rgb(155,222,245);
-    color: rgb(0, 0, 0);
-    padding: 0.6rem 0;
-    border-radius: 20px;
-    font-weight: bold;
+.info button {
     margin-top: 2rem;
+    padding: 0.6rem 0;
 }
 
-.main-button:hover {
-    background-color: #fff67a;
-}
-
-.main-button a{
+.info button a {
     text-decoration: none;
     text-shadow: 1px 1px 1px #000;
     color: white;
@@ -76,13 +64,13 @@
         width: 90%;
     }
 
-    .main-button {
+    .info button {
         font-size: 20px;
         padding: 0.6rem 2.2rem;
         margin-top: 2rem;
     }
 
-    .main-button a{
+    .info button a{
         font-size: 35px;
     }
 }
@@ -98,11 +86,11 @@
         margin: 3rem auto 0 auto;
     }
 
-    .main-button {
+    .info button {
         margin-top: 3rem;
     }
 
-    .main-button a{
+    .info button a{
         font-size: 30px;
     }
 }
@@ -118,11 +106,11 @@
         margin: 4rem auto 0 auto;
     }
 
-    .main-button {
+    .info button {
         margin-top: 3rem;
     }
 
-    .main-button a{
+    .info button a{
         font-size: 30px;
     }
 }

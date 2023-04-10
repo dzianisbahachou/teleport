@@ -1,9 +1,5 @@
 import { NavLink } from "react-router-dom";
 import classes from "./Header.module.css";
-import telegram from "../assets/telegram.png";
-import instagram from "../assets/instagram.png";
-import vk from "../assets/vk.png";
-import Container from "../UI/Container/Container";
 import { useState } from "react";
 
 const TEL_LINK = 'tel:375298309732';
@@ -28,7 +24,7 @@ const Header = () => {
         <nav className={classes.navbar}>
           <div className={classes.logo}>
             <NavLink to="/" className={(({isActive}) => isActive ? classes.active : "")} end>
-              <img onClick={resetNavBar} src="assets/logo/alogo.png" className={classes.qq} alt="Лого"/>
+              <img onClick={resetNavBar} src="assets/logo/appLogo.png" className={classes.qq} alt="Лого"/>
             </NavLink>
           </div>
           <ul className={`${classes.list} ${active === true ? classes.acti : active === false ? classes.aca : active === null ? classes.acas : ""}`}>
@@ -49,10 +45,18 @@ const Header = () => {
             </li>
           </ul>
           <ul className={`${classes.list} ${classes.contacts}`}>
-            <li><a href={TEL_LINK}><span className={classes.tel}>+375 (29) 830 97 32</span></a></li>
-            <li><a href={TELEGRAM_LINK} rel='noreferrer' target="_blank"><img src={telegram} alt="Telegram" width="30px"/></a></li>
-            <li><a href={INSTAGRAM_LINK} rel='noreferrer' target="_blank"><img src={instagram} alt="Inst" width="30px"/></a></li>
-            <li><a href={VK_LINK} rel='noreferrer' target="_blank"><img src={vk} alt="VK" width="30px"/></a></li>
+            <li>
+              <a href={TEL_LINK}><span className={classes.tel}>+375 (29) 830 97 32</span></a>
+            </li>
+            <li>
+              <a href={TELEGRAM_LINK} rel='noreferrer' target="_blank"><img src='assets/logo/contactsLogo/telegram.png' alt="Telegram" width="30px"/></a>
+            </li>
+            <li>
+              <a href={INSTAGRAM_LINK} rel='noreferrer' target="_blank"><img src='assets/logo/contactsLogo/instagram.png' alt="Inst" width="30px"/></a>
+            </li>
+            <li>
+              <a href={VK_LINK} rel='noreferrer' target="_blank"><img src='assets/logo/contactsLogo/vk.png' alt="VK" width="30px"/></a>
+            </li>
           </ul>
           <div onClick={navToggle} className={`${classes.aaa} ${toggleIcon ? classes.aaaa : ""}`}>
             <div className={classes.a}></div>
