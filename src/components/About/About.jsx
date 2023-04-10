@@ -1,6 +1,5 @@
 import Container from "../UI/Container/Container";
 import classes from "./About.module.css";
-import avatar from "../assets/magic-avatar.jpg";
 import Gallery from "../Gallery/Gallery";
 
 const About = () => {

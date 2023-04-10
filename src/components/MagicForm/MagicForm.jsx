@@ -3,7 +3,6 @@ import React, { useRef } from 'react';
 import useInput from '../../hooks/use-input';
 import classes from "./MagicForm.module.css";
 import Container from "../UI/Container/Container";
-import magicAvatar from "../assets/magic-avatar.jpg";
 import Input from "./../Input/Input";
 
 const MagicForm = () => {
