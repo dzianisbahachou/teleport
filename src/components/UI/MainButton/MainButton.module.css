@@ -10,3 +10,7 @@
     height: min-content;
     outline: none;
 }
+
+.button:hover {
+    background: rgb(251,185,67);
+}
