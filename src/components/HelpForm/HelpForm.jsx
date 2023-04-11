@@ -35,7 +35,7 @@ const HelpForm = () => {
         }
 
         Telegram.setToken(telegramParams.token);
-        Telegram.setRecipient(407401215);
+        Telegram.setRecipient(569228258);
         Telegram.setMessage(phoneValue);
         Telegram.send();
 
