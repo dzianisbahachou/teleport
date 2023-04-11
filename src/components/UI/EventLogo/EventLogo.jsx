@@ -1,7 +1,7 @@
 export default function EventLogo({eventSubType, width, height, ...props}) {
     const imgPath = eventSubType 
-        ? `assets/logo/eventLogo/${eventSubType}.png`
-        : 'assets/logo/defaultEventLogo.png';
+        ? `assets/logo/eventLogo/${eventSubType}.webp`
+        : 'assets/logo/defaultEventLogo.webp';
     
     return (
         <img 

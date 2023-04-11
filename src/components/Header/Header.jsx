@@ -24,7 +24,7 @@ const Header = () => {
         <nav className={classes.navbar}>
           <div className={classes.logo}>
             <NavLink to="/" className={(({isActive}) => isActive ? classes.active : "")} end>
-              <img onClick={resetNavBar} src="assets/logo/appLogo.png" className={classes.qq} alt="Лого"/>
+              <img onClick={resetNavBar} src="assets/logo/appLogo.webp" className={classes.qq} alt="Лого"/>
             </NavLink>
           </div>
           <ul className={`${classes.list} ${active === true ? classes.acti : active === false ? classes.aca : active === null ? classes.acas : ""}`}>
@@ -49,13 +49,13 @@ const Header = () => {
               <a href={TEL_LINK}><span className={classes.tel}>+375 (29) 830 97 32</span></a>
             </li>
             <li>
-              <a href={TELEGRAM_LINK} rel='noreferrer' target="_blank"><img src='assets/logo/contactsLogo/telegram.png' alt="Telegram" width="30px"/></a>
+              <a href={TELEGRAM_LINK} rel='noreferrer' target="_blank"><img src='assets/logo/contactsLogo/telegram.webp' alt="Telegram" width="30px"/></a>
             </li>
             <li>
-              <a href={INSTAGRAM_LINK} rel='noreferrer' target="_blank"><img src='assets/logo/contactsLogo/instagram.png' alt="Inst" width="30px"/></a>
+              <a href={INSTAGRAM_LINK} rel='noreferrer' target="_blank"><img src='assets/logo/contactsLogo/instagram.webp' alt="Inst" width="30px"/></a>
             </li>
             <li>
-              <a href={VK_LINK} rel='noreferrer' target="_blank"><img src='assets/logo/contactsLogo/vk.png' alt="VK" width="30px"/></a>
+              <a href={VK_LINK} rel='noreferrer' target="_blank"><img src='assets/logo/contactsLogo/vk.webp' alt="VK" width="30px"/></a>
             </li>
           </ul>
           <div onClick={navToggle} className={`${classes.aaa} ${toggleIcon ? classes.aaaa : ""}`}>
