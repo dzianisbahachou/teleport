@@ -50,3 +50,7 @@ button {
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(72, 102, 128);
 }
+
+.Toastify__toast-body {
+  color: rgb(0, 122, 255)
+}

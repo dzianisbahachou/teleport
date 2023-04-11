@@ -4,13 +4,13 @@ import cl from './CommentsPage.module.css';
 import APICalls from "../../API/API";
 import { convertResponse } from '../../util/firebaseResponseHandler';
 import { convertResponseErrorMessage } from '../../util/firebaseResponseHandler';
-
 import LoginLoader from '../../components/UI/LoginLoader/LoginLoader';
 import CommentsList from '../../components/CommentsList/CommentsList';
 import NewCommentModal from '../../components/NewCommentModal/NewCommentModal';
 import MainButton from '../../components/UI/MainButton/MainButton';
 import Container from '../../components/UI/Container/Container';
 import Transition from 'react-transition-group/Transition';
+import { messageToast } from '../../util/toast';
 
 const CommentsPage = () => {
     const data = useLoaderData();
@@ -78,10 +78,7 @@ export async function action({request}) {
     try {
         await APICalls.createComment(commentData);
     } catch(e) {
-        throw json(
-            { message: "Произошла ошибка!" },
-            { status: 500 }
-        );
+        messageToast('Во время отправки произошла ошибка. Попробуйте позже');
     }
 
     return null;
