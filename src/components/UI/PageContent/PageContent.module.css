@@ -4,18 +4,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    color: rgb(0,122,255);
+    height: 100vh;
+    background: rgb(155,222,245);
+    background: linear-gradient(0deg, rgba(155,222,245,1) 0%,  rgba(255,255,255,1) 100%);
 }
 
 .content button {
-    margin-top: 10vh;
-    width: 13vw;
-    font-size: 15px;
-    cursor: pointer;
-    background-color: #ffffff;
-    border: 1px solid #4400ff;
-    color: rgb(0, 0, 0);
+    margin-top: 60vh;
+    font-size: 24px;
     padding: 0.6rem 2.2rem;
-    border-radius: 20px;
-    font-weight: bold;
-    border: none;
 }

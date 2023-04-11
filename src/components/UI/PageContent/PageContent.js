@@ -1,5 +1,6 @@
 import classes from './PageContent.module.css';
 import {useNavigate} from "react-router-dom";
+import MainButton from '../MainButton/MainButton';
 
 function PageContent({ title, children }) {
   const navigate = useNavigate();
@@ -11,7 +12,7 @@ function PageContent({ title, children }) {
     <div className={classes.content}>
       <h1>{title}</h1>
       {children}
-      <button onClick={navigateToMainPage}>На главную страницу!</button>
+      <MainButton onClick={navigateToMainPage}>На главную страницу!</MainButton>
     </div>
   );
 }
