@@ -7,7 +7,7 @@ import NewCommentLoader from '../UI/NewCommentLoader/NewCommentLoader';
 
 const CommentEventTypeModal = ({show, onEventTypeClick}) => {
     const [events, setEvents] = useState([]);
-    const [error, setError] = useState(undefined);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         async function fetchEvents() {
@@ -23,7 +23,7 @@ const CommentEventTypeModal = ({show, onEventTypeClick}) => {
 
                 setEvents(events);
             } catch(e) {
-                setError('Невозможно загрузить аниматоров. Попробуйте позже');
+                setError('Невозможно загрузить список Аниматоров. Попробуйте позже');
             }
         }
 
