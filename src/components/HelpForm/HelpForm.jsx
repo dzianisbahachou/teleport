@@ -45,7 +45,7 @@ const HelpForm = () => {
             <Container>
                 <div className={classes.wrapper}>
                     <div className={classes.pic}>
-                        <img src="assets/mini1.png"/>
+                        <img src="assets/mini1.webp"/>
                     </div>
                     <div className={classes.info}>
                         <p className={classes.title}>Поможем с выбором</p>
@@ -63,11 +63,11 @@ const HelpForm = () => {
                             </div>
                             <div className={classes.links}>
                                 <a href={TELEGRAM_LINK} rel='noreferrer' target="_blank" className={classes.telegram}>
-                                    <img src='assets/logo/contactsLogo/telegram.png'/>
+                                    <img src='assets/logo/contactsLogo/telegram.webp'/>
                                     <p>Telegram</p>
                                 </a>
                                 <a href={TEL_LINK} className={classes.telegram}>
-                                    <img src='assets/logo/contactsLogo/tel.png'/>
+                                    <img src='assets/logo/contactsLogo/tel.webp'/>
                                     <p>Tel</p>
                                 </a>
                             </div>

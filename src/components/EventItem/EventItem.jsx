@@ -5,8 +5,8 @@ export default function EventItem({data}) {
     // const eventSubType = data.eventSubType;
     const eventSubType = 'mickeyMouse';
     const imgPath = eventSubType 
-        ? `assets/logo/eventLogo/${eventSubType}.png`
-        : 'assets/logo/defaultEventLogo.png'; 
+        ? `assets/logo/eventLogo/${eventSubType}.webp`
+        : 'assets/logo/defaultEventLogo.webp'; 
 
     return (
         <Link to={eventSubType} className={cl.item}>

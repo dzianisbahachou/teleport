@@ -31,20 +31,20 @@ const Footer = () => {
                     </ul>
                 </div>
                 <div className={classes.logo}>
-                    <img src="assets/logo/footerLogo.png" alt="Логотип"/>
+                    <img src="assets/logo/footerLogo.webp" alt="Логотип"/>
                 </div>
                 <div className={classes.refs}>
                     <ul className={classes.contacts}>
                         <li><a href={TEL_LINK}><span className={classes.tel}>+375 (29) 830 97 32</span></a></li>
                         <div className={classes.links}>
                             <li>
-                                <a href={TELEGRAM_LINK} rel='noreferrer' target="_blank"><img src='assets/logo/contactsLogo/telegram.png' alt="Telegram" width="30px"/></a>
+                                <a href={TELEGRAM_LINK} rel='noreferrer' target="_blank"><img src='assets/logo/contactsLogo/telegram.webp' alt="Telegram" width="30px"/></a>
                             </li>
                             <li>
-                                <a href={INSTAGRAM_LINK} rel='noreferrer' target="_blank"><img src='assets/logo/contactsLogo/instagram.png' alt="Inst" width="30px"/></a>
+                                <a href={INSTAGRAM_LINK} rel='noreferrer' target="_blank"><img src='assets/logo/contactsLogo/instagram.webp' alt="Inst" width="30px"/></a>
                             </li>
                             <li>
-                                <a href={VK_LINK} rel='noreferrer' target="_blank"><img src='assets/logo/contactsLogo/vk.png' alt="VK" width="30px"/></a>
+                                <a href={VK_LINK} rel='noreferrer' target="_blank"><img src='assets/logo/contactsLogo/vk.webp' alt="VK" width="30px"/></a>
                             </li>
                         </div>
                     </ul>
