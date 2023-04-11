@@ -52,5 +52,6 @@ button {
 }
 
 .Toastify__toast-body {
-  color: rgb(0, 122, 255)
+  color: rgb(0, 122, 255);
+  font-family: 'Adigiana Ultra', sans-serif;
 }
