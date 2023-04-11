@@ -1,6 +1,5 @@
 import Container from "../UI/Container/Container";
 import classes from "./About.module.css";
-import avatar from "../assets/magic-avatar.jpg";
 import Gallery from "../Gallery/Gallery";
 
 const About = () => {
@@ -10,7 +9,7 @@ const About = () => {
             <div className={classes.wrapper}>
                 <div className={classes["about-block"]}>
                     <div className={classes.avatar}>
-                        <img src="assets/mini1.png"/>
+                        <img src="assets/mini1.webp"/>
                     </div>
                     <div className={classes.about}>
                         <p className={classes.title}>МЫ НАСТОЯЩИЕ ФАНАТЫ СВОЕГО ДЕЛА!</p>

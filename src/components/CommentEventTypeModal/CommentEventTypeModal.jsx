@@ -5,9 +5,9 @@ import APICalls from '../../API/API';
 import { convertResponse } from '../../util/firebaseResponseHandler';
 import NewCommentLoader from '../UI/NewCommentLoader/NewCommentLoader';
 
-
 const CommentEventTypeModal = ({show, onEventTypeClick}) => {
     const [events, setEvents] = useState([]);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         async function fetchEvents() {
@@ -23,7 +23,7 @@ const CommentEventTypeModal = ({show, onEventTypeClick}) => {
 
                 setEvents(events);
             } catch(e) {
-                // message toast
+                setError('Невозможно загрузить список Аниматоров. Попробуйте позже');
             }
         }
 
@@ -42,7 +42,9 @@ const CommentEventTypeModal = ({show, onEventTypeClick}) => {
         <div className={contentClasses.join(' ')} onClick={e => e.stopPropagation()}>
             { events.length 
             ? <CommentEventsList events={events} onSelect={onEventTypeClick}/>
-            : <NewCommentLoader/> 
+            : !events.length && !error 
+            ? <NewCommentLoader/>
+            : <div className={cl.error}>{error}</div>
             }
         </div>
     );
