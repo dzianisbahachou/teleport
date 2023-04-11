@@ -1,5 +1,5 @@
 import { json, useLoaderData, useNavigation } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import cl from './CommentsPage.module.css';
 import APICalls from "../../API/API";
 import { convertResponse } from '../../util/firebaseResponseHandler';
