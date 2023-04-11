@@ -1,6 +1,8 @@
 import { NavLink } from "react-router-dom";
 import classes from "./Header.module.css";
 import { useState } from "react";
+import NavBarMobile from "../NavBarMobile/NavBarMobile";
+import NavBarDesktop from "../NavBarDesktop/NavBarDesktop";
 
 const TEL_LINK = 'tel:375298309732';
 const TELEGRAM_LINK = "https://t.me/teleport_brest";
@@ -27,23 +29,10 @@ const Header = () => {
               <img onClick={resetNavBar} src="assets/logo/appLogo.webp" className={classes.qq} alt="Лого"/>
             </NavLink>
           </div>
-          <ul className={`${classes.list} ${active === true ? classes.acti : active === false ? classes.aca : active === null ? classes.acas : ""}`}>
-            <li>
-              <NavLink to="animators" className={(({isActive}) => isActive ? classes.active : "")}><p onClick={navToggle} className={classes["header-items"]}>АНИМАТОРЫ</p></NavLink>
-            </li>
-            <li>
-              <NavLink to="/admin" className={(({isActive}) => isActive ? classes.active : "")}><p onClick={navToggle} className={classes["header-items"]}>ШОУ-ПРОГРАММЫ</p></NavLink>
-            </li>
-            <li>
-              <NavLink to="animators-2" className={(({isActive}) => isActive ? classes.active : "")}><p onClick={navToggle} className={classes["header-items"]}>ДОП УСЛУГИ</p></NavLink>
-            </li>
-            <li>
-              <NavLink to="animators-3" className={(({isActive}) => isActive ? classes.active : "")}><p onClick={navToggle} className={classes["header-items"]}>ОНЛАЙН ПРАЗДНИКИ</p></NavLink>
-            </li>
-            <li>
-              <NavLink to="comments" className={(({isActive}) => isActive ? classes.active : "")}><p onClick={navToggle} className={classes["header-items"]}>ОТЗЫВЫ</p></NavLink>
-            </li>
-          </ul>
+          <div className={classes["show-navbar"]}>
+            <NavBarMobile active={active} toggleIcon={toggleIcon} navToggle={navToggle}/>
+          </div>
+          <NavBarDesktop/>
           <ul className={`${classes.list} ${classes.contacts}`}>
             <li>
               <a href={TEL_LINK}><span className={classes.tel}>+375 (29) 830 97 32</span></a>

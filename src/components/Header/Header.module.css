@@ -103,6 +103,10 @@
     transition: all 0.4s ease;
 }
 
+.show-navbar {
+    display: none;
+}
+
 @media screen and (max-width: 828px) {
     html{
         overflow-x: hidden;
@@ -130,18 +134,8 @@
         gap: 3rem;
     }
 
-   
-
-    @keyframes closeModal {
-        0% {
-            opacity: 0.9;
-            transform: translateX(0);
-        }
-        100% {
-            opacity: 0;
-            transform: translateX(100%);
-            display: none;
-        }
+    .show-navbar {
+        display: block;
     }
 
     .list p {
@@ -156,31 +150,6 @@
     .navbar ul {
         padding-right: 40px;
     }
-    .aca {
-        animation: closeModal 0.4s ease-out forwards;
-    }
-
-    .acas {
-        transform: translateX(100%);
-    }
-}
-
-@keyframes openModal {
-    0% {
-        opacity: 0;
-        transform: translateX(100%);
-        display: none;
-    }
-    100% {
-        opacity: 0.9;
-        transform: translateX(0);
-    }
-}
-
-.acti {
-    transform: translateX(0);
-    animation: openModal 0.4s ease-in forwards;
-
 }
 
 .aaaa .a{
