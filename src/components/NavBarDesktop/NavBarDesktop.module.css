@@ -11,7 +11,7 @@
 }
 
 .list li{
-    margin-top: 7px;
+    margin-top: 13px;
 }
 
 .list a:hover,
@@ -21,7 +21,7 @@
 
 .header-items {
     margin: 0 auto;
-    font-size: 20px;
+    font-size: 1.4vw;
     color: rgb(83,202,238);
     text-shadow: 1px 1px 1px rgb(0, 0, 0);
 }

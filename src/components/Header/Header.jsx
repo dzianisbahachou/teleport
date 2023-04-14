@@ -28,7 +28,6 @@ const Header = () => {
     setActive(false);
   }
     return (<div className={classes.back}>
-      <header className={classes.header}>
         <nav className={classes.navbar}>
           <div className={classes.logo}>
             <NavLink to="/" className={(({isActive}) => isActive ? classes.active : "")} end>
@@ -57,7 +56,6 @@ const Header = () => {
             <div className={classes.c}></div>
           </div>
         </nav>
-      </header>
     </div>)
 }
 
