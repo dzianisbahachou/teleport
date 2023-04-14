@@ -30,7 +30,6 @@ export function convertResponse(responseValue) {
             id: key
         });
     }
-
     return items;
 }
 
