@@ -37,8 +37,7 @@ export default function Gallery({imgPath, width='250', height='300'}) {
                 onSwiper={swiper => {setSwiperInstance(swiper)}}
                 grabCursor={true}
                 slidesPerView={1}
-                slideToClickedSlide={true}
-                loop={true}
+                slideToClickedSlide={false}
                 pagination={{
                     dynamicBullets: true,
                   }}

@@ -3,17 +3,20 @@ import { useLoaderData, json } from "react-router-dom";
 import APICalls from "../API/API";
 import { convertResponse, convertResponseErrorMessage } from "../util/firebaseResponseHandler";
 import Gallery from "../components/Gallery/Gallery";
-import CommentsPage from "./CommentsPage/CommentsPage";
 import CommentsList from "../components/CommentsList/CommentsList";
+import classes from "./EventDetailsPage.module.css";
+import Container from "../components/UI/Container/Container";
 
 export default function EventDetailsPage() {
     const data = useLoaderData();
     return (
-        <>
+        <div className={classes.wrapper}>
             <AnimatorDetails/>
-            <Gallery imgPath={data.eventType}/>
-            <CommentsList comments={data.sortedComments}/>
-        </>  
+            <Container>
+                <Gallery imgPath={data.eventType}/>
+                <CommentsList comments={data.sortedComments}/>
+            </Container>
+        </div>  
     );
 }
 
