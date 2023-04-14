@@ -3,6 +3,8 @@
     gap: 1rem;
     transform: scale(1);
     transition: all 4s ease;
+    background-color: rgb(155, 245, 185);
+
 }
 
 .list a {
@@ -26,7 +28,15 @@
     text-shadow: 1px 1px 1px rgb(0, 0, 0);
 }
 
+.zzz {
+    display: none;
+}
+
 @media screen and (max-width: 828px) {
+
+    .zzz {
+        display: block;
+    }
     .list {
         position: absolute;
         top: 2.8rem;
@@ -42,6 +52,19 @@
         padding-top: 2rem;
         align-items: center;
         gap: 3rem;
+        background-color: rgb(155,222,245);
+    }
+
+    .contacts {
+        margin-top: 1rem;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .tel {
+        font-size: 1.5rem;
+        color: white;
+        text-shadow: 1px 1px 1px rgb(0, 0, 0);
     }
 
     @keyframes closeModal {
@@ -59,6 +82,8 @@
     .list p {
         font-size: 40px;
         text-align: center;
+        color: white;
+        text-shadow: 1px 1px 1px rgb(0, 0, 0);
     }
 
     .aca {
@@ -68,21 +93,22 @@
     .acas {
         transform: translateX(100%);
     }
-}
 
-@keyframes openModal {
-    0% {
-        opacity: 0;
-        transform: translateX(100%);
-        display: none;
+    @keyframes openModal {
+        0% {
+            opacity: 0;
+            transform: translateX(100%);
+            display: none;
+        }
+        100% {
+            opacity: 0.9;
+            transform: translateX(0);
+        }
     }
-    100% {
-        opacity: 0.9;
+    
+    .acti {
         transform: translateX(0);
+        animation: openModal 0.3s ease forwards;
     }
 }
 
-.acti {
-    transform: translateX(0);
-    animation: openModal 0.3s ease forwards;
-}
