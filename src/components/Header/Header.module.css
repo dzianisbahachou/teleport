@@ -9,7 +9,6 @@
 .header{
     display: flex;
 }
-
 .navbar {
     width: 95vw;
     display: flex;
@@ -106,6 +105,8 @@
 .show-navbar {
     display: none;
 }
+
+
 
 @media screen and (max-width: 828px) {
     html{

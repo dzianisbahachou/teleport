@@ -16,6 +16,12 @@ const Header = () => {
   const navToggle = () => {
     setActive(prevState => !prevState);
     setToggleIcon(prevState => !prevState);
+    if(!active) {
+      document.body.classList.add('modal-open');
+    } else {
+      document.body.classList.remove('modal-open');
+    }
+
   };
   const resetNavBar = () => {
     setToggleIcon(false);
@@ -29,9 +35,7 @@ const Header = () => {
               <img onClick={resetNavBar} src="assets/logo/appLogo.webp" className={classes.qq} alt="Лого"/>
             </NavLink>
           </div>
-          <div className={classes["show-navbar"]}>
-            <NavBarMobile active={active} toggleIcon={toggleIcon} navToggle={navToggle}/>
-          </div>
+          <NavBarMobile active={active} toggleIcon={toggleIcon} navToggle={navToggle}/>
           <NavBarDesktop/>
           <ul className={`${classes.list} ${classes.contacts}`}>
             <li>

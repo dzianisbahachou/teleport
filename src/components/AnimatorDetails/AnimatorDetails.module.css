@@ -1,0 +1,40 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 100px 0;
+    background: rgb(155,222,245);
+    background: linear-gradient(0deg, rgba(155,222,245,1) 0%, rgba(255,255,255,1) 55%, rgba(255,255,255,1) 75%, rgba(155,222,245,1) 100%);
+}
+
+.about-block {
+    display: flex;
+    justify-content:space-around;
+    gap: 3rem;
+}
+
+.about {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.avatar img {
+    width: 35rem;
+}
+
+.gallery {
+    margin: 10vh 0;
+}
+
+.title {
+    font-size: 45px;
+    color: #ffffff;
+    text-shadow: 1px 1px 1px #000;
+}
+
+.description {
+    font-size: 20px;
+    color: #ffffff;
+    text-shadow: 1px 1px 1px #000;
+}
