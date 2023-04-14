@@ -2,3 +2,7 @@
     background: rgb(155,222,245);
     background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(155,222,245,1) 30%, rgba(255,255,255,1) 55%, rgba(255,255,255,1) 75%, rgba(155,222,245,1) 100%);
 }
+
+.comments {
+    padding: 1rem 0 6rem 0;
+}

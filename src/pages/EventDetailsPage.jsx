@@ -14,7 +14,9 @@ export default function EventDetailsPage() {
             <AnimatorDetails/>
             <Container>
                 <Gallery imgPath={data.eventType}/>
-                <CommentsList comments={data.sortedComments}/>
+                <div className={classes.comments}>
+                    <CommentsList comments={data.sortedComments}/>
+                </div>
             </Container>
         </div>  
     );
