@@ -3,12 +3,11 @@ import { useLoaderData, useNavigation, json } from "react-router-dom";
 import LoginLoader from "../../components/UI/LoginLoader/LoginLoader";
 import APICalls from "../../API/API";
 import { convertResponse, convertResponseErrorMessage } from "../../util/firebaseResponseHandler";
-import cl from './AnimatorsPage.module.css';
+import cl from './ShowsPage.module.css';
 import Container from "../../components/UI/Container/Container";
-import HelpForm from "../../components/HelpForm/HelpForm";
 import EmptyListMessage from "../../components/UI/EmptyListMessage/EmptyListMessage";
 
-const AnimatorsPage = () => {
+const ShowsPage = () => {
     const data = useLoaderData();
     const navigation = useNavigation()
     const isLoading = navigation.state === 'loading';
@@ -16,30 +15,29 @@ const AnimatorsPage = () => {
         <div className={cl.wrapper}>
             <Container>
                 {data?.length 
-                    ? <EventsList events={data} title='НАШИ АНИМАТОРЫ'/>
-                    : <EmptyListMessage text='Не удалось загрузить список Аниматоров. Попробуйте позже'/>
+                    ? <EventsList events={data} title='ШОУ-ПРОГРАММЫ'/>
+                    : <EmptyListMessage text='Не удалось загрузить список Шоу-Программ. Попробуйте позже'/>
                 }
             </Container>
-            <HelpForm/>
             {isLoading && <LoginLoader />}
         </div>
     );
 };
 
-export default AnimatorsPage;
+export default ShowsPage;
 
 export async function loader() {
     try {
-        const snapshot = await APICalls.getEvents('animators');
+        const snapshot = await APICalls.getEvents('shows');
         
         if (!snapshot.exists()) {
-            throw new Error('snapshot/animators-doesnot-exist');
+            throw new Error('snapshot/shows-doesnot-exist');
         }
 
         const value = snapshot.val();
-        const animators = convertResponse(value);
+        const shows = convertResponse(value);
 
-        return animators;
+        return shows;
     } catch(e) {
         const message = convertResponseErrorMessage(e.message);
 

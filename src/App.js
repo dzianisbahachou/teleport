@@ -3,6 +3,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import {createBrowserRouter, RouterProvider} from 'react-router-dom';
 import AnimatorsPage, { loader as animatorsLoader} from "./pages/AnimatorsPage/AnimatorsPage";
+import ShowsPage, { loader as showsLoader } from './pages/ShowsPage/ShowsPage';
 
 import RootLayoutPage from './pages/RootLayoutPage';
 import AuthPage, {action as authAction} from './pages/AuthPage/AuthPage';
@@ -17,6 +18,7 @@ const router = createBrowserRouter([
     {index: true, element: <HomePage/>, action: addUserAction},
     {path: 'animators', element: <AnimatorsPage/>, loader: animatorsLoader },
     {path: 'animators/:eventType', element: <EventDetailsPage/>, loader: eventDetailsLoader },
+    {path: 'shows', element: <ShowsPage/>, loader: showsLoader },
     {path: 'comments', element: <CommentsPage/>, loader: commentsLoader, action: commentsAction},
   ]},
   {path: '/auth', element: <AuthPage />, errorElement: <ErrorPage />, action: authAction},

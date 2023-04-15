@@ -13,6 +13,9 @@ export function convertResponseErrorMessage(code) {
         case 'snapshot/animators-doesnot-exist':
             message = 'Не удалось загрузить аниматоров';
             break;
+        case 'snapshot/shows-doesnot-exist':
+            message = 'Не удалось загрузить Шоу программы';
+            break;
         case 'snapshot/comments-doesnot-exist':
             message = 'Не удалось загрузить коментарии';
             break;
