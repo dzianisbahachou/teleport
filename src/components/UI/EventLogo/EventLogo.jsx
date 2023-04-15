@@ -7,9 +7,9 @@ export default function EventLogo({eventSubType, width, height, ...props}) {
     return (
         <img 
             style={{
-                width: "100px",
-                height: "100px",
-                minHeight: "100px"
+                width,
+                height,
+                minHeight: height
             }} 
             src={imgPath} 
             {...props}
