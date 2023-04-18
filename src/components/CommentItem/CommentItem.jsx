@@ -3,7 +3,7 @@ import EventLogo from '../UI/EventLogo/EventLogo';
 
 export default function CommentItem({data}) {
     const imgPath = data.eventSubType;
-
+debugger
     return (
         <div className={cl.item}>
             <div className={cl.text}>
@@ -14,7 +14,7 @@ export default function CommentItem({data}) {
 
             <div className={cl.name}>
                 <span>{data.name}</span>
-            </div>             
+            </div>
         </div>
     );
 }

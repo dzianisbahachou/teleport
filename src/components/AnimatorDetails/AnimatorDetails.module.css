@@ -3,8 +3,6 @@
     flex-direction: column;
     margin: 0 auto;
     padding: 100px 0;
-    background: rgb(155,222,245);
-    background: linear-gradient(0deg, rgba(155,222,245,1) 0%, rgba(255,255,255,1) 55%, rgba(255,255,255,1) 75%, rgba(155,222,245,1) 100%);
 }
 
 .about-block {

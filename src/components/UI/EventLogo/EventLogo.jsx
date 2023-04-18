@@ -1,9 +1,7 @@
 export default function EventLogo({eventSubType, width, height, ...props}) {
-    debugger
     const imgPath = eventSubType  
         ? `${process.env.PUBLIC_URL}/assets/logo/eventLogo/${eventSubType}.webp`
         : `${process.env.PUBLIC_URL}/assets/logo/defaultEventLogo.webp`;
-    
     return (
         <img 
             style={{

@@ -2,39 +2,47 @@ import AnimatorDetails from "../components/AnimatorDetails/AnimatorDetails";
 import { useLoaderData, json } from "react-router-dom";
 import APICalls from "../API/API";
 import { convertResponse, convertResponseErrorMessage } from "../util/firebaseResponseHandler";
+import Gallery from "../components/Gallery/Gallery";
+import CommentsList from "../components/CommentsList/CommentsList";
+import classes from "./EventDetailsPage.module.css";
+import Container from "../components/UI/Container/Container";
 
 export default function EventDetailsPage() {
     const data = useLoaderData();
-
     return (
-        <>
+        <div className={classes.wrapper}>
             <AnimatorDetails/>
-        </>  
+            <Container>
+                <Gallery imgPath={data.eventType}/>
+                <div className={classes.comments}>
+                    <CommentsList comments={data.sortedComments}/>
+                </div>
+            </Container>
+        </div>  
     );
 }
 
 export async function loader({params}) {
-    debugger
-    // try {
-    //     const snapshot = await APICalls.getEvents('animators');
-        
-    //     if (!snapshot.exists()) {
-    //         throw new Error('snapshot/animators-doesnot-exist');
-    //     }
-
-    //     const value = snapshot.val();
-    //     const animators = convertResponse(value);
-
-    //     return animators;
-    // } catch(e) {
-    //     const message = convertResponseErrorMessage(e.message);
-
-    //     throw json(
-    //         { message },
-    //         { status: 500 }
-    //     );
-    // }
     const eventType = params.eventType;
-    return eventType
+    try {
+        const snapshot = await APICalls.getComemntsForEvent(eventType);
+        
+        if (!snapshot.exists()) {
+            throw new Error('snapshot/comments-doesnot-exist');
+        }
 
+        const value = snapshot.val();
+        const comments = convertResponse(value);
+        const sortedComments = comments.reverse();
+        return {
+            sortedComments: sortedComments,
+            eventType: eventType
+        }
+    } catch(e) {
+        const message = convertResponseErrorMessage(e.message);
+        throw json(
+            { message },
+            { status: 500 }
+        );
+    }
 }
