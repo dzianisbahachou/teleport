@@ -11,6 +11,7 @@ import MainButton from '../../components/UI/MainButton/MainButton';
 import Container from '../../components/UI/Container/Container';
 import Transition from 'react-transition-group/Transition';
 import { messageToast } from '../../util/toast';
+import EmptyListMessage from '../../components/UI/EmptyListMessage/EmptyListMessage';
 
 const CommentsPage = () => {
     const data = useLoaderData();
@@ -32,7 +33,10 @@ const CommentsPage = () => {
                 <Transition in={isNewCommentDisplayed} timeout={300} mountOnEnter unmountOnExit>
                     {state => <NewCommentModal show={state} closeModal={closeNewCommentModal}/>}
                 </Transition>
-                <CommentsList comments={data}/>
+                { data?.length 
+                    ? <CommentsList comments={data}/>
+                    : <EmptyListMessage text='Список отзывов пуст'/>
+                }
                 <div className={cl.actions}>
                     <MainButton onClick={openNewCommentModal}>Оставить отзыв</MainButton>    
                 </div>   
