@@ -6,16 +6,36 @@ import Gallery from "../components/Gallery/Gallery";
 import CommentsList from "../components/CommentsList/CommentsList";
 import classes from "./EventDetailsPage.module.css";
 import Container from "../components/UI/Container/Container";
+import { useState } from "react";
+import MainButton from "../components/UI/MainButton/MainButton";
+import { Transition } from "react-transition-group";
+import NewCommentModal from "../components/NewCommentModal/NewCommentModal";
 
 export default function EventDetailsPage() {
+    const [isNewCommentDisplayed, setIsNewCommentDisplayed] = useState(false);
+
+    const openNewCommentModal = () => {
+        setIsNewCommentDisplayed(true);
+    };
+
+    const closeNewCommentModal = () => {
+        setIsNewCommentDisplayed(false);
+    };
+
     const data = useLoaderData();
     return (
         <div className={classes.wrapper}>
             <AnimatorDetails/>
             <Container>
                 <Gallery imgPath={data.eventType}/>
+                <Transition in={isNewCommentDisplayed} timeout={300} mountOnEnter unmountOnExit>
+                    {state => <NewCommentModal show={state} closeModal={closeNewCommentModal}/>}
+                </Transition>
                 <div className={classes.comments}>
                     <CommentsList comments={data.sortedComments}/>
+                    <div className={classes.actions}>
+                        <MainButton onClick={openNewCommentModal}>Оставить отзыв</MainButton>
+                    </div>  
                 </div>
             </Container>
         </div>  

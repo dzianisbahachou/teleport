@@ -16,7 +16,7 @@ const AnimatorsPage = () => {
         <div className={cl.wrapper}>
             <Container>
                 {data?.length 
-                    ? <EventsList events={data} title='НАШИ АНИМАТОРЫ'/>
+                    ? <EventsList events={data} title='Аниматоры на день рождения и детский праздник'/>
                     : <EmptyListMessage text='Не удалось загрузить список Аниматоров. Попробуйте позже'/>
                 }
             </Container>
@@ -38,7 +38,6 @@ export async function loader() {
 
         const value = snapshot.val();
         const animators = convertResponse(value);
-
         return animators;
     } catch(e) {
         const message = convertResponseErrorMessage(e.message);

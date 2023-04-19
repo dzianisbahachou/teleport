@@ -37,6 +37,7 @@ export default function Gallery({imgPath, width='250', height='300'}) {
                 onSwiper={swiper => {setSwiperInstance(swiper)}}
                 grabCursor={true}
                 slidesPerView={1}
+                loop={true}
                 slideToClickedSlide={false}
                 pagination={{
                     dynamicBullets: true,
@@ -45,15 +46,15 @@ export default function Gallery({imgPath, width='250', height='300'}) {
                 spaceBetween={40}
                 breakpoints={{
                     2000: {
-                        slidesPerView: 5,
+                        slidesPerView: 3,
                         spaceBetween: 40
                     },
                     1800: {
-                        slidesPerView: 4,
+                        slidesPerView: 3,
                         spaceBetween: 50
                     },
                     1000: {
-                        slidesPerView: 4
+                        slidesPerView: 3
                     },
                     850: {
                         slidesPerView: 3
