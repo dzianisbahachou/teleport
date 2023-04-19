@@ -146,11 +146,11 @@
   },
   "events": {
     "1": {
-      "description": "Фея Пион",
-      "eventSubType": "pion",
+      "description": "какое-то описание Скай",
+      "eventSubType": "sky",
       "eventType": "animators",
-      "price": 22131,
-      "title": "Феечка Пион"
+      "price": 123,
+      "title": "Скай"
     },
     "2": {
       "description": "Железный человек описание",
@@ -181,11 +181,11 @@
       "title": "Бамблби"
     },
     "6": {
-      "description": "какое-то описание Скай",
-      "eventSubType": "sky",
+      "description": "Фея Пион",
+      "eventSubType": "pion",
       "eventType": "animators",
-      "price": 123,
-      "title": "Скай"
+      "price": 22131,
+      "title": "Феечка Пион"
     },
     "7": {
       "description": "Описание клоуна",
