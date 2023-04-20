@@ -1,15 +1,18 @@
-import { Form, useSubmit, useNavigation } from 'react-router-dom';
+import { Form, useSubmit, useLocation } from 'react-router-dom';
 import { useRef, useState, useEffect } from 'react';
 import cl from './NewCommentModal.module.css';
 import CommentInput from '../UI/CommentInput/CommentInput';
 import useInput from '../../hooks/use-input';
 import CommentTextarea from '../UI/CommentTextarea/CommentTextarea';
 import CommentEventTypeModal from '../CommentEventTypeModal/CommentEventTypeModal';
-import { convertEventType } from '../../util/firebaseResponseHandler';
 import MainButton from '../UI/MainButton/MainButton';
 import Transition from 'react-transition-group/Transition';
+import { convertEventType } from '../../util/firebaseResponseHandler';
 
 export default function NewCommentModal({show, closeModal}) {
+    const location = useLocation();
+    const pathName = location.pathname;
+    const isOP = !pathName.includes('comments');
     const [isEventTypeActive, setIsEventTypeActive] = useState(false);
     const [selectedEventType, setSelectedEventType] = useState('');
     const sub = useSubmit();
@@ -20,6 +23,11 @@ export default function NewCommentModal({show, closeModal}) {
 
     useEffect(() => {
         document.body.classList.add('modal-open');
+
+        if (isOP) {
+            const eventSubType = pathName.split('/')[2];
+            setEventSubType(eventSubType);
+        }
         return () => {
             document.body.classList.remove('modal-open');
         }
@@ -98,7 +106,7 @@ export default function NewCommentModal({show, closeModal}) {
         setIsEventTypeActive(true);
     };
 
-    const onEventTypeClick = (eventSubType) => {
+    const setEventSubType = (eventSubType) => {
         const userFriendlyEventType = convertEventType(eventSubType);
         const dummy = {
             target: {
@@ -160,9 +168,10 @@ export default function NewCommentModal({show, closeModal}) {
                             onClick={openEventTypeModal}
                             autoComplete="off"
                             onKeyDown={e => e.preventDefault()}
-                            inputMode='none'/> 
+                            inputMode='none'
+                            disabled={isOP}/> 
                         <Transition in={isEventTypeActive} timeout={300} mountOnEnter unmountOnExit>
-                            { state => <CommentEventTypeModal show={state} onEventTypeClick={onEventTypeClick}/> }
+                            { state => <CommentEventTypeModal show={state} onEventTypeClick={setEventSubType}/> }
                         </Transition>
                     </div>
                     <CommentTextarea 

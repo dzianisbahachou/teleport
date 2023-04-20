@@ -54,6 +54,15 @@ export function convertEventType(type) {
         case 'bumblebee':
             event = 'Бамблбии';
             break;
+        case 'pion':
+            event = 'Феечка Пион';
+            break;
+        case 'gvenStacy':
+            event = 'Гвен Стейси';
+            break;
+        case 'ironMan':
+            event = 'Железный Человек';
+            break;
     }
 
     return event;

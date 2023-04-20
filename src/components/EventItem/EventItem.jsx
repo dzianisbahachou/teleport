@@ -11,8 +11,8 @@ export default function EventItem({data}) {
     return (
         <Link to={eventSubType} className={cl.item}>
             <img className={cl.img} src={imgPath} alt={eventSubType}/>
-            <div>
-                <button className={cl.button}>Подробнее</button>
+            <div className={cl.action}>
+                <MainButton className={cl.button}>Подробнее</MainButton>
             </div>
             <span>{data.title}</span>
         </Link>

@@ -64,8 +64,8 @@ export default function Gallery({imgPath, width='250', height='300'}) {
                     }
                 }}
             >
-                {gallegy.map(item => 
-                    <SwiperSlide>
+                {gallegy.map((item, index) => 
+                    <SwiperSlide key={index}>
                         <img src={item} width={width} height={height} className={cl.image}/>
                     </SwiperSlide>)}
             </Swiper>

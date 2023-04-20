@@ -19,6 +19,7 @@ const router = createBrowserRouter([
     {path: 'animators', element: <AnimatorsPage/>, loader: animatorsLoader },
     {path: 'animators/:eventType', element: <EventDetailsPage/>, loader: eventDetailsLoader, action: commentsAction },
     {path: 'shows', element: <ShowsPage/>, loader: showsLoader },
+    {path: 'shows/:eventType', element: <EventDetailsPage/>, loader: eventDetailsLoader, action: commentsAction },
     {path: 'comments', element: <CommentsPage/>, loader: commentsLoader, action: commentsAction},
   ]},
   {path: '/auth', element: <AuthPage />, errorElement: <ErrorPage />, action: authAction},
