@@ -52,6 +52,10 @@
     background: linear-gradient(0deg, rgba(253,224,70,1) 0%, rgba(251,185,67,1) 100%);
 }
 
+.button:hover .img {
+    transform: scale(0.98);
+}
+
 span {
     margin-top: 0;
 }
