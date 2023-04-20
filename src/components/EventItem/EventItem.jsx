@@ -4,7 +4,6 @@ import MainButton from '../UI/MainButton/MainButton';
 
 export default function EventItem({data}) {
     const eventSubType = data.eventSubType;
-    // const eventSubType = 'mickeyMouse';
     const imgPath = eventSubType 
         ? `assets/logo/eventLogo/${eventSubType}.webp`
         : 'assets/logo/defaultEventLogo.webp'; 
