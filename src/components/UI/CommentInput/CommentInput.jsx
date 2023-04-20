@@ -36,7 +36,8 @@ const CommentInput = React.forwardRef((props, ref) => {
         onChange={props.onChange}
         onBlur={props.onBlur}
         inputMode={props.inputMode}
-        onKeyDown={props.onKeyDown}/>
+        onKeyDown={props.onKeyDown}
+        disabled={props.disabled}/>
     );
 });
 

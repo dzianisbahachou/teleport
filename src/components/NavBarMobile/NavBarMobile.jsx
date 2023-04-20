@@ -33,9 +33,9 @@ const NavBarMobile = (props) => {
                 <a href={TEL_LINK}><span className={classes.tel}>+375 (29) 830 97 32</span></a>
               </div>
               <div className={classes.contacts}>
-                <a href={TELEGRAM_LINK} rel='noreferrer' target="_blank"><img src='assets/logo/contactsLogo/telegram.webp' alt="Telegram" width="40px"/></a>
-                <a href={INSTAGRAM_LINK} rel='noreferrer' target="_blank"><img src='assets/logo/contactsLogo/instagram.webp' alt="Inst" width="40px"/></a>
-                <a href={VK_LINK} rel='noreferrer' target="_blank"><img src='assets/logo/contactsLogo/vk.webp' alt="VK" width="40px"/></a>
+                <a href={TELEGRAM_LINK} rel='noreferrer' target="_blank"><img src={`${process.env.PUBLIC_URL}/assets/logo/contactsLogo/telegram.webp`} alt="Telegram" width="40px"/></a>
+                <a href={INSTAGRAM_LINK} rel='noreferrer' target="_blank"><img src={`${process.env.PUBLIC_URL}/assets/logo/contactsLogo/instagram.webp`} alt="Inst" width="40px"/></a>
+                <a href={VK_LINK} rel='noreferrer' target="_blank"><img src={`${process.env.PUBLIC_URL}/assets/logo/contactsLogo/vk.webp`} alt="VK" width="40px"/></a>
               </div>
             </li>
         </ul>

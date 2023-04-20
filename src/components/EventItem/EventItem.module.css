@@ -13,7 +13,7 @@
     margin-top: -41px;
 }
 
-.item:hover .button{
+.item:hover .action {
     display: block;
 }
 
@@ -30,30 +30,15 @@
     transform: scale(0.98);
 }
 
-.button {
+.action {
     display: none;
     position: relative;
     top: -115px;
-    cursor: pointer;
-    background: rgb(251,185,67);
-    background: linear-gradient(0deg, rgba(251,185,67,1) 0%, rgba(253,224,70,1) 100%);
-    border: none;
+}
+
+.action button {
     padding: 7px 50px;
-    border-radius: 20px;
-    color: white;
     font-size: 1.5rem;
-    text-shadow: 1px 1px 1px #000;
-    height: min-content;
-    outline: none;
-}
-
-.button:hover {
-    background: rgb(251,185,67);
-    background: linear-gradient(0deg, rgba(253,224,70,1) 0%, rgba(251,185,67,1) 100%);
-}
-
-.button:hover .img {
-    transform: scale(0.98);
 }
 
 span {
