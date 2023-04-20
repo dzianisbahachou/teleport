@@ -4,9 +4,17 @@
     align-items: center;
     margin-bottom: 60px;
     text-decoration: none;
-    color: rgb(252, 218, 69);
+    color: rgb(255, 255, 255);
     text-shadow: 1px 1px 1px #000;
-    font-size: 1.5rem;
+    font-size: 2.2rem;
+}
+
+.item:hover span {
+    margin-top: -41px;
+}
+
+.item:hover .button{
+    display: block;
 }
 
 .img {
@@ -17,7 +25,39 @@
 }
 
 .img:hover {
-    scale: 0.98;
+    cursor: pointer;
+    opacity: 0.8;
+    transform: scale(0.98);
+}
+
+.button {
+    display: none;
+    position: relative;
+    top: -115px;
+    cursor: pointer;
+    background: rgb(251,185,67);
+    background: linear-gradient(0deg, rgba(251,185,67,1) 0%, rgba(253,224,70,1) 100%);
+    border: none;
+    padding: 7px 50px;
+    border-radius: 20px;
+    color: white;
+    font-size: 1.5rem;
+    text-shadow: 1px 1px 1px #000;
+    height: min-content;
+    outline: none;
+}
+
+.button:hover {
+    background: rgb(251,185,67);
+    background: linear-gradient(0deg, rgba(253,224,70,1) 0%, rgba(251,185,67,1) 100%);
+}
+
+.button:hover .img {
+    transform: scale(0.98);
+}
+
+span {
+    margin-top: 0;
 }
 
 @media (max-width: 550px) {

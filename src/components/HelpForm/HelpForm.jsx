@@ -48,7 +48,7 @@ const HelpForm = () => {
                         <img src="assets/mini1.webp"/>
                     </div>
                     <div className={classes.info}>
-                        <p className={classes.title}>Поможем с выбором</p>
+                        <p className={classes.title}>Поможем с выбором персонажа</p>
                         <div className={classes.contacts}>
                             <div className={classes.tel}>
                             <PhoneInput
@@ -68,7 +68,6 @@ const HelpForm = () => {
                                 </a>
                                 <a href={TEL_LINK} className={classes.telegram}>
                                     <img src='assets/logo/contactsLogo/tel.webp'/>
-                                    <p>Tel</p>
                                 </a>
                             </div>
                         </div>

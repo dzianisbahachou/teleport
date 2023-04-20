@@ -17,7 +17,7 @@ const router = createBrowserRouter([
   {path: '/', element: <RootLayoutPage />, errorElement: <ErrorPage />, children: [
     {index: true, element: <HomePage/>, action: addUserAction},
     {path: 'animators', element: <AnimatorsPage/>, loader: animatorsLoader },
-    {path: 'animators/:eventType', element: <EventDetailsPage/>, loader: eventDetailsLoader },
+    {path: 'animators/:eventType', element: <EventDetailsPage/>, loader: eventDetailsLoader, action: commentsAction },
     {path: 'shows', element: <ShowsPage/>, loader: showsLoader },
     {path: 'comments', element: <CommentsPage/>, loader: commentsLoader, action: commentsAction},
   ]},

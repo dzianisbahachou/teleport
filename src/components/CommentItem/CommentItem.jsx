@@ -3,7 +3,6 @@ import EventLogo from '../UI/EventLogo/EventLogo';
 
 export default function CommentItem({data}) {
     const imgPath = data.eventSubType;
-debugger
     return (
         <div className={cl.item}>
             <div className={cl.text}>
