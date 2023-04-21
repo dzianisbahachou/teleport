@@ -8,6 +8,8 @@ export default function EventItem({data}) {
         ? `assets/logo/eventLogo/${eventSubType}.webp`
         : 'assets/logo/defaultEventLogo.webp'; 
 
+        debugger
+
     return (
         <Link to={eventSubType} className={cl.item}>
             <img className={cl.img} src={imgPath} alt={eventSubType}/>

@@ -10,6 +10,7 @@ import EmptyListMessage from "../../components/UI/EmptyListMessage/EmptyListMess
 
 const AnimatorsPage = () => {
     const data = useLoaderData();
+    debugger
     const navigation = useNavigation()
     const isLoading = navigation.state === 'loading';
     return (
