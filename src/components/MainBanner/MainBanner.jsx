@@ -2,6 +2,7 @@ import { useState } from "react";
 import classes from "./MainBanner.module.css";
 import Container from "../UI/Container/Container";
 import MainButton from '../UI/MainButton/MainButton';
+import Wave from "../UI/Wave/Wave";
 
 const MainBanner = () => {
     const [modalIsOpened, setModalIsOpened] = useState(false);
@@ -29,6 +30,7 @@ const MainBanner = () => {
                     <MainButton><a href="#magicForm">Вызвать волшебников</a></MainButton>
                 </Container>
             </div>
+            <Wave />
         </div>
     </>);
 };
