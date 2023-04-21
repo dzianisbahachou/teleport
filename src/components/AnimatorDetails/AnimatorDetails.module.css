@@ -18,7 +18,7 @@
 }
 
 .avatar img {
-    width: 35rem;
+    width: 25rem;
 }
 
 .gallery {
@@ -26,13 +26,13 @@
 }
 
 .title {
-    font-size: 45px;
+    font-size: 35px;
     color: #ffffff;
     text-shadow: 1px 1px 1px #000;
 }
 
 .description {
-    font-size: 20px;
+    font-size: 18px;
     color: #ffffff;
     text-shadow: 1px 1px 1px #000;
 }
