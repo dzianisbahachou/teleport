@@ -4,7 +4,8 @@ const Wave = () => {
 
     return (
         <div className={cl.wrapper}>
-            <div className={cl.wave}></div>
+            <div className={cl.wave1}></div>
+            <div className={cl.wave2}></div>
         </div>
     );
 };
