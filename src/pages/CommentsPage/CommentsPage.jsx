@@ -35,7 +35,7 @@ const CommentsPage = () => {
                 </Transition>
                 { data?.length 
                     ? <CommentsList comments={data}/>
-                    : <EmptyListMessage text='Список отзывов пуст'/>
+                    : <EmptyListMessage text='Отзывы отсутствуют. Оставь первый!'/>
                 }
                 <div className={cl.actions}>
                     <MainButton onClick={openNewCommentModal}>Оставить отзыв</MainButton>    
@@ -53,17 +53,15 @@ export async function loader() {
         const snapshot = await APICalls.getComments();
         
         if (!snapshot.exists()) {
-            throw new Error('snapshot/comments-doesnot-exist');
+            return null;
         }
 
         const value = snapshot.val();
         const comments = convertResponse(value);
         const sortedComments = comments.reverse();
-
         return sortedComments;
     } catch(e) {
-        const message = convertResponseErrorMessage(e.message);
-
+        const message = convertResponseErrorMessage('snapshot/comments-doesnot-exist');
         throw json(
             { message },
             { status: 500 }
