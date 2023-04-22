@@ -44,7 +44,7 @@ export default function EventDetailsPage() {
                 <>
                     <AdditionChoice location={route} data={data.addition}/>
                 </>
-               : <EmptyListMessage text='Дополнительные услуги отсутствуют:('/>
+               : ""
             }
                 <Gallery imgPath={data.eventType}/>
                 <Transition in={isNewCommentDisplayed} timeout={300} mountOnEnter unmountOnExit>
