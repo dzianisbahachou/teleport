@@ -3,12 +3,13 @@ import { useLoaderData, useNavigation, json } from "react-router-dom";
 import LoginLoader from "../../components/UI/LoginLoader/LoginLoader";
 import APICalls from "../../API/API";
 import { convertResponse, convertResponseErrorMessage } from "../../util/firebaseResponseHandler";
-import cl from './AnimatorsPage.module.css';
+import cl from './AdditionPage.module.css';
 import Container from "../../components/UI/Container/Container";
 import HelpForm from "../../components/HelpForm/HelpForm";
 import EmptyListMessage from "../../components/UI/EmptyListMessage/EmptyListMessage";
+import { useEffect } from "react";
 
-const AnimatorsPage = () => {
+const AdditionPage = () => {
     const data = useLoaderData();
     const navigation = useNavigation()
     const isLoading = navigation.state === 'loading';
@@ -16,24 +17,23 @@ const AnimatorsPage = () => {
         <div className={cl.wrapper}>
             <Container>
                 {data?.length 
-                    ? <EventsList events={data} title='Аниматоры на день рождения и детский праздник'/>
-                    : <EmptyListMessage text='Не удалось загрузить список Аниматоров. Попробуйте позже'/>
+                    ? <EventsList events={data} title='Дополнительные услуги для вашего праздника'/>
+                    : <EmptyListMessage text='Не удалось загрузить список Дополнительных услуг. Попробуйте позже'/>
                 }
             </Container>
-            <HelpForm/>
             {isLoading && <LoginLoader />}
         </div>
     );
 };
 
-export default AnimatorsPage;
+export default AdditionPage;
 
 export async function loader() {
     try {
-        const snapshot = await APICalls.getEvents('animators');
+        const snapshot = await APICalls.getEvents('addition');
         
         if (!snapshot.exists()) {
-            throw new Error('snapshot/animators-doesnot-exist');
+            return null;
         }
 
         const value = snapshot.val();

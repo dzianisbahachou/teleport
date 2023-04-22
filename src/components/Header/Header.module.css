@@ -1,5 +1,9 @@
 .back{
     background-color: rgb(155,222,245);
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 55;
 }
 
 .navbar ul{

@@ -20,7 +20,7 @@ const NavBarMobile = (props) => {
               <NavLink to="shows" className={(({isActive}) => isActive ? classes.active : "")}><p onClick={props.navToggle} className={classes["header-items"]}>ШОУ-ПРОГРАММЫ</p></NavLink>
             </li>
             <li>
-              <NavLink to="animators-2" className={(({isActive}) => isActive ? classes.active : "")}><p onClick={props.navToggle} className={classes["header-items"]}>ДОП УСЛУГИ</p></NavLink>
+              <NavLink to="addition" className={(({isActive}) => isActive ? classes.active : "")}><p onClick={props.navToggle} className={classes["header-items"]}>ДОП УСЛУГИ</p></NavLink>
             </li>
             <li>
               <NavLink to="animators-3" className={(({isActive}) => isActive ? classes.active : "")}><p onClick={props.navToggle} className={classes["header-items"]}>ОНЛАЙН ПРАЗДНИКИ</p></NavLink>
