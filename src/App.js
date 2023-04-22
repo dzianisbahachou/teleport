@@ -11,7 +11,7 @@ import ErrorPage from './pages/ErrorPage';
 import AdminPage, {loader as adminLoader} from './pages/AdminPage/AdminPage';
 import HomePage, {action as addUserAction} from "./pages/HomePage";
 import CommentsPage, {loader as commentsLoader, action as commentsAction} from './pages/CommentsPage/CommentsPage';
-import EventDetailsPage, {loader as eventDetailsLoader} from './pages/EventDetailsPage';
+import EventDetailsPage, {loader as eventDetailsLoader} from './pages/EventDetailsPage/EventDetailsPage';
 import AdditionPage, {loader as additionLoader} from './pages/AdditionPage/AdditionPage';
 
 const router = createBrowserRouter([

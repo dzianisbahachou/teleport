@@ -1,17 +1,17 @@
-import AnimatorDetails from "../components/AnimatorDetails/AnimatorDetails";
+import AnimatorDetails from "../../components/AnimatorDetails/AnimatorDetails";
 import { useLoaderData, json, useLocation } from "react-router-dom";
-import APICalls from "../API/API";
-import { convertResponse, convertResponseErrorMessage } from "../util/firebaseResponseHandler";
-import Gallery from "../components/Gallery/Gallery";
-import CommentsList from "../components/CommentsList/CommentsList";
+import APICalls from "../../API/API";
+import { convertResponse, convertResponseErrorMessage } from "../../util/firebaseResponseHandler";
+import Gallery from "../../components/Gallery/Gallery";
+import CommentsList from "../../components/CommentsList/CommentsList";
 import classes from "./EventDetailsPage.module.css";
-import Container from "../components/UI/Container/Container";
+import Container from "../../components/UI/Container/Container";
 import { useEffect, useState } from "react";
-import MainButton from "../components/UI/MainButton/MainButton";
+import MainButton from "../../components/UI/MainButton/MainButton";
 import { Transition } from "react-transition-group";
-import NewCommentModal from "../components/NewCommentModal/NewCommentModal";
-import EmptyListMessage from "../components/UI/EmptyListMessage/EmptyListMessage";
-import AdditionChoice from "../components/AdditionChoice/AdditionChoice";
+import NewCommentModal from "../../components/NewCommentModal/NewCommentModal";
+import EmptyListMessage from "../../components/UI/EmptyListMessage/EmptyListMessage";
+import AdditionChoice from "../../components/AdditionChoice/AdditionChoice";
 
 export default function EventDetailsPage() {
     window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
@@ -67,8 +67,13 @@ export default function EventDetailsPage() {
 export async function loader({params}) {
     const eventType = params.eventType;
     try {
-        const eventDetailsSnapshot = await APICalls.getEventByEventSubType(eventType);
-        if (!eventDetailsSnapshot.exists()) {
+        const resultData = await Promise.allSettled([
+            APICalls.getEventByEventSubType(eventType),
+            APICalls.getComemntsForEvent(eventType)
+        ]);
+
+        if (!resultData[0].value.exists()) {
+            debugger
             return {
                 sortedComments: null,
                 eventType: eventType,
@@ -76,12 +81,11 @@ export async function loader({params}) {
             }
         }
 
-        const eventDetailsValue = eventDetailsSnapshot.val();
+        const eventDetailsValue = resultData[0].value.val();
         const eventDetails = convertResponse(eventDetailsValue);
         const selectedItem = eventDetails[0];
 
-        const commentsSnapshot = await APICalls.getComemntsForEvent(eventType);
-        if (!commentsSnapshot.exists()) {
+        if (!resultData[1].value.exists()) {
             return {
                 sortedComments: null,
                 eventType: eventType,
@@ -89,7 +93,7 @@ export async function loader({params}) {
             }
         }
 
-        const commentsValue = commentsSnapshot.val();
+        const commentsValue = resultData[1].value.val();
         const comments = convertResponse(commentsValue);
         const sortedComments = comments.reverse();
 

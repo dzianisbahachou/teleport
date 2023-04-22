@@ -21,7 +21,7 @@ const AnimatorsPage = () => {
                 }
             </Container>
             <HelpForm/>
-            {isLoading && <LoginLoader />}
+            {isLoading && <LoginLoader/>}
         </div>
     );
 };
