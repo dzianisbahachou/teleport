@@ -53,4 +53,11 @@ export default class APICalls {
         const snapshot = await get(eventsListRef);
         return snapshot;
     }
+
+    static async getEventByEventSubType(eventSubType) {
+        const db = getDatabase();
+        const eventDetailsRef = query(ref(db, 'events'), orderByChild('eventSubType'), equalTo(eventSubType));
+        const snapshot = await get(eventDetailsRef);
+        return snapshot;
+    }
 }

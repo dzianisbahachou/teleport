@@ -11,7 +11,7 @@ const NavBarDesktop = (props) => {
           <NavLink to="shows" className={(({isActive}) => isActive ? classes.active : "")}><p onClick={props.navToggle} className={classes["header-items"]}>Шоу-программы</p></NavLink>
         </li>
         <li>
-          <NavLink to="animators-2" className={(({isActive}) => isActive ? classes.active : "")}><p onClick={props.navToggle} className={classes["header-items"]}>Доп услуги</p></NavLink>
+          <NavLink to="addition" className={(({isActive}) => isActive ? classes.active : "")}><p onClick={props.navToggle} className={classes["header-items"]}>Доп услуги</p></NavLink>
         </li>
         <li>
           <NavLink to="animators-3" className={(({isActive}) => isActive ? classes.active : "")}><p onClick={props.navToggle} className={classes["header-items"]}>Онлайн праздники</p></NavLink>

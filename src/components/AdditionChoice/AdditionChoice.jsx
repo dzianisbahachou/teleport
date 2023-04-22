@@ -1,19 +1,11 @@
-import EventItem from "../EventItem/EventItem";
+import AdditionItem from "../AdditionItem/AdditionItem";
 import cl from "./AdditionChoice.module.css";
 
-const AdditionChoice = () => {
-    let data = [{
-        description:"какое-то описание Скай",
-        eventSubType:"sky",
-        eventType:"animators",
-        id:"1",
-        price:123,
-        title:"Скай"
-    }]
+const AdditionChoice = ({data, location}) => {
     return (
         <div className={cl.wrapper}>
             <ul className={cl.list}>
-                { data.map(event => <li key={event.id}><EventItem data={event}/></li>) }
+                {data.addition.map(event => <li key={event.id}><AdditionItem data={event} location={location}/></li>)}
             </ul>
     </div>);
 };

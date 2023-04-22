@@ -1,0 +1,56 @@
+.item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 60px;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    text-shadow: 1px 1px 1px #000;
+    font-size: 2.2rem;
+}
+
+.item:hover .action {
+    display: block;
+}
+
+.img {
+    width: 17vw;
+    cursor: pointer;
+    transition: all 300ms;
+    margin-bottom: 20px;
+}
+
+.img:hover {
+    opacity: 0.8;
+    transform: scale(0.98);
+}
+
+.action {
+    display: none;
+    position: absolute;
+    bottom: 110px;
+    z-index: 1;
+}
+
+.action:hover + .img {
+    opacity: 0.8;
+    transform: scale(0.98);
+}
+
+.action button {
+    opacity: 0.8;
+    padding: 7px 50px;
+    font-size: 1.5rem;
+    transition: all 300ms;
+}
+
+.action button:hover {
+    opacity: 1;
+}
+
+@media (max-width: 550px) {
+    .img {
+        width: 100%;
+    }
+}

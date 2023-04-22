@@ -1,7 +1,6 @@
 .back{
     background: rgb(155,222,245);
     background: linear-gradient(0deg, rgba(155,222,245,1) 0%, rgba(155,222,245,1) 9%, rgba(255,255,255,1) 100%);
-    height: 1100px;
 }
 
 .list {
