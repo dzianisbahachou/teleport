@@ -16,11 +16,14 @@ export function convertResponseErrorMessage(code) {
         case 'snapshot/shows-doesnot-exist':
             message = 'Не удалось загрузить Шоу программы';
             break;
+        case 'snapshot/additional-doesnot-exist':
+            message = 'Не удалось загрузить Дополнительные услуги';
+            break;
         case 'snapshot/comments-doesnot-exist':
             message = 'Не удалось загрузить коментарии';
             break;
-        case 'snapshot/addition-doesnot-exist':
-            message = 'Не удалось загрузить дополнительные услуги';
+        case 'snapshot/event-details-doesnot-exist':
+            message = 'Не удалось загрузить информацию';
             break;
     }
 
