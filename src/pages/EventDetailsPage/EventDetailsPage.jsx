@@ -34,7 +34,7 @@ export default function EventDetailsPage() {
             <Container>
                 { data.addition 
                     ? <AnimatorDetails data={data}/>
-                    : <EmptyListMessage text='Информация об услуге отсутствуют:('/>
+                    : <EmptyListMessage text='Информация об услуге отсутствуeт:('/>
                 }
                 { data.addition?.addition && <AdditionChoice location={route} data={data.addition}/>}
                 <Gallery imgPath={data.eventType}/>
