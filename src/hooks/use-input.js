@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 const useInput = validateValue => {
     const [enteredValue, setEnteredValue] = useState('');
@@ -20,12 +20,12 @@ const useInput = validateValue => {
     };
 
     const reset = () => {
-        setEnteredValue("");
+        setEnteredValue('');
         setIsTouched(false);
     };
 
     const resetPhone = () => {
-        setEnteredValue("375");
+        setEnteredValue('375');
         setIsTouched(false);
     };
 

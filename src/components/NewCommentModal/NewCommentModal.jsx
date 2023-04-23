@@ -95,7 +95,7 @@ export default function NewCommentModal({show, closeModal}) {
                 comment: commentValue
             };
 
-            sub(formData, {method: "post"});
+            sub(formData, {method: 'post'});
     
             closeModal();
         }
@@ -152,7 +152,7 @@ export default function NewCommentModal({show, closeModal}) {
                         ref={nameInputRef}
                         name='name' 
                         placeholder='Ваше имя'
-                        autoComplete="off"
+                        autoComplete='off'
                         value={nameValue}
                         isInvalid={nameHasError}
                         onChange={onNameChange}
@@ -166,7 +166,7 @@ export default function NewCommentModal({show, closeModal}) {
                             isInvalid={eventTypeHasError}
                             onChange={onEventTypeChange}
                             onClick={openEventTypeModal}
-                            autoComplete="off"
+                            autoComplete='off'
                             onKeyDown={e => e.preventDefault()}
                             inputMode='none'
                             disabled={isOP}/> 

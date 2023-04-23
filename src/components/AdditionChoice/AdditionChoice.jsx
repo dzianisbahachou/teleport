@@ -1,5 +1,5 @@
-import AdditionItem from "../AdditionItem/AdditionItem";
-import cl from "./AdditionChoice.module.css";
+import AdditionItem from '../AdditionItem/AdditionItem';
+import cl from './AdditionChoice.module.css';
 
 const AdditionChoice = ({data, location}) => {
     return (

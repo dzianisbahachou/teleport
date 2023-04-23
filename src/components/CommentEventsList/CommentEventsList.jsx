@@ -1,4 +1,4 @@
-import CommentEventItem from "../CommentEventItem/CommentEventItem";
+import CommentEventItem from '../CommentEventItem/CommentEventItem';
 
 export default function CommentEventsList({events, onSelect}) {
     return (

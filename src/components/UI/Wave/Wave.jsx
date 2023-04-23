@@ -1,7 +1,6 @@
-import cl from './Wave.module.css'
+import cl from './Wave.module.css';
 
 const Wave = () => {
-
     return (
         <div className={cl.wrapper}>
             <div className={cl.wave1}></div>

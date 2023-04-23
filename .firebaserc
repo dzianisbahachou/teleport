@@ -1,5 +1,5 @@
 {
-  "projects": {
-    "default": "teleport-9499d"
+  'projects': {
+    'default': 'teleport-9499d'
   }
 }

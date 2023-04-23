@@ -1,15 +1,15 @@
-import Container from "../UI/Container/Container";
-import classes from "./About.module.css";
-import Gallery from "../Gallery/Gallery";
+import Container from '../UI/Container/Container';
+import classes from './About.module.css';
+import Gallery from '../Gallery/Gallery';
 
 const About = () => {
 
     return (<div className={classes.back}>
         <Container>
             <div className={classes.wrapper}>
-                <div className={classes["about-block"]}>
+                <div className={classes['about-block']}>
                     <div className={classes.avatar}>
-                        <img src="assets/mini1.webp"/>
+                        <img src='assets/mini1.webp'/>
                     </div>
                     <div className={classes.about}>
                         <p className={classes.title}>МЫ НАСТОЯЩИЕ ФАНАТЫ СВОЕГО ДЕЛА!</p>

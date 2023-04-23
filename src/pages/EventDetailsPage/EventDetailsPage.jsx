@@ -1,24 +1,24 @@
-import AnimatorDetails from "../../components/AnimatorDetails/AnimatorDetails";
-import { useLoaderData, json, useLocation } from "react-router-dom";
-import APICalls from "../../API/API";
-import { convertResponse, convertResponseErrorMessage } from "../../util/firebaseResponseHandler";
-import Gallery from "../../components/Gallery/Gallery";
-import CommentsList from "../../components/CommentsList/CommentsList";
-import classes from "./EventDetailsPage.module.css";
-import Container from "../../components/UI/Container/Container";
-import { useState } from "react";
-import MainButton from "../../components/UI/MainButton/MainButton";
-import { Transition } from "react-transition-group";
-import NewCommentModal from "../../components/NewCommentModal/NewCommentModal";
-import EmptyListMessage from "../../components/UI/EmptyListMessage/EmptyListMessage";
-import AdditionChoice from "../../components/AdditionChoice/AdditionChoice";
+import AnimatorDetails from '../../components/AnimatorDetails/AnimatorDetails';
+import { useLoaderData, json, useLocation } from 'react-router-dom';
+import APICalls from '../../API/API';
+import { convertResponse, convertResponseErrorMessage } from '../../util/firebaseResponseHandler';
+import Gallery from '../../components/Gallery/Gallery';
+import CommentsList from '../../components/CommentsList/CommentsList';
+import classes from './EventDetailsPage.module.css';
+import Container from '../../components/UI/Container/Container';
+import { useState } from 'react';
+import MainButton from '../../components/UI/MainButton/MainButton';
+import { Transition } from 'react-transition-group';
+import NewCommentModal from '../../components/NewCommentModal/NewCommentModal';
+import EmptyListMessage from '../../components/UI/EmptyListMessage/EmptyListMessage';
+import AdditionChoice from '../../components/AdditionChoice/AdditionChoice';
 
 export default function EventDetailsPage() {
     window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
 
     const [isNewCommentDisplayed, setIsNewCommentDisplayed] = useState(false);
     const location = useLocation();
-    const route = location.pathname.split("/")[1];
+    const route = location.pathname.split('/')[1];
 
     const openNewCommentModal = () => {
         setIsNewCommentDisplayed(true);

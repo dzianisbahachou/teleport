@@ -1,11 +1,11 @@
 import cl from './CommentsList.module.css';
 import CommentItem from '../CommentItem/CommentItem';
 import React, { useState } from 'react';
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/effect-coverflow";
-import "swiper/css/pagination";
-import { Pagination } from "swiper";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/effect-coverflow';
+import 'swiper/css/pagination';
+import { Pagination } from 'swiper';
 import './swiperStyle.css';
 
 export default React.memo(function CommentsList({comments}) {

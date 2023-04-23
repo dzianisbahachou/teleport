@@ -1,9 +1,9 @@
-import { redirect, useNavigation } from "react-router-dom";
+import { redirect, useNavigation } from 'react-router-dom';
 import cl from './AuthPage.module.css';
 
-import LoginForm from "../../components/LoginForm/LoginForm";
-import LoginLoader from "../../components/UI/LoginLoader/LoginLoader";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import LoginForm from '../../components/LoginForm/LoginForm';
+import LoginLoader from '../../components/UI/LoginLoader/LoginLoader';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 
 export default function AuthPage() {
     const navigation = useNavigation();

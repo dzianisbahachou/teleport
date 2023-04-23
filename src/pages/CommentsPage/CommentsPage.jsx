@@ -1,7 +1,7 @@
 import { json, useLoaderData, useNavigation } from 'react-router-dom';
 import { useState } from 'react';
 import cl from './CommentsPage.module.css';
-import APICalls from "../../API/API";
+import APICalls from '../../API/API';
 import { convertResponse } from '../../util/firebaseResponseHandler';
 import { convertResponseErrorMessage } from '../../util/firebaseResponseHandler';
 import LoginLoader from '../../components/UI/LoginLoader/LoginLoader';

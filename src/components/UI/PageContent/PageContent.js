@@ -1,11 +1,11 @@
 import classes from './PageContent.module.css';
-import {useNavigate} from "react-router-dom";
+import {useNavigate} from 'react-router-dom';
 import MainButton from '../MainButton/MainButton';
 
 function PageContent({ title, children }) {
   const navigate = useNavigate();
   const navigateToMainPage = () => {
-    navigate("..");
+    navigate('..');
   };
 
   return (

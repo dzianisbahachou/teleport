@@ -1,11 +1,11 @@
-import EventsList from "../../components/EventsList/EventsList";
-import { useLoaderData, useNavigation, json } from "react-router-dom";
-import LoginLoader from "../../components/UI/LoginLoader/LoginLoader";
-import APICalls from "../../API/API";
-import { convertResponse, convertResponseErrorMessage } from "../../util/firebaseResponseHandler";
+import EventsList from '../../components/EventsList/EventsList';
+import { useLoaderData, useNavigation, json } from 'react-router-dom';
+import LoginLoader from '../../components/UI/LoginLoader/LoginLoader';
+import APICalls from '../../API/API';
+import { convertResponse, convertResponseErrorMessage } from '../../util/firebaseResponseHandler';
 import cl from './ShowsPage.module.css';
-import Container from "../../components/UI/Container/Container";
-import EmptyListMessage from "../../components/UI/EmptyListMessage/EmptyListMessage";
+import Container from '../../components/UI/Container/Container';
+import EmptyListMessage from '../../components/UI/EmptyListMessage/EmptyListMessage';
 
 const ShowsPage = () => {
     const data = useLoaderData();

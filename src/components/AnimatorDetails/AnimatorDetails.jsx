@@ -1,5 +1,5 @@
-import classes from "./AnimatorDetails.module.css";
-import Container from "../UI/Container/Container";
+import classes from './AnimatorDetails.module.css';
+import Container from '../UI/Container/Container';
 
 const AnimatorDetails = ({data}) => {
     const imgPath = data.addition  
@@ -8,7 +8,7 @@ const AnimatorDetails = ({data}) => {
 
     return (<div className={classes.wrapper}>
         <Container>
-            <div className={classes["about-block"]}>
+            <div className={classes['about-block']}>
                 <div className={classes.about}>
                     <p className={classes.title}>{data.addition.title}</p>
                     <p className={classes.description}>{data.addition.description}</p>
