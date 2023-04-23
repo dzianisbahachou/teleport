@@ -26,7 +26,7 @@ const HelpForm = () => {
         hasError: phoneHasError,
         inputPhoneChangeHandler: onPhoneChange,
         inputBlurHandler: onPhoneBlur,
-        reset: resetPhone
+        resetPhone: resetPhone
     } = useInput(validatePhone);
 
     const sendMsg = () => {

@@ -20,6 +20,11 @@ const useInput = validateValue => {
     };
 
     const reset = () => {
+        setEnteredValue("");
+        setIsTouched(false);
+    };
+
+    const resetPhone = () => {
         setEnteredValue("375");
         setIsTouched(false);
     };
@@ -31,7 +36,8 @@ const useInput = validateValue => {
         inputChangeHandler,
         inputBlurHandler,
         inputPhoneChangeHandler,
-        reset
+        reset,
+        resetPhone
     }
 };
 
