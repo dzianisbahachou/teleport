@@ -5,9 +5,7 @@ import APICalls from "../../API/API";
 import { convertResponse, convertResponseErrorMessage } from "../../util/firebaseResponseHandler";
 import cl from './AdditionPage.module.css';
 import Container from "../../components/UI/Container/Container";
-import HelpForm from "../../components/HelpForm/HelpForm";
 import EmptyListMessage from "../../components/UI/EmptyListMessage/EmptyListMessage";
-import { useEffect } from "react";
 
 const AdditionPage = () => {
     const data = useLoaderData();
@@ -33,12 +31,12 @@ export async function loader() {
         const snapshot = await APICalls.getEvents('addition');
         
         if (!snapshot.exists()) {
-            throw new Error('snapshot/addition-doesnot-exist');
+            throw new Error('snapshot/additional-doesnot-exist')
         }
 
         const value = snapshot.val();
-        const animators = convertResponse(value);
-        return animators;
+        const addition = convertResponse(value);
+        return addition;
     } catch(e) {
         const message = convertResponseErrorMessage(e.message);
 
