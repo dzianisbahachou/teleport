@@ -11,12 +11,16 @@ const useInput = validateValue => {
         setEnteredValue(event.target.value);
     };
 
+    const inputPhoneChangeHandler = event => {
+        setEnteredValue(event);
+    }
+
     const inputBlurHandler = () => {
         setIsTouched(true);
     };
 
     const reset = () => {
-        setEnteredValue("");
+        setEnteredValue("375");
         setIsTouched(false);
     };
 
@@ -26,6 +30,7 @@ const useInput = validateValue => {
         hasError,
         inputChangeHandler,
         inputBlurHandler,
+        inputPhoneChangeHandler,
         reset
     }
 };

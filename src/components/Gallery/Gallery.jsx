@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import StorageAPICalls from "../../API/StorageAPI";
-import Slider from "react-slick";
 import cl from './Gallery.module.css';
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";

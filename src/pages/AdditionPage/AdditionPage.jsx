@@ -33,7 +33,7 @@ export async function loader() {
         const snapshot = await APICalls.getEvents('addition');
         
         if (!snapshot.exists()) {
-            return null;
+            throw new Error('snapshot/addition-doesnot-exist');
         }
 
         const value = snapshot.val();

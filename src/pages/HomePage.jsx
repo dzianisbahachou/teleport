@@ -1,4 +1,4 @@
-import { redirect, json } from "react-router";
+import { json } from "react-router";
 import About from "../components/About/About";
 import MagicForm from "../components/MagicForm/MagicForm";
 import MainBanner from "../components/MainBanner/MainBanner";

@@ -19,6 +19,9 @@ export function convertResponseErrorMessage(code) {
         case 'snapshot/comments-doesnot-exist':
             message = 'Не удалось загрузить коментарии';
             break;
+        case 'snapshot/addition-doesnot-exist':
+            message = 'Не удалось загрузить дополнительные услуги';
+            break;
     }
 
     return message;

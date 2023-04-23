@@ -6,7 +6,7 @@ import Gallery from "../../components/Gallery/Gallery";
 import CommentsList from "../../components/CommentsList/CommentsList";
 import classes from "./EventDetailsPage.module.css";
 import Container from "../../components/UI/Container/Container";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import MainButton from "../../components/UI/MainButton/MainButton";
 import { Transition } from "react-transition-group";
 import NewCommentModal from "../../components/NewCommentModal/NewCommentModal";

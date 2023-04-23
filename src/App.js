@@ -1,6 +1,4 @@
 import './App.css';
-import "slick-carousel/slick/slick.css"; 
-import "slick-carousel/slick/slick-theme.css";
 import {createBrowserRouter, RouterProvider} from 'react-router-dom';
 import AnimatorsPage, { loader as animatorsLoader} from "./pages/AnimatorsPage/AnimatorsPage";
 import ShowsPage, { loader as showsLoader } from './pages/ShowsPage/ShowsPage';
