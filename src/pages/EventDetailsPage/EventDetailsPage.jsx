@@ -32,20 +32,11 @@ export default function EventDetailsPage() {
     return (
         <div className={classes.wrapper}>
             <Container>
-            { data.addition 
-               ? 
-                <>
-                    <AnimatorDetails data={data}/>
-                </>
-               : <EmptyListMessage text='Информация об услуге отсутствуют:('/>
-            }
-            { data.addition?.addition 
-               ? 
-                <>
-                    <AdditionChoice location={route} data={data.addition}/>
-                </>
-               : ""
-            }
+                { data.addition 
+                    ? <AnimatorDetails data={data}/>
+                    : <EmptyListMessage text='Информация об услуге отсутствуют:('/>
+                }
+                { data.addition?.addition && <AdditionChoice location={route} data={data.addition}/>}
                 <Gallery imgPath={data.eventType}/>
                 <Transition in={isNewCommentDisplayed} timeout={300} mountOnEnter unmountOnExit>
                     {state => <NewCommentModal show={state} closeModal={closeNewCommentModal}/>}
@@ -73,7 +64,6 @@ export async function loader({params}) {
         ]);
 
         if (!resultData[0].value.exists()) {
-            debugger
             return {
                 sortedComments: null,
                 eventType: eventType,
@@ -103,7 +93,7 @@ export async function loader({params}) {
             addition: selectedItem
         }
     } catch(e) {
-        const message = convertResponseErrorMessage('snapshot/comments-doesnot-exist');
+        const message = convertResponseErrorMessage('snapshot/event-details-doesnot-exist');
         throw json(
             { message },
             { status: 500 }
