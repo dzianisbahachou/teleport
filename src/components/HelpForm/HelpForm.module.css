@@ -82,14 +82,18 @@
     width: 15rem;
     padding: 1rem;
     border: 3px solid white;
-  }
+}
   
 .input:focus {
     outline: none;
     border-color: rgb(255,183,66);
-  }
+}
   
 .invalid {
     border-color: red;
     background: #fbdada;
-  }
+}
+
+.tel input {
+    box-shadow: 1px 1px 14px rgba(0, 0, 0, 0.3)
+}

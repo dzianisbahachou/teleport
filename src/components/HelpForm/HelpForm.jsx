@@ -74,9 +74,6 @@ const HelpForm = () => {
                                 }}
                                 value={phoneValue}
                                 onChange={onPhoneChange}
-                                inputStyle={{
-                                    boxShadow: '1px 1px 14px rgba(0, 0, 0, 0.3)'
-                                }}
                                 inputClass={classess}
                                 onBlur={onPhoneBlur}
                             />
