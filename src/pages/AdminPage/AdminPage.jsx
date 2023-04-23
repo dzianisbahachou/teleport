@@ -1,14 +1,14 @@
-import APICalls from "../../API/API";
-import { useLoaderData, json, useNavigate, redirect } from "react-router-dom";
+import APICalls from '../../API/API';
+import { useLoaderData, json, useNavigate, redirect } from 'react-router-dom';
 import cl from './AdminPage.module.css';
-import app from "../../firebaseConfig";
-import { getAuth, signOut } from "firebase/auth";
+import app from '../../firebaseConfig';
+import { getAuth, signOut } from 'firebase/auth';
 
-import AdminTable from "../../components/AdminTable/AdminTable";
-import { convertResponse } from "../../util/firebaseResponseHandler";
-import AdminButton from "../../components/UI/AdminButton/AdminButton";
-import { convertResponseErrorMessage } from "../../util/firebaseResponseHandler";
-import { getCurrentUser } from "../../util/auth";
+import AdminTable from '../../components/AdminTable/AdminTable';
+import { convertResponse } from '../../util/firebaseResponseHandler';
+import AdminButton from '../../components/UI/AdminButton/AdminButton';
+import { convertResponseErrorMessage } from '../../util/firebaseResponseHandler';
+import { getCurrentUser } from '../../util/auth';
 
 export default function AdminPage() {
     const data = useLoaderData();

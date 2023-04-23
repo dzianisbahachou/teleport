@@ -1,7 +1,7 @@
 import cl from './AdminTable.module.css';
 
-import AdminTableHeader from "../AdminTableHeader/AdminTableHeader";
-import AdminTableRow from "../AdminTableRow/AdminTableRow";
+import AdminTableHeader from '../AdminTableHeader/AdminTableHeader';
+import AdminTableRow from '../AdminTableRow/AdminTableRow';
 
 export default function AdminTable({users}) {
 

@@ -1,14 +1,14 @@
 import { Form, useNavigation, useSubmit } from 'react-router-dom';
 import React, { useRef } from 'react';
 import useInput from '../../hooks/use-input';
-import classes from "./MagicForm.module.css";
-import Container from "../UI/Container/Container";
-import Input from "./../Input/Input";
+import classes from './MagicForm.module.css';
+import Container from '../UI/Container/Container';
+import Input from './../Input/Input';
 
 const MagicForm = () => {
     const sub = useSubmit();
     const navigation = useNavigation();
-    const isSubmitting = navigation.state === "submitting";
+    const isSubmitting = navigation.state === 'submitting';
 
     const nameInputRef = useRef();
     const telInputRef = useRef();
@@ -70,7 +70,7 @@ const MagicForm = () => {
           tel: telValue,
           inst: instValue
         };
-        sub(formData, {method: "post"});
+        sub(formData, {method: 'post'});
 
         resetName();
         resetTel();
@@ -81,39 +81,39 @@ const MagicForm = () => {
     return ( <div className={classes.back}>
       <Container>
         <div className={classes.wrapper}>
-            <div id="magicForm" className={classes.form}>
-                <p className={classes["form-title"]}>Волшебство начинается здесь</p>
-                <p className={classes["form-description"]}>Мы поможем вам организовать праздник мечты.</p>
-                <Form method="post" action="/" className={classes.inputs}>
+            <div id='magicForm' className={classes.form}>
+                <p className={classes['form-title']}>Волшебство начинается здесь</p>
+                <p className={classes['form-description']}>Мы поможем вам организовать праздник мечты.</p>
+                <Form method='post' action='/' className={classes.inputs}>
                     <Input 
                         ref={nameInputRef}
-                        id="name" 
-                        type="text" 
-                        label="Имя*"
-                        placeholder="Как Вас зовут?"
+                        id='name' 
+                        type='text' 
+                        label='Имя*'
+                        placeholder='Как Вас зовут?'
                         isValid={!nameHasError}
                         value={nameValue}
                         onChange={onNameChange}
                         onBlur={onNameBlur}/>
                     <Input 
                         ref={telInputRef}
-                        id="tel" 
-                        type="tel" 
-                        label="Телефон*"
-                        placeholder="Номер телефона"
+                        id='tel' 
+                        type='tel' 
+                        label='Телефон*'
+                        placeholder='Номер телефона'
                         isValid={!telHasError}
                         value={telValue}
                         onChange={onTelChange}
                         onBlur={onTelBlur}/>
                     <Input 
-                        id="inst" 
-                        type="text" 
-                        label="Instagram"
-                        placeholder="Никнейм Instagram (необязательно)"
+                        id='inst' 
+                        type='text' 
+                        label='Instagram'
+                        placeholder='Никнейм Instagram (необязательно)'
                         value={instValue}
                         onChange={onInstChange}/>
                     <div>
-                        <button onClick={submitHandler} className={classes["form-button"]}>Отправить</button>
+                        <button onClick={submitHandler} className={classes['form-button']}>Отправить</button>
                     </div>
                 </Form>
             </div>

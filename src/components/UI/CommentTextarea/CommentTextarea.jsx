@@ -1,5 +1,5 @@
 import cl from './CommentTextarea.module.css';
-import React, { useRef, useImperativeHandle} from "react";
+import React, { useRef, useImperativeHandle} from 'react';
 
 const CommentTextarea = React.forwardRef((props, ref) => {
     const inputRef = useRef();
@@ -10,7 +10,7 @@ const CommentTextarea = React.forwardRef((props, ref) => {
     };
 
     const vall = () => {
-      name = "";
+      name = '';
     };
 
     useImperativeHandle(ref, () => {

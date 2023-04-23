@@ -1,15 +1,14 @@
-import { useState, useEffect } from "react";
-import StorageAPICalls from "../../API/StorageAPI";
-import Slider from "react-slick";
+import { useState, useEffect } from 'react';
+import StorageAPICalls from '../../API/StorageAPI';
 import cl from './Gallery.module.css';
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/effect-coverflow";
-import "swiper/css/pagination";
-import { Pagination } from "swiper";
-import '../CommentsList/swiperStyle.css';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/effect-coverflow';
+import 'swiper/css/pagination';
+import { Pagination } from 'swiper';
+import './swiperStyle.css';
 
-export default function Gallery({imgPath, width='250', height='300'}) {
+export default function Gallery({imgPath}) {
     const [gallegy, setGallery] = useState([]);
 
     useEffect(() => {
@@ -23,7 +22,7 @@ export default function Gallery({imgPath, width='250', height='300'}) {
           });
         }
         fetchImages();
-    }, []);
+    }, [imgPath]);
 
     const [swiperInstance, setSwiperInstance] = useState(undefined);
 
@@ -66,7 +65,7 @@ export default function Gallery({imgPath, width='250', height='300'}) {
             >
                 {gallegy.map((item, index) => 
                     <SwiperSlide key={index}>
-                        <img src={item} width={width} height={height} className={cl.image}/>
+                        <img src={item} className={cl.image} alt='Фото из галереи'/>
                     </SwiperSlide>)}
             </Swiper>
         </div>  

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 const useInput = validateValue => {
     const [enteredValue, setEnteredValue] = useState('');
@@ -11,12 +11,21 @@ const useInput = validateValue => {
         setEnteredValue(event.target.value);
     };
 
+    const inputPhoneChangeHandler = event => {
+        setEnteredValue(event);
+    }
+
     const inputBlurHandler = () => {
         setIsTouched(true);
     };
 
     const reset = () => {
-        setEnteredValue("");
+        setEnteredValue('');
+        setIsTouched(false);
+    };
+
+    const resetPhone = () => {
+        setEnteredValue('375');
         setIsTouched(false);
     };
 
@@ -26,7 +35,9 @@ const useInput = validateValue => {
         hasError,
         inputChangeHandler,
         inputBlurHandler,
-        reset
+        inputPhoneChangeHandler,
+        reset,
+        resetPhone
     }
 };
 

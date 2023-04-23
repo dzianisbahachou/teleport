@@ -1,4 +1,4 @@
-import React, { useRef, useImperativeHandle} from "react";
+import React, { useRef, useImperativeHandle} from 'react';
 
 import cl from './CommentInput.module.css';
 
@@ -11,7 +11,7 @@ const CommentInput = React.forwardRef((props, ref) => {
     };
 
     const vall = () => {
-      name = "";
+      name = '';
     };
 
     useImperativeHandle(ref, () => {
@@ -29,7 +29,7 @@ const CommentInput = React.forwardRef((props, ref) => {
         name={props.name} 
         placeholder={props.placeholder} 
         autoComplete={props.autoComplete}  
-        type="text" 
+        type='text' 
         className={classes} 
         value={name}
         onClick={props.onClick}

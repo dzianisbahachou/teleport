@@ -8,7 +8,7 @@ import {
     orderByChild,
     equalTo,
     query,
-} from "firebase/database";
+} from 'firebase/database';
 
 export default class APICalls {
 

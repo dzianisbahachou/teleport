@@ -1,9 +1,9 @@
-import { redirect, json } from "react-router";
-import About from "../components/About/About";
-import MagicForm from "../components/MagicForm/MagicForm";
-import MainBanner from "../components/MainBanner/MainBanner";
-import APICalls from "../API/API";
-import Advantages from "../components/Advantages/Advantages";
+import { json } from 'react-router';
+import About from '../components/About/About';
+import MagicForm from '../components/MagicForm/MagicForm';
+import MainBanner from '../components/MainBanner/MainBanner';
+import APICalls from '../API/API';
+import Advantages from '../components/Advantages/Advantages';
 
 const HomePage = () => {
     return <>
@@ -30,7 +30,7 @@ export const action = async ({request, params}) => {
         await APICalls.createUser(eventData);
     } catch(e) {
         throw json(
-            { message: "Произошла ошибка!" },
+            { message: 'Произошла ошибка!' },
             { status: 500 }
         );
     }

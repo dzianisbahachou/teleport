@@ -1,4 +1,4 @@
-import { getStorage, ref, getDownloadURL, listAll } from "firebase/storage";
+import { getStorage, ref, getDownloadURL, listAll } from 'firebase/storage';
 
 export default class StorageAPICalls {
 
