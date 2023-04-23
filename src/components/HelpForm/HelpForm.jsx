@@ -84,6 +84,7 @@ const HelpForm = () => {
                                 inputClass={classess}
                                 onBlur={onPhoneBlur}
                             />
+                            <button onClick={sendMsg}>Отправить</button>
                             </div>
                             <div className={classes.links}>
                                 <a href={TELEGRAM_LINK} rel='noreferrer' target="_blank" className={classes.telegram}>
