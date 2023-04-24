@@ -45,7 +45,7 @@ const Advantages = () => {
                 <ul className={classes.list}>
                     {DUMMY_ADV.map((item,index) => (
                         <li key={index} type='button' onClick={advantagesHandler.bind(item, index)}>
-                            <img src={item.pic} width='190vw' style={{cursor: 'pointer'}}/></li>
+                            <img src={item.pic} className={classes['main-logo']} alt='Лого достижений'/></li>
                         ))}
                 </ul>
                 <div className={classes.description}>
@@ -63,7 +63,7 @@ const Advantages = () => {
                                 <p className={classes['sub-title']}>{title}</p>
                                 <p className={classes['sub-description']}>{text}</p>
                             </div>
-                            <img src={picture} width='500rem'/></div>
+                            <img src={picture} width='500rem' alt='Большое лого достижений'/></div>
                         </div>
                     )}
                     </Transition>
