@@ -2,7 +2,7 @@ import classes from './Advantages.module.css';
 import Container from '../UI/Container/Container';
 import { useState } from 'react';
 import Transition from 'react-transition-group/Transition';
-import AboutDetails from '../AboutDetails/AdvantagesDetails';
+import AdvantagesDetails from '../AdvantagesDetails/AdvantagesDetails';
 
 const DUMMY_ADV = [
     {id: 1, name: 'one', pic: '/assets/mini1.webp', title:'Костюмы ручной работы', text: 'Для сказочного проведения детских праздников мы проводим сотни часов в поиске того самого воплощения образа героя. Нам важно не просто создать внешнюю копию персонажа, а передать его характер и настроение. Поэтому с большим вниманием мы относимся даже к самым маленьким деталям в образе.'},
@@ -61,7 +61,7 @@ const Advantages = () => {
                             : state === 'exiting' 
                             ? 'scale(0.9)' : '',
                             transition: 'all 1s ease'}}>
-                            <AboutDetails title={title} text={text} picture={picture}/>
+                            <AdvantagesDetails title={title} text={text} picture={picture}/>
                         </div>
                     )}
                     </Transition>

@@ -1,6 +1,6 @@
 import classes from './AdvantagesDetails.module.css';
 
-const AboutDetails = props => {
+const AdvantagesDetails = props => {
     return(
         <div className={classes.details}>
             <div>
@@ -12,4 +12,4 @@ const AboutDetails = props => {
     )
 };
 
-export default AboutDetails;
+export default AdvantagesDetails;
