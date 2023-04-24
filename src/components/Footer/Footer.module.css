@@ -8,6 +8,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap-reverse;
+}
+
+.tabs {
+    flex: 1;
+    margin-left: -20px;
+    min-width: 280px;
 }
 
 .tabs li, .contacts li {
@@ -44,13 +51,10 @@
 }
 
 .links{
+    display: flex;
     gap: 2rem;
     justify-content: center;
     margin-top: 1rem;
-}
-
-.links {
-    display: flex;
 }
 
 .tel {
@@ -58,4 +62,106 @@
     margin-top: 10px;
     color: rgb(83,202,238);
     text-shadow: 1px 1px 1px rgb(0, 0, 0);
+}
+
+.link-items {
+    width: 3vw;
+}
+
+.contacts-block {
+    display: flex;
+    flex: 2;
+    min-width: 400px;
+}
+
+@media (max-width: 1240px) {
+    .tab-items {
+        margin: 0.8rem auto;
+        font-size: 18px;
+        color: rgb(83,202,238);
+        text-shadow: 1px 1px 1px rgb(0, 0, 0);
+    }
+
+    .tel {
+        font-size: 18px;
+        margin-top: 10px;
+        color: rgb(83,202,238);
+        text-shadow: 1px 1px 1px rgb(0, 0, 0);
+    }
+
+    .tabs {
+        align-items: flex-start;
+    }
+
+    .contacts {
+        margin-left: -20px;
+    }
+
+    .links img {
+        width: 2.8vw;
+    }
+}
+
+@media (max-width: 968px) {
+    .tab-items {
+        margin: 0.8rem auto;
+        font-size: 15px;
+        color: rgb(83,202,238);
+        text-shadow: 1px 1px 1px rgb(0, 0, 0);
+    }
+
+    .tel {
+        font-size: 15px;
+        margin-top: 10px;
+        color: rgb(83,202,238);
+        text-shadow: 1px 1px 1px rgb(0, 0, 0);
+    }
+    
+    .tabs {
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 788px) {
+    .contacts-block {
+        flex-direction: column;
+        padding: 0;
+        min-width: 100%;
+    }
+
+    .contacts{
+        padding: 0 20px;
+        margin: 6px 0;
+    }
+
+    .tabs {
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        min-width: 100%;
+    }
+
+    .links img {
+        width: 4.4vw;
+    }
+
+    .logo img {
+        width: 18vw;
+    }
+
+    .tel {
+        font-size: 18px;
+    }
+
+    .links {
+        gap: 1rem;
+    }
+
+}
+
+
+@media (max-width: 508px) {
+    .links img {
+        width: 6.4vw;
+    }
 }

@@ -9,7 +9,7 @@ const About = () => {
             <div className={classes.wrapper}>
                 <div className={classes['about-block']}>
                     <div className={classes.avatar}>
-                        <img src='assets/mini1.webp'/>
+                        <img src='assets/mini1.webp' alt='Аватар'/>
                     </div>
                     <div className={classes.about}>
                         <p className={classes.title}>МЫ НАСТОЯЩИЕ ФАНАТЫ СВОЕГО ДЕЛА!</p>
