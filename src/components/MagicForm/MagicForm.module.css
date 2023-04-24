@@ -17,7 +17,7 @@
 .inputs{
     display: flex;
     flex-direction: column;
-    width: 30vw;
+    width: 30rem;
 }
 
 .form-title{ 
@@ -53,4 +53,37 @@
     background-color: rgb(161, 161, 161);
     color: whitesmoke;
     cursor:not-allowed
+}
+
+.phone-label {
+    font-weight: bold;
+    flex: 1;
+    color: rgb(83,202,238);
+    text-shadow: 1px 1px 1px rgb(0, 0, 0);
+    font-size: 25px;
+    margin-bottom: 0.3rem;
+    margin-left: 1.7rem;
+}
+
+.input {
+    letter-spacing: 0.1rem;
+    flex: 3;
+    font: inherit;
+    padding: 1rem 1.7rem;
+    border-radius: 45px;
+    border: 1px solid #ccc;
+    color: rgb(83,202,238);
+    text-shadow: 0.5px 0.5px 0.5px rgb(0, 0, 0);
+    font-size: 25px;
+    width: 30rem;
+}
+  
+.input:focus {
+    outline: none;
+    border-color: rgb(255,183,66);
+}
+
+.invalid {
+    border-color: red;
+    background: #fbdada;
 }
