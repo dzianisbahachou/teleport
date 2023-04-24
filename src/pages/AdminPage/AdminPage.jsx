@@ -9,6 +9,7 @@ import { convertResponse } from '../../util/firebaseResponseHandler';
 import AdminButton from '../../components/UI/AdminButton/AdminButton';
 import { convertResponseErrorMessage } from '../../util/firebaseResponseHandler';
 import { getCurrentUser } from '../../util/auth';
+import * as XLSX from 'xlsx/xlsx.mjs';
 
 export default function AdminPage() {
     const data = useLoaderData();
@@ -20,10 +21,35 @@ export default function AdminPage() {
         navigate('/');
     };
 
+    const onExportBtnClick = () => {
+        const wb = XLSX.utils.book_new();
+        const exportData = data.map(item => {return {
+            'Имя': item.name,
+            'Телефон': item.tel,
+            'Инстаграм': item.inst,
+            'Дата': item.date
+        }});
+        const ws = XLSX.utils.json_to_sheet(exportData);
+        ws['!cols'] = columnsWidth();
+
+        XLSX.utils.book_append_sheet(wb, ws, 'Clients');
+        XLSX.writeFile(wb, 'Clients.xlsx');
+    };
+
+    const columnsWidth = () => {
+        // returns column width
+        return [
+            {wch:18},
+            {wch:16},
+            {wch:18},
+            {wch:10}
+        ];
+    };
+
     return (
         <div className={cl.page}>
             <div className={cl.actions}>
-                <AdminButton>Экспорт в Excel</AdminButton>
+                <AdminButton onClick={onExportBtnClick}>Экспорт в Excel</AdminButton>
                 <AdminButton onClick={onExitPress}>Выйти</AdminButton>
             </div>
             <AdminTable users={data}/>
