@@ -12,6 +12,7 @@ import Container from '../../components/UI/Container/Container';
 import Transition from 'react-transition-group/Transition';
 import { messageToast } from '../../util/toast';
 import EmptyListMessage from '../../components/UI/EmptyListMessage/EmptyListMessage';
+import { getExpiration } from '../../util/commentsLimit';
 
 const CommentsPage = () => {
     const data = useLoaderData();
@@ -70,6 +71,7 @@ export async function loader() {
 }
 
 export async function action({request}) {
+    const expiration = getExpiration();
     const data = await request.formData();
     const commentData = {
         text: data.get('comment'),
@@ -77,8 +79,15 @@ export async function action({request}) {
         eventSubType: data.get('eventSubType'),
     };
 
+    if (expiration) {
+        messageToast('Превышен лимит отзывов. Попробуйте позже');
+        return null;
+    }
+
     try {
+        const expiration = Date.now();
         await APICalls.createComment(commentData);
+        localStorage.setItem('expirationComments', expiration);
     } catch(e) {
         messageToast('Во время отправки произошла ошибка. Попробуйте позже');
     }
