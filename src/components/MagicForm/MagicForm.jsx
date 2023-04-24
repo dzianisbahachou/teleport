@@ -79,7 +79,7 @@ const MagicForm = () => {
         resetInts();
       }
     };
-    
+
     let classess = telHasError ? `${classes.input} ${classes.invalid}` : classes.input;
 
     return ( <div className={classes.back}>
@@ -135,6 +135,7 @@ const MagicForm = () => {
                 </Form>
             </div>
             <div className={classes.avatar}>
+              <img src='assets/child.png' alt='Фото формы волшебства'/>
             </div>
         </div>
       </Container>
