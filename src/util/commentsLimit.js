@@ -1,14 +1,14 @@
 export function getExpiration() {
     const expiration = localStorage.getItem('expirationComments');
     if (!expiration) {
-        return null;
+        return;
     }
     
     if (isExpired(expiration)) {
         return expiration;
     } else {
         localStorage.removeItem('expirationComments');
-        return null;
+        return;
     }
 }
 
