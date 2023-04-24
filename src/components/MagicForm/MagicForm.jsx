@@ -13,7 +13,7 @@ const MagicForm = () => {
     const isSubmitting = navigation.state === 'submitting';
 
     const nameInputRef = useRef();
-    const telInputRef = useRef();
+    const phoneInputRef = useRef();
 
     const validateName = value => {
       return value.length > 0;
@@ -37,8 +37,8 @@ const MagicForm = () => {
     } = useInput(validateName);
 
     const {
-      value: telValue,
-      hasError: telHasError,
+      value: phoneValue,
+      hasError: phoneHasError,
       inputPhoneChangeHandler: onPhoneChange,
       inputBlurHandler: onPhoneBlur,
       resetPhone
@@ -54,10 +54,10 @@ const MagicForm = () => {
     const submitHandler = (event) => {
       event.preventDefault();
 
-      const phoneNumber = telInputRef.current.numberInputRef.value;
+      const phoneNumber = phoneInputRef.current.numberInputRef.value;
         let isValidNumber = phoneNumber.replace(/[^\d]/g, '').length === 12;
-        if (telHasError || !isValidNumber) {
-          telInputRef.current.numberInputRef.focus();
+        if (phoneHasError || !isValidNumber) {
+          phoneInputRef.current.numberInputRef.focus();
           onPhoneBlur();
       }
 
@@ -66,10 +66,10 @@ const MagicForm = () => {
         nameInputRef.current.focus();
       }
 
-      if (nameIsValid && isValidNumber && !telHasError) {
+      if (nameIsValid && isValidNumber && !phoneHasError) {
         const formData = {
           name: nameValue,
-          tel: telValue,
+          tel: phoneValue,
           inst: instValue
         };
         sub(formData, {method: 'post'});
@@ -80,7 +80,7 @@ const MagicForm = () => {
       }
     };
 
-    let classess = telHasError ? `${classes.input} ${classes.invalid}` : classes.input;
+    let classess = phoneHasError ? `${classes.input} ${classes.invalid}` : classes.input;
 
     return ( <div className={classes.back}>
       <Container>
@@ -102,7 +102,7 @@ const MagicForm = () => {
                     <label className={classes['phone-label']} htmlFor='phone'>Телефон</label>
                     <PhoneInput
                         id='phone'
-                        ref={telInputRef}
+                        ref={phoneInputRef}
                         name = 'phoneNumber'
                         type = 'text'
                         placeholder='Ваш телефон'
@@ -117,7 +117,7 @@ const MagicForm = () => {
                             required: true,
                             autoFocus: false
                         }}
-                        value={telValue}
+                        value={phoneValue}
                         onChange={onPhoneChange}
                         inputClass={classess}
                         onBlur={onPhoneBlur}
