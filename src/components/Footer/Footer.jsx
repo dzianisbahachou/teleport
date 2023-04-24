@@ -28,12 +28,12 @@ const Footer = () => {
                         <Link to='comments'><p className={classes['tab-items']}>ОТЗЫВЫ</p></Link>
                     </li>
                 </ul>
-                <div className={classes['contacts-block']}>
+                <div className={classes.information}>
                     <div className={classes.logo}>
                         <img src={`${process.env.PUBLIC_URL}/assets/logo/footerLogo.webp`} alt='Логотип'/>
                     </div>
-                    <div className={classes.refs}>
-                        <ul className={classes.contacts}>
+                    <ul className={classes['contacts-wrapper']}>
+                        <div className={classes.contacts}>
                             <li><a href={TEL_LINK}><span className={classes.tel}>+375 (29) 830 97 32</span></a></li>
                             <div className={classes.links}>
                                 <li>
@@ -46,8 +46,8 @@ const Footer = () => {
                                     <a href={VK_LINK} rel='noreferrer' target='_blank'><img src={`${process.env.PUBLIC_URL}/assets/logo/contactsLogo/vk.webp`} alt='VK' className={classes['link-items']}/></a>
                                 </li>
                             </div>
-                        </ul>
-                    </div>
+                        </div>
+                    </ul>
                 </div>
             </div>
         </Container>

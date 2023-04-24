@@ -13,15 +13,14 @@
 
 .tabs {
     flex: 1;
-    margin-left: -20px;
-    min-width: 280px;
+    min-width: 230px;
 }
 
-.tabs li, .contacts li {
+.tabs li, .contacts-wrapper li {
     list-style: none;
 }
 
-.tabs li a, .contacts li a {
+.tabs li a, .contacts-wrapper li a {
     text-decoration: none;
 }
 
@@ -36,16 +35,7 @@
     width: 15vw;
 }
 
-.box {
-    flex: 1;
-}
-
 .logo {
-    flex: 1;
-    text-align: center;
-}
-
-.refs {
     flex: 1;
     text-align: center;
 }
@@ -55,6 +45,7 @@
     gap: 2rem;
     justify-content: center;
     margin-top: 1rem;
+    width: 14vw;
 }
 
 .tel {
@@ -74,6 +65,33 @@
     min-width: 400px;
 }
 
+.contacts-wrapper, .tabs {
+    padding: 0;
+    margin: 0;
+}
+
+.contacts-wrapper {
+    flex: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.contacts {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.information {
+    display: flex;
+    flex: 2;
+    justify-content: space-between;
+    align-items: center;
+}
+
 @media (max-width: 1240px) {
     .tab-items {
         margin: 0.8rem auto;
@@ -91,10 +109,6 @@
 
     .tabs {
         align-items: flex-start;
-    }
-
-    .contacts {
-        margin-left: -20px;
     }
 
     .links img {
@@ -123,13 +137,17 @@
 }
 
 @media (max-width: 788px) {
-    .contacts-block {
-        flex-direction: column;
+    .wrapper {
+        flex-direction:column-reverse;
         padding: 0;
-        min-width: 100%;
+        flex-wrap: wrap-reverse;
     }
 
-    .contacts{
+    .information {
+        flex-direction: column;
+    }
+
+    .contacts-wrapper{
         padding: 0 20px;
         margin: 6px 0;
     }
@@ -138,7 +156,6 @@
         margin: 0;
         padding: 0;
         text-align: center;
-        min-width: 100%;
     }
 
     .links img {
