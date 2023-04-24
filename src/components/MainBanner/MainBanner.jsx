@@ -22,12 +22,12 @@ const MainBanner = () => {
             <div className={classes.info}>
                 <Container>
                     <h1 className={classes.title}>СТУДИЯ ДЕТСКИХ ПРАЗДНИКОВ В БРЕСТЕ</h1>
-                    <p className={classes.description}>
+                    {/* <p className={classes.description}>
                     Детские праздники в Бресте и Брестской области.<br/>
                     Наши герои создадут веселье где угодно: в квартире, <br/>загородном доме, кафе, школе или детский саду.<br/> 
                     Забронировать волшебный праздник с нашей студией легко.
                     </p>
-                    <MainButton><a href='#magicForm'>Вызвать волшебников</a></MainButton>
+                    <MainButton><a href='#magicForm'>Вызвать волшебников</a></MainButton> */}
                 </Container>
             </div>
             <Wave />

@@ -2,6 +2,7 @@ import classes from './Advantages.module.css';
 import Container from '../UI/Container/Container';
 import { useState } from 'react';
 import Transition from 'react-transition-group/Transition';
+import AboutDetails from '../AboutDetails/AdvantagesDetails';
 
 const DUMMY_ADV = [
     {id: 1, name: 'one', pic: '/assets/mini1.webp', title:'Костюмы ручной работы', text: 'Для сказочного проведения детских праздников мы проводим сотни часов в поиске того самого воплощения образа героя. Нам важно не просто создать внешнюю копию персонажа, а передать его характер и настроение. Поэтому с большим вниманием мы относимся даже к самым маленьким деталям в образе.'},
@@ -51,19 +52,16 @@ const Advantages = () => {
                 <div className={classes.description}>
                 <Transition in={isShow} timeout={1000} mountOnEnter unmountOnExit>
                     {state => (
-                        <div style={{ 
-                        width: '65vw', 
-                        height: 100, 
-                        margin: 'auto',
-                        transform: state === 'entering' ? 'scale(1)' : state === 'exited' ? 'scale(0.9)' : state === 'entered' ? 'scale(1)': state === 'exiting' ? 'scale(0.9)' : '',
-                        transition: 'all 1s ease',
-                    }}>
-                        <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '3rem'}}>
-                            <div>
-                                <p className={classes['sub-title']}>{title}</p>
-                                <p className={classes['sub-description']}>{text}</p>
-                            </div>
-                            <img src={picture} width='500rem' alt='Большое лого достижений'/></div>
+                        <div className={classes['list-block']} style={{transform: state === 'entering' 
+                            ? 'scale(1)' 
+                            : state === 'exited' 
+                            ? 'scale(0.9)' 
+                            : state === 'entered' 
+                            ? 'scale(1)'
+                            : state === 'exiting' 
+                            ? 'scale(0.9)' : '',
+                            transition: 'all 1s ease'}}>
+                            <AboutDetails title={title} text={text} picture={picture}/>
                         </div>
                     )}
                     </Transition>
