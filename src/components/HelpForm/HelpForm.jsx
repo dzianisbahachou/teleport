@@ -82,7 +82,7 @@ const HelpForm = () => {
                             <div className={classes.links}>
                                 <a href={TELEGRAM_LINK} rel='noreferrer' target='_blank' className={classes.telegram}>
                                     <img src='assets/logo/contactsLogo/telegram.webp' alt='Телеграм лого'/>
-                                    <p>Telegram</p>
+                                    <span>Telegram</span>
                                 </a>
                                 <a href={TEL_LINK} className={classes.telegram}>
                                     <img src='assets/logo/contactsLogo/tel.webp' alt='Телефон лого'/>

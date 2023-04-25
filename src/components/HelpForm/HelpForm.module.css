@@ -67,7 +67,7 @@
     transition: all 0.3s ease;
 }
 
-.telegram p {
+.telegram span {
     font-size: 1.4rem;
     color: rgb(83,202,238);
 }

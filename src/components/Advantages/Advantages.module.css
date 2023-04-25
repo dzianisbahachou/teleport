@@ -1,4 +1,4 @@
-.back{
+.back {
     background: rgb(155,222,245);
     background: linear-gradient(0deg, rgba(155,222,245,1) 0%, rgba(155,222,245,1) 9%, rgba(255,255,255,1) 100%);
 }
@@ -8,10 +8,11 @@
     justify-content: space-around;
     text-decoration: none;
     outline: none;
+    padding: 0;
 }
 
 .wrapper {
-    margin: 7vh 0 25vh 0;
+    margin: 7vh 0;
 }
 
 .description {
@@ -26,23 +27,23 @@
     flex-direction: column;
 }
 
-.advantages li{
+.advantages li {
     list-style-type: none;
     transition: all 0.4s ease;
 }
 
-.advantages li:hover{
+.advantages li:hover {
     transform: scale(1.1);
 }
 
 .title {
-    font-size: 65px;
+    font-size: 45px;
     color: rgb(83,202,238);
     text-shadow: 0.5px 0.5px 0.5px #000;
 }
 
 .sub-title {
-    font-size: 55px;
+    font-size: 50px;
     color: #ffffff;
     text-shadow: 1px 1px 1px #000;
 }
@@ -56,4 +57,50 @@
 .main-logo {
     width: 15vw;
     cursor: pointer;
+}
+
+.main-img {
+    width: 35vw;
+}
+
+.details {
+    display: 'flex';
+    justify-content: 'space-between';
+    align-items: 'flex-start';
+    gap: '3rem';
+}
+
+.list-block {
+    height: fit-content;
+}
+
+@media screen and (max-width: 1282px) {
+    .sub-title {
+        font-size: 45px;
+    }
+    
+    .sub-description {
+        font-size: 23px;
+    }
+
+}
+
+@media screen and (max-width: 785px) {
+    .description {
+        margin: 0;
+    }
+
+    .advantages {
+        margin-top: 1rem;
+        flex-direction: column-reverse;
+    }
+
+    .title {
+        font-size: 39px;
+        text-align: center;
+    }
+
+    .list-block {
+        height: 500px;
+    }
 }
