@@ -16,10 +16,10 @@ const Footer = () => {
                         <Link to='animators'><p className={classes['tab-items']}>АНИМАТОРЫ</p></Link>
                     </li>
                     <li>
-                        <Link to='/admin' ><p className={classes['tab-items']}>ШОУ-ПРОГРАММЫ</p></Link>
+                        <Link to='shows' ><p className={classes['tab-items']}>ШОУ-ПРОГРАММЫ</p></Link>
                     </li>
                     <li>
-                        <Link to='animators-2'><p className={classes['tab-items']}>ДОП УСЛУГИ</p></Link>
+                        <Link to='addition'><p className={classes['tab-items']}>ДОП УСЛУГИ</p></Link>
                     </li>
                     <li>
                         <Link to='animators-3'><p className={classes['tab-items']}>ОНЛАЙН ПРАЗДНИКИ</p></Link>
