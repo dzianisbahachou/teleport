@@ -1,0 +1,69 @@
+.contacts {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    transition: all 300 ease;
+    gap: 1rem;
+    padding: 0;
+}
+
+.contacts li {
+    transition: all 300ms ease;
+    margin: 0 -3px;
+}
+
+.contacts li:hover {
+    transform: scale(1.2);
+}
+
+.contacts li:nth-child(1) {
+    transform: none;
+    margin-right: 10px;
+}
+
+.social, .tel {
+    text-decoration: none;
+}
+
+.social {
+    display: block;
+    height: 26px;
+}
+
+.social img {
+    width: 26px;
+    height: 26px;
+}
+
+.tel {
+    font-size: 1.5vw;
+    text-shadow: 1px 1px 1px rgb(0, 0, 0);
+    color: white;
+}
+
+.tel-dark {
+    color: rgb(83,202,238);
+}
+
+.tel:hover,
+.tel.active {
+    color: blueviolet
+}
+
+@media screen and (max-width: 1228px) {
+    .social {
+        height: 18px;
+    }
+
+    .social img {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+
+@media screen and (max-width: 828px) {
+    .contacts {
+        display: none;
+    }
+}

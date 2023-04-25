@@ -1,144 +1,74 @@
-.back{
-    background-color: rgb(155,222,245);
+.header {
     position: sticky;
     top: 0;
     left: 0;
     z-index: 55;
-}
-
-.navbar ul{
-    list-style-type: none;
-}
-.navbar {
+    transition: all 300ms ease;
     display: flex;
     justify-content: space-between;
-    margin: 0 2rem;
-}
-
-.contacts {
-    display: flex;
     align-items: center;
+    padding: 0 2rem;
 }
 
-.contacts li{
+.scrolled {
+    background-color: white;
+    opacity: 0.95;
+    box-shadow: 0 4px 8px  rgba(0,0,0,0.3);
     transition: all 300ms ease;
-    margin: 0 -3px;
-}
-
-.contacts li:hover {
-    transform: scale(1.2);
-}
-
-.contacts li:nth-child(1) {
-    margin-top: 1px;
-    transform: none;
-}
-.contacts li:nth-child(2) {
-    flex: 0;
-}
-
-.list {
-    display: flex;
-    gap: 1rem;
-    transform: scale(1);
-    transition: all 4s ease;
-}
-
-.list a {
-    text-decoration: none;
-    color: var(--color-primary-400);
-}
-
-.list li{
-    margin-top: 13px;
-}
-
-.list a:hover,
-.list a.active {
-    color: blueviolet
 }
 
 .logo {
-    padding: 1rem 1rem 0 0;
-}
-
-.logo img{
     width: 40px;
     height: 35px;
+    margin-right: 2rem;
 }
 
-.header-items {
-    margin: 0 auto;
-    font-size: 20px;
-    color: rgb(83,202,238);
-    text-shadow: 1px 1px 1px rgb(0, 0, 0);
-}
-
-.tel {
-    font-size: 1.5vw;
-    margin-top: 10px;
-    color: rgb(255, 255, 255);
-    text-shadow: 1px 1px 1px rgb(0, 0, 0);
-}
-
-.aaa {
-    margin-top: 15px;
+.menu {
+    margin: 10px 0;
     cursor: pointer;
     display: none;
 }
 
-.aaa div {
+.menu-toggled .menu-top {
+    transform: rotate(-45deg) translate(-4px, 10px);
+}
+
+.menu-toggled .menu-middle {
+    opacity: 0;
+}
+
+.menu-toggled .menu-bottom {
+    transform: rotate(45deg) translate(-4px, -10px);
+}
+
+.menu-top,
+.menu-middle,
+.menu-bottom {
     width: 2rem;
     height: 0.2rem;
     margin: 0.4rem;
-    background-color: rgb(0, 0, 0);
+    background-color: white;
     transition: all 0.4s ease;
-}
-
-.show-navbar {
-    display: none;
+    background-color: black;
 }
 
 @media screen and (max-width: 1228px) {
-    .contacts img{
-        width: 25px;
-        height: 25px;
+    .contacts a {
+        height: 22px;
     }
 
-    .logo img{
-        width: 25px;
-        height: 25px;
+    .contacts img {
+        width: 22px;
+        height: 22px;
     }
-
 }
 
-
 @media screen and (max-width: 828px) {
-    html{
-        overflow-x: hidden;
-    }
-    .aaa {
+    .menu {
         display: block;
-        position: absolute;
-        right: 2.2rem;
     }
 
     .contacts {
         display: none;
     }
-
-}
-
-
-
-
-
-.aaaa .a{
-    transform: rotate(-45deg) translate(-4px, 10px);
-}
-.aaaa .b{
-    opacity: 0;
-}
-.aaaa .c{
-    transform: rotate(45deg) translate(-4px, -10px);
 }
