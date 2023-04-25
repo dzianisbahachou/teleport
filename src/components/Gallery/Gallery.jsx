@@ -43,6 +43,7 @@ export default function Gallery({imgPath}) {
                   }}
                 modules={[Pagination]}
                 spaceBetween={40}
+                className="gallery"
                 breakpoints={{
                     2000: {
                         slidesPerView: 3,
