@@ -1,4 +1,4 @@
-.back{
+.back {
     background: rgb(155,222,245);
     background: linear-gradient(0deg, rgba(155,222,245,1) 0%, rgba(155,222,245,1) 9%, rgba(255,255,255,1) 100%);
 }
@@ -8,6 +8,7 @@
     justify-content: space-around;
     text-decoration: none;
     outline: none;
+    padding: 0;
 }
 
 .wrapper {
@@ -26,16 +27,12 @@
     flex-direction: column;
 }
 
-.advantages ul{
-    padding: 0;
-}
-
-.advantages li{
+.advantages li {
     list-style-type: none;
     transition: all 0.4s ease;
 }
 
-.advantages li:hover{
+.advantages li:hover {
     transform: scale(1.1);
 }
 
@@ -62,7 +59,7 @@
     cursor: pointer;
 }
 
-.main-img{
+.main-img {
     width: 35vw;
 }
 

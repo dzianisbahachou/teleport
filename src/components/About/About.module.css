@@ -1,4 +1,4 @@
-.back{
+.back {
     background: rgb(155,222,245);
     background: linear-gradient(0deg, rgba(155,222,245,1) 0%, rgba(255,255,255,1) 55%, rgba(255,255,255,1) 75%, rgba(155,222,245,1) 100%);
 }
@@ -32,8 +32,6 @@
 
 .title {
     font-size: 45px;
-    padding: 0;
-    margin: 0;
     background: #ffffff;
     background: linear-gradient(to right, rgb(65, 207, 255) 0%, rgb(177, 233, 253) 100%);
     -webkit-background-clip: text;
@@ -44,7 +42,6 @@
     font-size: 20px;
     /* color: rgb(155,222,245); */
     /* text-shadow: 1px 1px 1px #000; */
-    padding: 0;
     margin: 2rem 0 0 0;
     background: #ffffff;
     background: linear-gradient(to right, rgb(65, 207, 255) 0%, rgb(177, 233, 253) 100%);
@@ -53,24 +50,23 @@
 }
 
 @media screen and (max-width: 1282px) {
-    .title{ 
+    .title { 
         font-size: 35px;
     }
     
-    .description{ 
+    .description { 
         font-size: 22px;
     }
 }
 
 @media screen and (max-width: 900px) {
-    .title{ 
+    .title { 
         font-size: 30px;
     }
     
-    .description{ 
+    .description { 
         font-size: 16px;
     }
-
 }
 
 @media (max-width: 788px) {
@@ -81,11 +77,11 @@
         align-items: center;
     }
 
-    .title{ 
+    .title { 
         text-align: center;
     }
     
-    .description{ 
+    .description { 
         text-align: center;
     }
 

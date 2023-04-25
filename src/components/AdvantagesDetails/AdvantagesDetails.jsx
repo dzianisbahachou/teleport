@@ -4,8 +4,8 @@ const AdvantagesDetails = props => {
     return(
         <div className={classes.details}>
             <div>
-                <p className={classes['sub-title']}>{props.title}</p>
-                <p className={classes['sub-description']}>{props.text}</p>
+                <span className={classes['sub-title']}>{props.title}</span>
+                <span className={classes['sub-description']}>{props.text}</span>
             </div>
             <img src={props.picture} className={classes['main-img']} alt='Большое лого достижений'/>
         </div>

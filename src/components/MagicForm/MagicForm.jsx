@@ -86,8 +86,8 @@ const MagicForm = () => {
       <Container>
         <div className={classes.wrapper}>
             <div id='magicForm' className={classes.form}>
-                <p className={classes['form-title']}>Волшебство начинается здесь</p>
-                <p className={classes['form-description']}>Мы поможем вам организовать праздник мечты.</p>
+                <span className={classes['form-title']}>Волшебство начинается здесь</span>
+                <span className={classes['form-description']}>Мы поможем вам организовать праздник мечты.</span>
                 <Form method='post' action='/' className={classes.inputs}>
                     <Input 
                         ref={nameInputRef}
