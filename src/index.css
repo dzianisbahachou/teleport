@@ -12,9 +12,10 @@ html {
 
 body {
   margin: 0;
-  background-color: #53c0ded7;
+  background-color: rgb(155, 222, 245);
   letter-spacing: 0.08em;
   overflow-y: overlay; 
+  overflow-x: hidden;
 }
 
 body.modal-open {
