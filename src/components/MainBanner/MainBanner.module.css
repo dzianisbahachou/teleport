@@ -8,6 +8,11 @@
     display: block;
 }
 
+.baner-mobile {
+    display: none;
+    width: 100%;
+}
+
 .info {
     position: absolute;
     top: 0;
@@ -115,3 +120,122 @@
     }
 }
 
+@media (max-width: 1230px) {
+    .title {
+        margin-top: 6vh;
+    }
+
+    .description {
+        font-size: 22px;
+        text-align: center;
+        margin: 4rem auto 0 auto;
+    }
+
+    .info button {
+        margin-top: 2rem;
+    }
+
+    .info button a {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 1030px) {
+    .title {
+        margin-top: 3vh;
+    }
+
+    .description {
+        font-size: 19px;
+        text-align: center;
+        margin: 4rem auto 0 auto;
+    }
+
+    .info button {
+        margin-top: 2rem;
+        padding: 0.3rem 0;
+    }
+
+    .info button a {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 890px) {
+    .title {
+        margin-top: 1vh;
+    }
+
+    .description {
+        font-size: 17px;
+        text-align: center;
+        margin: 4rem auto 0 auto;
+    }
+
+    .info button {
+        margin-top: 2rem;
+        padding: 0.3rem 0;
+        font-size: 17px;
+    }
+
+    .info button a {
+        font-size: 25px;
+    }
+}
+
+@media (max-width: 890px) {
+    .title {
+        margin-top: 1vh;
+    }
+
+    .description {
+        font-size: 17px;
+        text-align: center;
+        margin: 4rem auto 0 auto;
+    }
+
+    .info button {
+        margin-top: 2rem;
+        padding: 0.3rem 0;
+        font-size: 17px;
+    }
+
+    .info button a {
+        font-size: 25px;
+    }
+}
+
+@media (max-width: 450px) {
+    .welcome, .info {
+        width: 100%;
+    }
+    
+    .baner-mobile {
+        display: block;
+    }
+
+    .banner {
+        display: none;
+    }
+
+    .title {
+        margin-top: 6vh;
+        font-size: 24px;
+    }
+
+    .description {
+        font-size: 19px;
+        text-align: center;
+        margin: 5rem auto 0 auto;
+    }
+
+    .info button {
+        margin-top: 2rem;
+        padding: 0.7rem 1rem;
+        font-size: 17px;
+    }
+
+    .info button a {
+        font-size: 20px;
+    }
+}

@@ -29,6 +29,7 @@ export default React.memo(function CommentsList({comments}) {
                   }}
                 modules={[Pagination]}
                 spaceBetween={40}
+                className="comments"
                 breakpoints={{
                     2000: {
                         slidesPerView: 5,

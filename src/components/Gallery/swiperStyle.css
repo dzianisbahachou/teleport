@@ -1,8 +1,8 @@
-.swiper {
+.gallery .swiper {
     padding: 10px;
 }
   
-.swiper-slide {
+.gallery .swiper-slide {
     background-position: center;
     background-size: cover;
     height: fit-content;

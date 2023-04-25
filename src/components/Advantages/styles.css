@@ -1,0 +1,30 @@
+.advantages .swiper-slide {
+    background-position: center;
+    background-size: cover;
+    height: fit-content;
+    margin-bottom: 2rem;
+    opacity: 1;
+}
+  
+.advantages .swiper-slide img {
+    display: block;
+    width: 100%;
+}
+  
+.advantages .swiper-slide {
+    height: fit-content;
+}
+
+@media screen and (max-width: 785px) {
+    .advantages .swiper-slide img {
+        display: block;
+        width: 80%;
+    }
+}
+
+
+@media screen and (max-width: 585px) {
+    .advantages .swiper-slide img {
+        width: 100%;
+    }
+}

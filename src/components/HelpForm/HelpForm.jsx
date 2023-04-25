@@ -53,7 +53,7 @@ const HelpForm = () => {
                         <img src='assets/mini1.webp' alt='Помощник с выбором'/>
                     </div>
                     <div className={classes.info}>
-                        <p className={classes.title}>Поможем с выбором персонажа</p>
+                        <p className={classes.title}>Поможем с выбором</p>
                         <div className={classes.contacts}>
                             <div className={classes.tel}>
                             <PhoneInput
@@ -77,7 +77,8 @@ const HelpForm = () => {
                                 inputClass={classess}
                                 onBlur={onPhoneBlur}
                             />
-                            <button onClick={sendMsg}>Отправить</button>
+                            <button className={classes['desctop-btn']} onClick={sendMsg}>Отправить</button>
+                            <button className={classes['mobile-btn']} onClick={sendMsg}>A</button>
                             </div>
                             <div className={classes.links}>
                                 <a href={TELEGRAM_LINK} rel='noreferrer' target='_blank' className={classes.telegram}>
