@@ -18,7 +18,7 @@
     width: 17vw;
     cursor: pointer;
     transition: all 300ms;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
 }
 
 .img:hover {
@@ -49,8 +49,52 @@
     opacity: 1;
 }
 
-@media (max-width: 550px) {
+@media (max-width: 1240px) {
+    .item {
+        font-size: 1.8rem;
+    }
+
     .img {
-        width: 100%;
+        width: 18vw;
+    }
+}
+
+@media (max-width: 1024px) {
+    .item {
+        font-size: 1.5rem;
+    }
+
+    .img {
+        width: 18vw;
+    }
+}
+
+@media (max-width: 824px) {
+    .item {
+        font-size: 1.3rem;
+    }
+
+    .img {
+        width: 19vw;
+    }
+}
+
+@media (max-width: 650px) {
+    .item {
+        font-size: 1.2rem;
+    }
+
+    .img {
+        width: 20vw;
+    }
+}
+
+@media (max-width: 550px) {
+    .item {
+        font-size: 1.1rem;
+    }
+
+    .img {
+        width: 23vw;
     }
 }

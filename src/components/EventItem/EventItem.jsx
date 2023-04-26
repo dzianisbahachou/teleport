@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import cl from './EventItem.module.css';
 import MainButton from '../UI/MainButton/MainButton';
 
-export default function EventItem({data, width}) {
+export default function EventItem({data}) {
     const eventSubType = data.eventSubType;
     const imgPath = eventSubType  
         ? `${process.env.PUBLIC_URL}/assets/logo/eventLogo/${eventSubType}.webp`
@@ -13,7 +13,7 @@ export default function EventItem({data, width}) {
             <div className={cl.action}>
                 <MainButton className={cl.button}>Подробнее</MainButton>
             </div>
-            <img style={{width: width}} className={cl.img} src={imgPath} alt={eventSubType}/>
+            <img className={cl.img} src={imgPath} alt={eventSubType}/>
             <span>{data.title}</span>
         </Link>
     );

@@ -28,6 +28,10 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
+  document.addEventListener('touchmove', function (event) {
+    if (event.scale !== 1) { event.preventDefault(); }
+  }, false);
+  
   return (
     <RouterProvider router={router}/>
   );

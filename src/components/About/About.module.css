@@ -88,4 +88,12 @@
     .avatar img {
         width: 55vw;
     }
+
+    .gallery {
+        margin: 0;
+    }
+
+    .wrapper {
+        margin-top: 100px;
+    }
 }

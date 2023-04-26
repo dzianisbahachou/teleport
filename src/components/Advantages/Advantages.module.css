@@ -146,10 +146,6 @@
     .wrapper {
         margin-bottom: 8rem;
     }
-
-    .swiper img {
-        left: 0;
-    }
 }
 
 @media screen and (max-width: 440px) {
