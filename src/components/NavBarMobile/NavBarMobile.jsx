@@ -1,48 +1,58 @@
 import { NavLink } from 'react-router-dom';
-import Transition from 'react-transition-group/Transition';
 import classes from './NavBarMobile.module.css';
+import { useEffect } from 'react';
 
 const TEL_LINK = 'tel:375298309732';
 const TELEGRAM_LINK = 'https://t.me/teleport_brest';
 const INSTAGRAM_LINK = 'https://www.instagram.com/teleport.brest/';
 const VK_LINK = 'https://vk.com/public211042858';
 
-const NavBarMobile = (props) => {
+const NavBarMobile = ({show, ...props}) => {
+    useEffect(() => {
+      document.body.classList.add('modal-open');
+      return () => {
+        document.body.classList.remove('modal-open');
+      }
+    }, []);
+
+    const wrapperClasses = [classes.wrapper];
+    if (show === 'entering') {
+      wrapperClasses.push(classes.opened);
+    } else if (show === 'exiting') {
+      wrapperClasses.push(classes.closed);
+    }
+
     return (
-      <div className={classes.zzz}>
-        <Transition in={props.active} timeout={300} mountOnEnter unmountOnExit>
-          {state => (
-            <nav> 
-              <ul className={`${classes.list} ${state === 'entering' ? classes.acti : state === 'exiting' ? classes.aca : state === 'unmounted' ? classes.acas : ''}`}>
-                <li>
-                  <NavLink to='animators' className={(({isActive}) => isActive ? classes.active : '')}><p onClick={props.navToggle} className={classes['header-items']}>АНИМАТОРЫ</p></NavLink>
-                </li>
-                <li>
-                  <NavLink to='shows' className={(({isActive}) => isActive ? classes.active : '')}><p onClick={props.navToggle} className={classes['header-items']}>ШОУ-ПРОГРАММЫ</p></NavLink>
-                </li>
-                <li>
-                  <NavLink to='addition' className={(({isActive}) => isActive ? classes.active : '')}><p onClick={props.navToggle} className={classes['header-items']}>ДОП УСЛУГИ</p></NavLink>
-                </li>
-                <li>
-                  <NavLink to='animators-3' className={(({isActive}) => isActive ? classes.active : '')}><p onClick={props.navToggle} className={classes['header-items']}>ОНЛАЙН ПРАЗДНИКИ</p></NavLink>
-                </li>
-                <li>
-                  <NavLink to='comments' className={(({isActive}) => isActive ? classes.active : '')}><p onClick={props.navToggle} className={classes['header-items']}>ОТЗЫВЫ</p></NavLink>
-                </li>
-                <li>
-                  <div className={classes.tel}>
-                    <a href={TEL_LINK}><span className={classes.tel}>+375 (29) 830 97 32</span></a>
-                  </div>
-                  <div className={classes.contacts}>
-                    <a href={TELEGRAM_LINK} rel='noreferrer' target='_blank'><img src={`${process.env.PUBLIC_URL}/assets/logo/contactsLogo/telegram.webp`} alt='Telegram' width='40px'/></a>
-                    <a href={INSTAGRAM_LINK} rel='noreferrer' target='_blank'><img src={`${process.env.PUBLIC_URL}/assets/logo/contactsLogo/instagram.webp`} alt='Inst' width='40px'/></a>
-                    <a href={VK_LINK} rel='noreferrer' target='_blank'><img src={`${process.env.PUBLIC_URL}/assets/logo/contactsLogo/vk.webp`} alt='VK' width='40px'/></a>
-                  </div>
-                </li>
-              </ul>
-            </nav>
-          )}
-        </Transition>
+      <div className={wrapperClasses.join(' ')}>
+        <nav> 
+          <ul className={classes.list}>
+            <li>
+              <NavLink to='animators' onClick={props.navToggle} className={(({isActive}) => isActive ? `${classes.active} ${classes['nav-item']}` : classes['nav-item'])}>АНИМАТОРЫ</NavLink>
+            </li>
+            <li>
+              <NavLink to='shows' onClick={props.navToggle} className={(({isActive}) => isActive ? `${classes.active} ${classes['nav-item']}` : classes['nav-item'])}>ШОУ-ПРОГРАММЫ</NavLink>
+            </li>
+            <li>
+              <NavLink to='addition' onClick={props.navToggle} className={(({isActive}) => isActive ? `${classes.active} ${classes['nav-item']}` : classes['nav-item'])}>ДОП УСЛУГИ</NavLink>
+            </li>
+            <li>
+              <NavLink to='animators-3' onClick={props.navToggle} className={(({isActive}) => isActive ? `${classes.active} ${classes['nav-item']}` : classes['nav-item'])}>ОНЛАЙН ПРАЗДНИКИ</NavLink>
+            </li>
+            <li>
+              <NavLink to='comments' onClick={props.navToggle} className={(({isActive}) => isActive ? `${classes.active} ${classes['nav-item']}` : classes['nav-item'])}>ОТЗЫВЫ</NavLink>
+            </li>
+          </ul>
+        </nav>
+        <div className={classes.contacts}>
+          <div>
+            <a href={TEL_LINK} className={classes.tel}>+375 (29) 830 97 32</a>
+          </div>
+          <div className={classes.social}>
+            <a href={TELEGRAM_LINK} rel='noreferrer' target='_blank'><img src={`${process.env.PUBLIC_URL}/assets/logo/contactsLogo/telegram.webp`} alt='Telegram' width='40px'/></a>
+            <a href={INSTAGRAM_LINK} rel='noreferrer' target='_blank'><img src={`${process.env.PUBLIC_URL}/assets/logo/contactsLogo/instagram.webp`} alt='Inst' width='40px'/></a>
+            <a href={VK_LINK} rel='noreferrer' target='_blank'><img src={`${process.env.PUBLIC_URL}/assets/logo/contactsLogo/vk.webp`} alt='VK' width='40px'/></a>
+          </div>
+        </div>
       </div>
     );
 };

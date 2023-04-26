@@ -5,6 +5,7 @@ import NavBarMobile from '../NavBarMobile/NavBarMobile';
 import NavBarDesktop from '../NavBarDesktop/NavBarDesktop';
 import { throttle } from 'lodash';
 import Contacts from '../Contacts/Contacts';
+import { Transition } from 'react-transition-group';
 
 const Header = () => {
     const [active, setActive] = useState(null);
@@ -22,12 +23,6 @@ const Header = () => {
     const navToggle = () => {
         setActive(prevState => !prevState);
         setToggleIcon(prevState => !prevState);
-        if(!active) {
-            document.body.classList.add('modal-open');
-        } else {
-            document.body.classList.remove('modal-open');
-        }
-
     };
 
     const resetNavBar = () => {
@@ -43,9 +38,11 @@ const Header = () => {
             <NavLink to='/' end>
                 <img onClick={resetNavBar} src={`${process.env.PUBLIC_URL}/assets/logo/${logoName}.webp`} className={classes.logo} alt='Лого'/>
             </NavLink>
-            <NavBarMobile active={active} toggleIcon={toggleIcon} navToggle={navToggle}/>
             <NavBarDesktop darkMode={isHeaderScrolled}/>
             <Contacts darkMode={isHeaderScrolled}/>
+            <Transition in={active} timeout={300} mountOnEnter unmountOnExit>
+                { state => <NavBarMobile show={state} toggleIcon={toggleIcon} navToggle={navToggle}/>}
+            </Transition>
             <div onClick={navToggle} className={`${classes.menu} ${toggleIcon ? classes['menu-toggled'] : ''}`}>
                 <div className={classes['menu-top']}></div>
                 <div className={classes['menu-middle']}></div>
