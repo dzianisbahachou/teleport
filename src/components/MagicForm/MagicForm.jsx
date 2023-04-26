@@ -129,7 +129,7 @@ const MagicForm = () => {
                         placeholder='Никнейм Instagram (необязательно)'
                         value={instValue}
                         onChange={onInstChange}/>
-                    <div>
+                    <div className={classes['form-submit']}>
                         <button onClick={submitHandler} disabled={isSubmitting} className={classes['form-button']}>Отправить</button>
                     </div>
                 </Form>

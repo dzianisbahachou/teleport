@@ -7,7 +7,6 @@ const AnimatorDetails = ({data}) => {
     : `${process.env.PUBLIC_URL}/assets/logo/defaultEventLogo.webp`;
 
     return (<div className={classes.wrapper}>
-        <Container>
             <div className={classes['about-block']}>
                 <div className={classes.about}>
                     <p className={classes.title}>{data.addition.title}</p>
@@ -17,7 +16,6 @@ const AnimatorDetails = ({data}) => {
                     <img src={imgPath}/>
                 </div>
             </div>
-        </Container>
     </div>);
 };
 
