@@ -16,7 +16,7 @@ const AnimatorsPage = () => {
         <div className={cl.wrapper}>
             <Container>
                 {data?.length 
-                    ? <EventsList events={data} title='Аниматоры на день рождения и детский праздник'/>
+                    ? <EventsList events={data} title='Аниматоры на детские праздники'/>
                     : <EmptyListMessage text='Не удалось загрузить список Аниматоров. Попробуйте позже'/>
                 }
             </Container>

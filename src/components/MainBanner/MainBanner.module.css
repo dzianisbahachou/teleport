@@ -23,14 +23,14 @@
 
 .title {
     color: rgba(253,224,70,1);
-    text-shadow: 1px 1px 1px #000;
+    /* text-shadow: 0.1px 0.1px 0.1px rgb(104, 104, 104); */
     margin-top: 10vh;
     font-size: 2.7vw;
 }
 
 .description {
     color: #ffffff;
-    text-shadow: 1px 1px 1px #000;
+    /* text-shadow: 1px 1px 1px #000; */
     font-size: 39px;
     text-align: center;
     margin-top: 5rem;
@@ -43,7 +43,7 @@
 
 .info button a {
     text-decoration: none;
-    text-shadow: 1px 1px 1px #000;
+    /* text-shadow: 1px 1px 1px #000; */
     color: white;
     font-size: 35px;
     padding: 0.6rem 2.2rem;

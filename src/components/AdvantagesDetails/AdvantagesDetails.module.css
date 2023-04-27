@@ -13,14 +13,14 @@
 .sub-title {
     font-size: 50px;
     color: #ffffff;
-    text-shadow: 1px 1px 1px #000;
+    /* text-shadow: 1px 1px 1px #000; */
     margin-bottom: 2rem;
 }
 
 .sub-description {
     font-size: 25px;
     color: #ffffff;
-    text-shadow: 1px 1px 1px #000;
+    /* text-shadow: 1px 1px 1px #000; */
 }
 
 .main-img {

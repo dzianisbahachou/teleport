@@ -23,7 +23,7 @@ const NavBarDesktop = ({darkMode}) => {
           </NavLink>
         </li>
         <li>
-          <NavLink to='animators-3' className={(({isActive}) => isActive ? `${classes.active} ${itemClasses}` : itemClasses)}>
+          <NavLink to='online' className={(({isActive}) => isActive ? `${classes.active} ${itemClasses}` : itemClasses)}>
             Онлайн праздники
           </NavLink>
         </li>

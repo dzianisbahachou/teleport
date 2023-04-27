@@ -56,29 +56,31 @@ const HelpForm = () => {
                         <p className={classes.title}>Поможем с выбором</p>
                         <div className={classes.contacts}>
                             <div className={classes.tel}>
-                            <PhoneInput
-                                ref={phoneInputRef}
-                                name = 'phoneNumber'
-                                type = 'text'
-                                placeholder='Ваш телефон'
-                                country={'by'}
-                                countryCodeEditable={false}
-                                autoFormat={true}
-                                enableAreaCodes={false}
-                                areaCodes={{by: ['375']}}
-                                inputProps={{
-                                    name: 'phone',
-                                    country:'by',
-                                    required: true,
-                                    autoFocus: false
-                                }}
-                                value={phoneValue}
-                                onChange={onPhoneChange}
-                                inputClass={classess}
-                                onBlur={onPhoneBlur}
-                            />
-                            <button className={classes['desctop-btn']} onClick={sendMsg}>Отправить</button>
-                            <button className={classes['mobile-btn']} onClick={sendMsg}>A</button>
+                                <PhoneInput
+                                    ref={phoneInputRef}
+                                    name = 'phoneNumber'
+                                    type = 'text'
+                                    placeholder='Ваш телефон'
+                                    country={'by'}
+                                    countryCodeEditable={false}
+                                    autoFormat={true}
+                                    enableAreaCodes={false}
+                                    areaCodes={{by: ['375']}}
+                                    inputProps={{
+                                        name: 'phone',
+                                        country:'by',
+                                        required: true,
+                                        autoFocus: false
+                                    }}
+                                    value={phoneValue}
+                                    onChange={onPhoneChange}
+                                    inputClass={classess}
+                                    onBlur={onPhoneBlur}
+                                />
+                                <button className={classes['desctop-btn']} onClick={sendMsg}>Отправить</button>
+                                <button className={classes['mobile-btn']} onClick={sendMsg}>
+                                    <img src="/assets/logo/send.png"/>
+                                </button>
                             </div>
                             <div className={classes.links}>
                                 <a href={TELEGRAM_LINK} rel='noreferrer' target='_blank' className={classes.telegram}>

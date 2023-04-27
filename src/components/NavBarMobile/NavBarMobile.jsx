@@ -36,7 +36,7 @@ const NavBarMobile = ({show, ...props}) => {
               <NavLink to='addition' onClick={props.navToggle} className={(({isActive}) => isActive ? `${classes.active} ${classes['nav-item']}` : classes['nav-item'])}>ДОП УСЛУГИ</NavLink>
             </li>
             <li>
-              <NavLink to='animators-3' onClick={props.navToggle} className={(({isActive}) => isActive ? `${classes.active} ${classes['nav-item']}` : classes['nav-item'])}>ОНЛАЙН ПРАЗДНИКИ</NavLink>
+              <NavLink to='online' onClick={props.navToggle} className={(({isActive}) => isActive ? `${classes.active} ${classes['nav-item']}` : classes['nav-item'])}>ОНЛАЙН ПРАЗДНИКИ</NavLink>
             </li>
             <li>
               <NavLink to='comments' onClick={props.navToggle} className={(({isActive}) => isActive ? `${classes.active} ${classes['nav-item']}` : classes['nav-item'])}>ОТЗЫВЫ</NavLink>

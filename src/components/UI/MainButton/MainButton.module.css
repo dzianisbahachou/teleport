@@ -6,7 +6,7 @@
     padding: 10px 20px;
     border-radius: 20px;
     color: white;
-    text-shadow: 1px 1px 1px #000;
+    /* text-shadow: 1px 1px 1px #000; */
     height: min-content;
     outline: none;
 }

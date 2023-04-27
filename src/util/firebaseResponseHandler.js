@@ -25,6 +25,9 @@ export function convertResponseErrorMessage(code) {
         case 'snapshot/event-details-doesnot-exist':
             message = 'Не удалось загрузить информацию';
             break;
+        case 'snapshot/online-doesnot-exist':
+            message = 'Не удалось загрузить информацию об Онлайн праздниках';
+            break;
     }
 
     return message;
