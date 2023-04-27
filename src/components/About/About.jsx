@@ -1,6 +1,6 @@
 import Container from '../UI/Container/Container';
 import classes from './About.module.css';
-import Gallery from '../Gallery/Gallery';
+import GalleryAbout from '../GalleryAbout/GalleryAbout';
 
 const About = () => {
 
@@ -22,7 +22,7 @@ const About = () => {
                     </div>
                 </div>
                 <div className={classes.gallery}>
-                    <Gallery imgPath='gallery'/>
+                    <GalleryAbout imgPath='gallery'/>
                 </div>
             </div>
         </Container>

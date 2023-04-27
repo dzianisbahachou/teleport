@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
 import StorageAPICalls from '../../API/StorageAPI';
-import cl from './Gallery.module.css';
+import cl from './GalleryAbout.module.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import { Pagination } from 'swiper';
 
-export default function Gallery({imgPath}) {
+export default function GalleryAbout({imgPath}) {
     const [gallegy, setGallery] = useState([]);
 
     useEffect(() => {

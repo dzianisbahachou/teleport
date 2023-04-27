@@ -3,10 +3,8 @@ import CommentItem from '../CommentItem/CommentItem';
 import React, { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import { Pagination } from 'swiper';
-import './swiperStyle.css';
 
 export default React.memo(function CommentsList({comments}) {
     const [swiperInstance, setSwiperInstance] = useState(undefined);
@@ -26,10 +24,10 @@ export default React.memo(function CommentsList({comments}) {
                 loop={true}
                 pagination={{
                     dynamicBullets: true,
-                  }}
+                }}
                 modules={[Pagination]}
                 spaceBetween={40}
-                className="comments"
+                className={cl.swiper}
                 breakpoints={{
                     2000: {
                         slidesPerView: 5,
@@ -51,7 +49,7 @@ export default React.memo(function CommentsList({comments}) {
                 }}
             >
                 {comments.map(comment => 
-                    <SwiperSlide key={comment.id}>
+                    <SwiperSlide key={comment.id} className={cl.slide}>
                         <CommentItem data={comment}/>
                     </SwiperSlide>)}
             </Swiper>
