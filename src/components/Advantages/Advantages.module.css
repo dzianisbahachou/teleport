@@ -39,19 +39,19 @@
 .title {
     font-size: 45px;
     color: rgb(83,202,238);
-    text-shadow: 0.5px 0.5px 0.5px #000;
+    /* text-shadow: 0.5px 0.5px 0.5px #000; */
 }
 
 .sub-title {
     font-size: 50px;
     color: #ffffff;
-    text-shadow: 1px 1px 1px #000;
+    /* text-shadow: 1px 1px 1px #000; */
 }
 
 .sub-description {
     font-size: 25px;
     color: #ffffff;
-    text-shadow: 1px 1px 1px #000;
+    /* text-shadow: 1px 1px 1px #000; */
 }
 
 .main-logo {

@@ -11,6 +11,7 @@ import HomePage, {action as addUserAction} from './pages/HomePage';
 import CommentsPage, {loader as commentsLoader, action as commentsAction} from './pages/CommentsPage/CommentsPage';
 import EventDetailsPage, {loader as eventDetailsLoader} from './pages/EventDetailsPage/EventDetailsPage';
 import AdditionPage, {loader as additionLoader} from './pages/AdditionPage/AdditionPage';
+import OnlineEventsPage, {loader as onlineLoader} from './pages/OnlineEventsPage/OnlineEventsPage';
 
 const router = createBrowserRouter([
   {path: '/', element: <RootLayoutPage />, errorElement: <ErrorPage />, children: [
@@ -22,6 +23,7 @@ const router = createBrowserRouter([
     {path: 'comments', element: <CommentsPage/>, loader: commentsLoader, action: commentsAction},
     {path: 'addition', element: <AdditionPage/>, loader: additionLoader},
     {path: 'addition/:eventType', element: <EventDetailsPage/>, loader: eventDetailsLoader, action: commentsAction},
+    {path: 'online', element: <OnlineEventsPage/>, loader: onlineLoader, action: commentsAction},
   ]},
   {path: '/auth', element: <AuthPage />, errorElement: <ErrorPage />, action: authAction},
   {path: '/admin', element: <AdminPage />, errorElement: <ErrorPage />, loader: adminLoader}

@@ -14,7 +14,7 @@
 .nav-item {
     font-size: 1.4vw;
     color: white;
-    text-shadow: 1px 1px 1px rgb(0, 0, 0);
+    /* text-shadow: 1px 1px 1px rgb(0, 0, 0); */
     text-decoration: none;
 }
 
