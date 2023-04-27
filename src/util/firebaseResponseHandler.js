@@ -72,6 +72,9 @@ export function convertEventType(type) {
         case 'ironMan':
             event = 'Железный Человек';
             break;
+        case 'online':
+            event = 'Онлайн праздник';
+            break;
     }
 
     return event;

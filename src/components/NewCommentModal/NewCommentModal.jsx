@@ -9,7 +9,7 @@ import MainButton from '../UI/MainButton/MainButton';
 import Transition from 'react-transition-group/Transition';
 import { convertEventType } from '../../util/firebaseResponseHandler';
 
-export default function NewCommentModal({show, closeModal}) {
+export default function NewCommentModal({show, closeModal, isOnline}) {
     const location = useLocation();
     const pathName = location.pathname;
     const isOP = !pathName.includes('comments');
@@ -23,9 +23,8 @@ export default function NewCommentModal({show, closeModal}) {
 
     useEffect(() => {
         document.body.classList.add('modal-open');
-
         if (isOP) {
-            const eventSubType = pathName.split('/')[2];
+            const eventSubType = isOnline ? pathName.split('/')[1] : pathName.split('/')[2];
             setEventSubType(eventSubType);
         }
         return () => {
