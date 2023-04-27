@@ -1,8 +1,6 @@
 import classes from './AnimatorDetails.module.css';
-import Container from '../UI/Container/Container';
 
 const AnimatorDetails = ({data}) => {
-    debugger
     const imgPath = data.addition  
     ? `${process.env.PUBLIC_URL}/assets/logo/eventLogo/${data.addition.eventSubType}.webp`
     : `${process.env.PUBLIC_URL}/assets/logo/defaultEventLogo.webp`;
