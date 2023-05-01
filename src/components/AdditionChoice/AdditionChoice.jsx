@@ -6,7 +6,7 @@ const AdditionChoice = ({data, location}) => {
         <div className={cl.wrapper}>
             <h2 className={cl.title}>Возьмите с собой</h2>
             <ul className={cl.list}>
-                {data.addition.map(event => <li key={event.id}><AdditionItem data={event} location={location}/></li>)}
+                {data.addition.map(event => <li key={event}><AdditionItem data={event} location={location}/></li>)}
             </ul>
     </div>);
 };

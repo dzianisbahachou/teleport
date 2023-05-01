@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import StorageAPICalls from '../../API/StorageAPI';
-import cl from './Gallery.module.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import { Pagination } from 'swiper';
+import cl from './Gallery.module.css';
 
 export default function Gallery({imgPath}) {
     const [gallegy, setGallery] = useState([]);
@@ -23,16 +23,9 @@ export default function Gallery({imgPath}) {
         fetchImages();
     }, [imgPath]);
 
-    const [swiperInstance, setSwiperInstance] = useState(undefined);
-
-    if (swiperInstance) {
-        swiperInstance.slideTo(0, 300);
-    }
-
     return (
         <div className={cl.container}>
             <Swiper
-                onSwiper={swiper => {setSwiperInstance(swiper)}}
                 grabCursor={true}
                 slidesPerView={1}
                 loop={true}
