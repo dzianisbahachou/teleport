@@ -74,16 +74,6 @@
     height: fit-content;
 }
 
-.swiper {
-    display: none;
-}
-
-.swiper img {
-    position: relative;
-    left: 10%;
-    width: 80%;
-}
-
 @media screen and (max-width: 1282px) {
     .sub-title {
         font-size: 45px;
@@ -92,7 +82,6 @@
     .sub-description {
         font-size: 23px;
     }
-
 }
 
 @media screen and (max-width: 785px) {
@@ -121,12 +110,7 @@
     .wrapper {
         margin-bottom: 2rem;
     }
-
-    .swiper {
-        display: block;
-    }
 }
-
 
 @media screen and (max-width: 625px) {
     .wrapper {
