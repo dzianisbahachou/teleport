@@ -1,15 +1,9 @@
-import classes from './Advantages.module.css';
 import Container from '../UI/Container/Container';
 import { useState } from 'react';
 import Transition from 'react-transition-group/Transition';
 import AdvantagesDetails from '../AdvantagesDetails/AdvantagesDetails';
-import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCoverflow, Pagination } from "swiper";
-
-import "swiper/css";
-import "swiper/css/effect-coverflow";
-import "swiper/css/pagination";
-import "./styles.css";
+import AdvantagesSwiper from '../AdvantagesSwiper/AdvantagesSwiper';
+import classes from './Advantages.module.css';
 
 const DUMMY_ADV = [
     {id: 1, name: 'one', pic: '/assets/mini1.webp', title:'Костюмы ручной работы', text: 'Для сказочного проведения детских праздников мы проводим сотни часов в поиске того самого воплощения образа героя. Нам важно не просто создать внешнюю копию персонажа, а передать его характер и настроение. Поэтому с большим вниманием мы относимся даже к самым маленьким деталям в образе.'},
@@ -78,41 +72,7 @@ const Advantages = () => {
                 </div>
             </div>
         </div>
-        <div className={classes.swiper}>
-            <Swiper
-                effect={"coverflow"}
-                grabCursor={false}
-                slidesPerView={1}
-                slidesPerGroupAuto={1}
-                spaceBetween={30}
-                onActiveIndexChange={swiperChangeHandler}
-                coverflowEffect={{
-                    rotate: 190,
-                    stretch: 110,
-                    depth: 100,
-                    modifier: 0.5,
-                    slideShadows: false
-                }}
-                pagination={true}
-                modules={[EffectCoverflow, Pagination]}
-                className="advantages">
-                <SwiperSlide>
-                    <img src='assets/logo/eventLogo/mickeyMouse.webp' alt='Аватар'/>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src='assets/logo/eventLogo/bumblebee.webp' alt='Аватар'/>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src='assets/logo/eventLogo/pion.webp' alt='Аватар'/>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src='assets/logo/eventLogo/sky.webp' alt='Аватар'/>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src='assets/logo/eventLogo/gvenStacy.webp' alt='Аватар'/>
-                </SwiperSlide>
-            </Swiper>
-        </div>
+        <AdvantagesSwiper onChange={swiperChangeHandler}/>
     </Container>
     </div>);
 };

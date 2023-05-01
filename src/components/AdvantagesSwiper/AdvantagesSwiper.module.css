@@ -1,0 +1,21 @@
+.swiper {
+    display: none;
+    width: 80%;
+}
+
+.slide {
+    background-position: center;
+    background-size: cover;
+    height: fit-content;
+    margin-bottom: 2rem;
+}
+
+.slide img {
+    width: 100%;
+}
+
+@media screen and (max-width: 785px) {
+    .swiper {
+        display: block;
+    }
+}
