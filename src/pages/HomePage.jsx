@@ -1,4 +1,4 @@
-import { json } from 'react-router';
+import { messageToast } from '../util/toast';
 import About from '../components/About/About';
 import MagicForm from '../components/MagicForm/MagicForm';
 import MainBanner from '../components/MainBanner/MainBanner';
@@ -29,10 +29,7 @@ export const action = async ({request, params}) => {
     try {
         await APICalls.createUser(eventData);
     } catch(e) {
-        throw json(
-            { message: 'Произошла ошибка!' },
-            { status: 500 }
-        );
+        messageToast('Во время отправки произошла ошибка. Попробуйте позже');
     }
 
     return null;
