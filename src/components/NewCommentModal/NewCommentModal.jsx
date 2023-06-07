@@ -12,6 +12,7 @@ import { convertEventType } from '../../util/firebaseResponseHandler';
 export default function NewCommentModal({show, closeModal}) {
     const location = useLocation();
     const pathName = location.pathname;
+    const isOnline = pathName.includes("online");
     const isOP = !pathName.includes('comments');
     const [isEventTypeActive, setIsEventTypeActive] = useState(false);
     const [selectedEventType, setSelectedEventType] = useState('');
@@ -23,9 +24,8 @@ export default function NewCommentModal({show, closeModal}) {
 
     useEffect(() => {
         document.body.classList.add('modal-open');
-
         if (isOP) {
-            const eventSubType = pathName.split('/')[2];
+            const eventSubType = isOnline ? pathName.split('/')[1] : pathName.split('/')[2];
             setEventSubType(eventSubType);
         }
         return () => {
