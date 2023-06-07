@@ -12,6 +12,7 @@ import NewCommentModal from '../../components/NewCommentModal/NewCommentModal';
 import EmptyListMessage from '../../components/UI/EmptyListMessage/EmptyListMessage';
 import { useState } from 'react';
 import LoginLoader from '../../components/UI/LoginLoader/LoginLoader';
+import HelpForm from '../../components/HelpForm/HelpForm';
 
 const OnlineEventsPage = () => {
     const [isNewCommentDisplayed, setIsNewCommentDisplayed] = useState(false);
@@ -35,7 +36,6 @@ const OnlineEventsPage = () => {
                     ? <OnlineDetails data={data}/>
                     : <EmptyListMessage text='Информация об услуге отсутствуeт:('/>
                 }
-                <Gallery imgPath={data.eventType}/>
                 <Transition in={isNewCommentDisplayed} timeout={300} mountOnEnter unmountOnExit>
                     {state => <NewCommentModal isOnline={true} show={state} closeModal={closeNewCommentModal}/>}
                 </Transition>
@@ -49,6 +49,7 @@ const OnlineEventsPage = () => {
                     </div>  
                 </div>
             </Container>
+            <HelpForm/>
             {isLoading && <LoginLoader/>}
         </div>  
     );

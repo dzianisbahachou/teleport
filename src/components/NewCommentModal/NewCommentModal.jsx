@@ -9,9 +9,10 @@ import MainButton from '../UI/MainButton/MainButton';
 import Transition from 'react-transition-group/Transition';
 import { convertEventType } from '../../util/firebaseResponseHandler';
 
-export default function NewCommentModal({show, closeModal, isOnline}) {
+export default function NewCommentModal({show, closeModal}) {
     const location = useLocation();
     const pathName = location.pathname;
+    const isOnline = pathName.includes("online");
     const isOP = !pathName.includes('comments');
     const [isEventTypeActive, setIsEventTypeActive] = useState(false);
     const [selectedEventType, setSelectedEventType] = useState('');
